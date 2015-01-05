@@ -1,0 +1,20 @@
+===================================
+==  Tethys.Framework NOTICE file ==
+===================================
+
+Tethys.Framework
+Copyright 1998-2015 T. Graf
+
+This software contains code derived from Nish Sivakumas diff implementation.
+The original publication can be found here 
+http://www.codeproject.com/Articles/39184/An-LCS-based-diff-ing-library-in-C
+and the original code is licensed by the Code Project Open License (CPOL).
+
+------------------------------------------------------------------------------
+
+   Portions of this software were developed at the National Center
+   for Supercomputing Applications (NCSA) at the University of
+   Illinois at Urbana-Champaign.
+
+------------------------------------------------------------------------------
+

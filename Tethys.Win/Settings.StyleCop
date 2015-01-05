@@ -1,0 +1,10 @@
+<StyleCopSettings Version="105">
+  <GlobalSettings>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>ICMP</Value>
+      <Value>IP</Value>
+      <Value>TCP</Value>
+      <Value>Umlaute</Value>
+    </CollectionProperty>
+  </GlobalSettings>
+</StyleCopSettings>
