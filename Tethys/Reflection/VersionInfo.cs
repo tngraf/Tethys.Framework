@@ -56,7 +56,7 @@ namespace Tethys.Reflection
       } // if
 
       var date = new DateTime(2000, month, 1);
-      var monthtext = date.ToString("MMM", CultureInfo.CurrentCulture);
+      var monthtext = date.ToString("MMM", CultureInfo.CurrentUICulture);
 
       return monthtext;
     } // GetMonth()
@@ -141,7 +141,7 @@ namespace Tethys.Reflection
 
       var dt = new DateTime(yearAttribute.Year, monthAttribute.Month,
         dayAttribute.Day);
-      return string.Format(Thread.CurrentThread.CurrentCulture,
+      return string.Format(Thread.CurrentThread.CurrentUICulture,
         "{0:d}", dt);
     } // GetDateBuild
 
@@ -169,7 +169,7 @@ namespace Tethys.Reflection
         typeof(AssemblyReleaseModeAttribute));
       Debug.Assert(releaseMode != null, "release mode must not be null!");
 
-      string strLevel = string.Format(CultureInfo.CurrentCulture,
+      var strLevel = string.Format(CultureInfo.CurrentUICulture,
           "{0:00}.{1:00}.{2:00}.{3:00}",
           version.Major, version.Minor, version.Build, version.Revision);
       if (releaseMode.ReleaseMode != ReleaseMode.Final)
