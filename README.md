@@ -3,11 +3,14 @@ Tethys.Framework
 
 Basic Services and Resources Development Library for .Net
 
+## Project Build Status ##
+[![Build status](https://ci.appveyor.com/api/projects/status/lxh0s8qexq6bi2tg?svg=true)](https://ci.appveyor.com/project/tngraf/tethys-framework)
+
 ## Libraries ##
 
-* Tethys - *portable* library with common code for WPF, Silverlight, Windows Phone and Windows 8 projects.
-* Tethys.Forms - library with common code for Windows Forms applications.
-* Tethys.Win - library with common for .Net Windows applications.
+* **Tethys** - *portable* library with common code for WPF, Silverlight, Windows Phone and Windows 8 projects.
+* **Tethys.Forms** - library with common code for Windows Forms applications.
+* **Tethys.Win** - library with common for .Net Windows applications.
 
 ## Main Features ##
 
