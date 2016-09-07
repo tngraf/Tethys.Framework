@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Tethys.Win</id>
+    <version>4.3.1</version>
+    <title>The Tethys Framework for Windows</title>
+    <authors>Thomas Graf</authors>
+    <owners>Thomas Graf</owners>
+    <copyright>Copyright (C) 2009-2016 T. Graf</copyright>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl>https://github.com/tngraf/Tethys.Framework/</projectUrl>
+    <iconUrl>http://www.4wp7.de/tethys/tethyb32.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Basic Services and Resources Development Library for .Net.</description>
+    <releaseNotes></releaseNotes>
+    <language>en-US</language>
+    <tags>Tethys Framework Windows</tags>
+  </metadata>
+  <files>
+    <file src="..\Export\Release\Tethys.Win.xml" target="lib\net40" />
+    <file src="..\Export\Release\Tethys.Win.pdb" target="lib\net40" />
+  </files> 
+</package>
