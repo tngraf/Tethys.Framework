@@ -5,12 +5,22 @@ Basic Services and Resources Development Library for .Net
 
 ## Project Build Status ##
 [![Build status](https://ci.appveyor.com/api/projects/status/lxh0s8qexq6bi2tg?svg=true)](https://ci.appveyor.com/project/tngraf/tethys-framework)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+
 
 ## Libraries ##
 
 * **Tethys** - *portable* library with common code for WPF, Silverlight, Windows Phone and Windows 8 projects.
 * **Tethys.Forms** - library with common code for Windows Forms applications.
 * **Tethys.Win** - library with common for .Net Windows applications.
+
+## Get Packages ##
+
+Nuget packages are available, see the following links
+
+* **Tethys** - package [Tethys.Framework](https://www.nuget.org/packages/Tethys.Framework/)
+* **Tethys.Forms** - package [Tethys.Forms](https://www.nuget.org/packages/Tethys.Forms/)
+* **Tethys.Win** - package [Tethys.Win](https://www.nuget.org/packages/Tethys.Win/)
 
 ## Main Features ##
 
