@@ -35,24 +35,12 @@ namespace Tethys.App
     /// </summary>
     public class TethysXmlTextReader : XmlTextReader
     {
-        #region PRIVATE PROPERTIES
-        /// <summary>
-        /// Internal property: use XmlConvert for type conversions (otherwise
-        /// the default conversion function are used).
-        /// </summary>
-        private bool useXmlConvert;
-        #endregion // PRIVATE PROPERTIES
-
         #region PUBLIC PROPERTIES
         /// <summary>
         /// Gets or sets a value indicating whether to use XmlConvert for type 
         /// conversions (otherwise the default conversion function are used).
         /// </summary>
-        public bool UseXmlConvert
-        {
-            get { return this.useXmlConvert; }
-            set { this.useXmlConvert = value; }
-        } // UseXmlConvert
+        public bool UseXmlConvert { get; set; } // UseXmlConvert
         #endregion // PUBLIC PROPERTIES
 
         #region CONSTRUCTION
@@ -83,7 +71,7 @@ namespace Tethys.App
         /// <returns>The string.</returns>
         public string ReadString(string nodeName)
         {
-            return GetNextNode(nodeName);
+            return this.GetNextNode(nodeName);
         } // ReadString()
 
         /// <summary>
@@ -96,9 +84,9 @@ namespace Tethys.App
           Justification = "Best solution here.")]
         public int ReadElementInteger(string nodeName)
         {
-            if (this.useXmlConvert)
+            if (this.UseXmlConvert)
             {
-                return XmlConvert.ToInt32(GetNextNode(nodeName));
+                return XmlConvert.ToInt32(this.GetNextNode(nodeName));
             } // if
 
             return int.Parse(this.GetNextNode(nodeName), 
@@ -112,9 +100,9 @@ namespace Tethys.App
         /// <returns>The double value.</returns>
         public double ReadElementDouble(string nodeName)
         {
-            if (this.useXmlConvert)
+            if (this.UseXmlConvert)
             {
-                return XmlConvert.ToDouble(GetNextNode(nodeName));
+                return XmlConvert.ToDouble(this.GetNextNode(nodeName));
             } // if
 
             return double.Parse(this.GetNextNode(nodeName), 
@@ -131,9 +119,9 @@ namespace Tethys.App
           Justification = "Best solution here.")]
         public bool ReadElementBool(string value)
         {
-            if (this.useXmlConvert)
+            if (this.UseXmlConvert)
             {
-                return (XmlConvert.ToInt32(GetNextNode(value)) != 0);
+                return (XmlConvert.ToInt32(this.GetNextNode(value)) != 0);
             } // if
 
             return (int.Parse(this.GetNextNode(value), 
@@ -152,14 +140,15 @@ namespace Tethys.App
         {
             do
             {
-                if ((NodeType == XmlNodeType.Element)
-                  && (LocalName == nodeName))
+                if ((this.NodeType == XmlNodeType.Element)
+                  && (this.LocalName == nodeName))
                 {
                     return;
                 } // if
-                Read();
+
+                this.Read();
             }
-            while (!EOF);
+            while (!this.EOF);
 
             throw new ArgumentException("Requested node not found");
         } // SearchNodeName()
@@ -179,14 +168,15 @@ namespace Tethys.App
         {
             do
             {
-                if ((NodeType == XmlNodeType.Element)
-                  && (LocalName == nodeName))
+                if ((this.NodeType == XmlNodeType.Element)
+                  && (this.LocalName == nodeName))
                 {
-                    return ReadInnerXml();
+                    return this.ReadInnerXml();
                 } // if
-                Read();
+
+                this.Read();
             }
-            while (!EOF);
+            while (!this.EOF);
 
             throw new ArgumentException("Requested node not found");
         } // GetNextNode()
