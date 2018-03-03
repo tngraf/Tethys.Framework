@@ -1,6 +1,9 @@
 Tethys Framework Change Log
 ===========================
 
+##V4.4.0	(2018-03-03)##
+* TethysAppConfig2 added.
+
 ##V4.3.1	(2015-01-05)##
 * Upgrade to VS2013.
 * Minor fixes.
@@ -20,7 +23,6 @@ Tethys Framework Change Log
 * Minor AppConfig issue fixed.
 * Minor changes due to ReSharper checks.
 * TgLib.Text.Diff added.
-
 
 ##V4.0.0	(2006-12-09)##
 * Support for .Net framework 2.0.

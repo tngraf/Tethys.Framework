@@ -6,7 +6,7 @@ Basic Services and Resources Development Library for .Net
 ## Project Build Status ##
 [![Build status](https://ci.appveyor.com/api/projects/status/lxh0s8qexq6bi2tg?svg=true)](https://ci.appveyor.com/project/tngraf/tethys-framework)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-
+[![NuGet](https://img.shields.io/badge/nuget%20package-v4.4.0-blue.svg)](https://www.nuget.org/packages/Tethys.Framework/)
 
 ## Libraries ##
 
@@ -59,7 +59,7 @@ Tethys.Forms contains a lot of WinForms custom controls:
 
 ### Requisites ###
 
-* Visual Studio 2013
+* Visual Studio 2017
 
 ### Symbols for conditional compilation ###
 * WINDOWS       ==> Windows platform
@@ -77,7 +77,7 @@ Not all code is from me. Code parts are from:
 
 ## Copyright & License ##
 
-Copyright 1998-2015 T. Graf
+Copyright 1998-2018 T. Graf
 
 Licensed under the **Apache License, Version 2.0** (the "License");
 you may not use this file except in compliance with the License.

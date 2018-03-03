@@ -3,7 +3,7 @@
 ===================================
 
 Tethys.Framework
-Copyright 1998-2015 T. Graf
+Copyright 1998-2018 T. Graf
 
 This software contains code derived from Nish Sivakumas diff implementation.
 The original publication can be found here 
