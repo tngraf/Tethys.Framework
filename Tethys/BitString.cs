@@ -1,6 +1,5 @@
-#region Header
 // --------------------------------------------------------------------------
-// Tethys.Silverlight
+// Tethys.Framework
 // ==========================================================================
 //
 // This library contains common code for WPF, Silverlight, Windows Phone and
@@ -9,27 +8,26 @@
 // ===========================================================================
 //
 // <copyright file="BitString.cs" company="Tethys">
-// Copyright  1998-2015 by Thomas Graf
+// Copyright  1998-2020 by Thomas Graf
 //            All rights reserved.
 //            Licensed under the Apache License, Version 2.0.
-//            Unless required by applicable law or agreed to in writing, 
+//            Unless required by applicable law or agreed to in writing,
 //            software distributed under the License is distributed on an
 //            "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-//            either express or implied. 
+//            either express or implied.
 // </copyright>
 //
-// System ... Portable Library
-// Tools .... Microsoft Visual Studio 2012
+// System ... Library netstandard2.0
+// Tools .... Microsoft Visual Studio 2019
 //
 // ---------------------------------------------------------------------------
-#endregion
-
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
 
 namespace Tethys
 {
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Text;
+
     /// <summary>
     /// This class represents a bit string.
     /// </summary>
@@ -61,9 +59,10 @@ namespace Tethys
         /// <summary>
         /// Gets or sets the value of the bit string.
         /// </summary>
-        [SuppressMessage("Microsoft.Usage",
-        "CA2208:InstantiateArgumentExceptionsCorrectly",
-        Justification = "Best place for exception..")]
+        [SuppressMessage(
+            "Microsoft.Usage",
+            "CA2208:InstantiateArgumentExceptionsCorrectly",
+            Justification = "Best place for exception..")]
         public int Value
         {
             get
@@ -79,6 +78,7 @@ namespace Tethys
                     throw new ArgumentOutOfRangeException("Value");
                     // ReSharper restore NotResolvedInText
                 } // if
+
                 this.value = value;
             }
         } // Value
@@ -100,13 +100,14 @@ namespace Tethys
         /// Initializes a new instance of the <see cref="BitString"/> class.
         /// </summary>
         /// <param name="width">The width.</param>
-        /// <exception cref="System.ArgumentOutOfRangeException">width;range 
-        /// for width = 1..32</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">width;range
+        /// for width = 1..32.</exception>
         public BitString(int width)
         {
             if ((width < 1) || (width > 32))
             {
-                throw new ArgumentOutOfRangeException("width", 
+                throw new ArgumentOutOfRangeException(
+                    nameof(width),
                     "range for width = 1..32");
             } // if
 
@@ -131,7 +132,7 @@ namespace Tethys
         /// Tests whether the specified object is a BitString object
         /// and is equivalent to this BitString object.
         /// </summary>
-        /// <param name="obj">operand to be compared to the object</param>
+        /// <param name="obj">operand to be compared to the object.</param>
         /// <returns>The function returns true if the two operands are identical.</returns>
         public override bool Equals(object obj)
         {
@@ -161,9 +162,10 @@ namespace Tethys
         /// This is only a DUMMY - we don't need this method here.
         /// </remarks>
         /// <returns>The hash code.</returns>
-        [SuppressMessage("Microsoft.Design",
-          "CA1065:DoNotRaiseExceptionsInUnexpectedLocations",
-          Justification = "This is ok here.")]
+        [SuppressMessage(
+            "Microsoft.Design",
+            "CA1065:DoNotRaiseExceptionsInUnexpectedLocations",
+            Justification = "This is ok here.")]
         public override int GetHashCode()
         {
             throw new NotSupportedException(
@@ -178,13 +180,13 @@ namespace Tethys
         /// Returns a string representing this instance.
         /// </summary>
         /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
+        /// A <see cref="string" /> that represents this instance.
         /// </returns>
         public override string ToString()
         {
             var sb = new StringBuilder(this.width);
 
-            for (int i = this.width - 1; i >= 0; i--)
+            for (var i = this.width - 1; i >= 0; i--)
             {
                 if ((this.value & (0x0001 << i)) > 0)
                 {
@@ -202,7 +204,7 @@ namespace Tethys
         /// <summary>
         /// Performs a bit-wise AND operation.
         /// </summary>
-        /// <param name="operand">Operand for AND operation</param>
+        /// <param name="operand">Operand for AND operation.</param>
         public void And(int operand)
         {
             this.value &= operand;
@@ -211,7 +213,7 @@ namespace Tethys
         /// <summary>
         /// Performs a bit-wise OR operation.
         /// </summary>
-        /// <param name="operand">Operand for OR operation</param>
+        /// <param name="operand">Operand for OR operation.</param>
         public void Or(int operand)
         {
             this.value |= operand;

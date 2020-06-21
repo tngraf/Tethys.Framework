@@ -1,6 +1,5 @@
-﻿#region Header
-// --------------------------------------------------------------------------
-// Tethys.Silverlight
+﻿// --------------------------------------------------------------------------
+// Tethys.Framework
 // ==========================================================================
 //
 // This library contains common code for WPF, Silverlight, Windows Phone and
@@ -9,29 +8,28 @@
 // ===========================================================================
 //
 // <copyright file="TextParse.cs" company="Tethys">
-// Copyright  1998-2015 by Thomas Graf
+// Copyright  1998-2020 by Thomas Graf
 //            All rights reserved.
 //            Licensed under the Apache License, Version 2.0.
-//            Unless required by applicable law or agreed to in writing, 
+//            Unless required by applicable law or agreed to in writing,
 //            software distributed under the License is distributed on an
 //            "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-//            either express or implied. 
+//            either express or implied.
 // </copyright>
 //
-// System ... Portable Library
-// Tools .... Microsoft Visual Studio 2012
+// System ... netstandard2.0
+// Tools .... Microsoft Visual Studio 2019
 //
 // ---------------------------------------------------------------------------
-#endregion
-
-using System;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Text;
 
 namespace Tethys.Text
 {
+    using System;
+    using System.Diagnostics;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
+    using System.Text;
+
     /// <summary>
     /// The TextParse class implements a large number of text parsing
     /// methods.
@@ -108,9 +106,10 @@ namespace Tethys.Text
         /// <summary>
         /// Gets or sets the whitespace character list.
         /// </summary>
-        [SuppressMessage("Microsoft.Usage",
-        "CA2208:InstantiateArgumentExceptionsCorrectly",
-        Justification = "Best place for exception..")]
+        [SuppressMessage(
+            "Microsoft.Usage",
+            "CA2208:InstantiateArgumentExceptionsCorrectly",
+            Justification = "Best place for exception..")]
         public string WhiteSpaceList
         {
             get
@@ -126,6 +125,7 @@ namespace Tethys.Text
                     throw new ArgumentNullException("Value");
                     // ReSharper restore NotResolvedInText
                 } // if
+
                 this.whiteSpaceList = value;
             }
         }
@@ -141,18 +141,18 @@ namespace Tethys.Text
         public TextParse()
         {
             this.whiteSpaceList = DefaultWhiteSpaceList;
-            Init(string.Empty);
+            this.Init(string.Empty);
         } // TextParse()
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TextParse"/>
         /// class.
         /// </summary>
-        /// <param name="text">text to be parsed</param>
+        /// <param name="text">text to be parsed.</param>
         public TextParse(string text)
         {
             this.whiteSpaceList = " \t";
-            Init(text);
+            this.Init(text);
         } // TextParse()
         #endregion // CONSTRUCTION
 
@@ -162,12 +162,12 @@ namespace Tethys.Text
         /// <summary>
         /// Initializes the parsing engine with the specified text.
         /// </summary>
-        /// <param name="inittext">text to be parsed</param>
+        /// <param name="inittext">text to be parsed.</param>
         public void Init(string inittext)
         {
             if (this.whiteSpaceList == null)
             {
-                throw new ArgumentNullException("inittext");
+                throw new ArgumentNullException(nameof(inittext));
             } // if
 
             this.text = inittext;
@@ -179,33 +179,33 @@ namespace Tethys.Text
         /// <summary>
         /// Sets the parsing location to the specified text position.
         /// </summary>
-        /// <param name="newLocation">new parsing location</param>
+        /// <param name="newLocation">new parsing location.</param>
         public void SetLocation(int newLocation)
         {
-            if ((location < 0) || (location > this.text.Length))
+            if ((this.location < 0) || (this.location > this.text.Length))
             {
                 throw new ArgumentOutOfRangeException(
-                  "newLocation",
-                  "location is outside of string boudaries");
+                  nameof(newLocation),
+                  "location is outside of string boundaries");
             } // if
 
             this.location = newLocation;
-            this.tokenStart = location;
-            this.tokenEnd = location;
+            this.tokenStart = this.location;
+            this.tokenEnd = this.location;
         } // SetLocation()
 
         /// <summary>
         /// Moves the parsing location into front or backwards by
         /// a delta value.
         /// </summary>
-        /// <param name="delta">positive or negative delta</param>
+        /// <param name="delta">positive or negative delta.</param>
         public void MoveLocation(int delta)
         {
-            int help = this.location + delta;
+            var help = this.location + delta;
             if ((help < 0) || (help > this.text.Length))
             {
-                throw new ArgumentOutOfRangeException("delta",
-                  "new location is outside of string boudaries");
+                throw new ArgumentOutOfRangeException(
+                    nameof(delta), "new location is outside of string boudaries");
             } // if
 
             this.location = help;
@@ -220,16 +220,16 @@ namespace Tethys.Text
         /// Parsing flags. Valid flags for GetLastToken are:<br/>
         /// <list type="bullet">
         /// <item>
-        /// <description>ToSpace = limit end of the token to the next space 
+        /// <description>ToSpace = limit end of the token to the next space
         /// area.</description>
         /// </item>
         /// <item>
-        /// <description>ToLocation = limit end of the token to the current 
+        /// <description>ToLocation = limit end of the token to the current
         /// location. If both options are set, the first end location is used.
         /// </description>
         /// </item>
         /// <item>
-        /// <description>ToEnd = activates the determining of the token-end 
+        /// <description>ToEnd = activates the determining of the token-end
         /// which must be set when no other flags are set.</description>
         /// </item>
         /// </list>
@@ -240,12 +240,12 @@ namespace Tethys.Text
             if (parseflags != ParseOptions.None)
             {
                 // end control specified too: determine & set it
-                DetermineLastTokenEnd(parseflags);
+                this.DetermineLastTokenEnd(parseflags);
             }
             else if (this.tokenEnd < this.tokenStart)
             {
                 // determine end of last-token automatically
-                DetermineLastTokenEnd(ParseOptions.ToSpace);
+                this.DetermineLastTokenEnd(ParseOptions.ToSpace);
             } // if
 
             int lenToken = this.tokenEnd - this.tokenStart;
@@ -254,12 +254,12 @@ namespace Tethys.Text
         } // GetLastToken()
 
         /// <summary>
-        /// Returns the last set token as string. 
+        /// Returns the last set token as string.
         /// </summary>
         /// <returns>The last token.</returns>
         public string GetLastToken()
         {
-            return GetLastToken(ParseOptions.None);
+            return this.GetLastToken(ParseOptions.None);
         } // GetLastToken()
 
         /// <summary>
@@ -287,7 +287,7 @@ namespace Tethys.Text
         /// </description>
         /// </item>
         /// <item>
-        /// <description>ToEnd = activates the determining of the token-end 
+        /// <description>ToEnd = activates the determining of the token-end
         /// which must  be set when no other flags are set.</description>
         /// </item>
         /// </list>
@@ -297,13 +297,12 @@ namespace Tethys.Text
             this.tokenStart = start;
 
             Debug.Assert(this.tokenStart >= 0, "Invalid token position!");
-            Debug.Assert(this.tokenStart < this.text.Length, 
-                "Invalid token position!");
+            Debug.Assert(this.tokenStart < this.text.Length, "Invalid token position!");
 
             if (parseflags != ParseOptions.None)
             {
                 // end control specified too: determine & set it
-                DetermineLastTokenEnd(parseflags);
+                this.DetermineLastTokenEnd(parseflags);
             } // if
         } // SetLastToken()
 
@@ -313,7 +312,7 @@ namespace Tethys.Text
         /// <param name="start">The new start position of the last token.</param>
         public void SetLastToken(int start)
         {
-            SetLastToken(start, ParseOptions.None);
+            this.SetLastToken(start, ParseOptions.None);
         } // SetLastToken()
 
         /// <summary>
@@ -324,11 +323,11 @@ namespace Tethys.Text
         /// Parsing flags. Valid flags for SetLastToken are:<br/>
         /// <list type="bullet">
         /// <item>
-        /// <description>ToSpace = limit end of the token to the next space 
+        /// <description>ToSpace = limit end of the token to the next space
         /// area.</description>
         /// </item>
         /// <item>
-        /// <description>ToLocation = limit end of the token to the current 
+        /// <description>ToLocation = limit end of the token to the current
         /// location.
         /// If both options are set, the first end location is used.
         /// </description>
@@ -338,21 +337,21 @@ namespace Tethys.Text
         public void SetLastToken(ParseOptions parseflags)
         {
             // call common (protected) function
-            DetermineLastTokenEnd(parseflags);
+            this.DetermineLastTokenEnd(parseflags);
         } // SetLastToken()
 
         /// <summary>
-        /// Returns the character at the current position, possibly 
+        /// Returns the character at the current position, possibly
         /// after skipping space characters.
         /// </summary>
-        /// <returns>Character at the current position</returns>
+        /// <returns>Character at the current position.</returns>
         public char GetChar()
         {
-            return GetChar(ParseOptions.None);
+            return this.GetChar(ParseOptions.None);
         } // GetChar()
 
         /// <summary>
-        /// Returns the character at the current position, possibly 
+        /// Returns the character at the current position, possibly
         /// after skipping space characters.
         /// </summary>
         /// <param name="parseflags">
@@ -364,16 +363,17 @@ namespace Tethys.Text
         /// </item>
         /// </list>
         /// </param>
-        /// <returns>Character at the current position</returns>
-        [SuppressMessage("Microsoft.Usage",
-        "CA2208:InstantiateArgumentExceptionsCorrectly",
-        Justification = "This parameter is the better help for the developer")]
+        /// <returns>Character at the current position.</returns>
+        [SuppressMessage(
+            "Microsoft.Usage",
+            "CA2208:InstantiateArgumentExceptionsCorrectly",
+            Justification = "This parameter is the better help for the developer")]
         public char GetChar(ParseOptions parseflags)
         {
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             if (this.location >= this.text.Length)
@@ -404,17 +404,18 @@ namespace Tethys.Text
         /// </item>
         /// </list>
         /// </param>
-        /// <returns>Returns true if the character at the current parsing 
+        /// <returns>Returns true if the character at the current parsing
         /// location belongs to a number.</returns>
-        [SuppressMessage("Microsoft.Usage",
-        "CA2208:InstantiateArgumentExceptionsCorrectly",
-        Justification = "This parameter is the better help for the developer")]
+        [SuppressMessage(
+            "Microsoft.Usage",
+            "CA2208:InstantiateArgumentExceptionsCorrectly",
+            Justification = "This parameter is the better help for the developer")]
         public bool IsNumber(ParseOptions parseflags)
         {
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             if (this.location >= this.text.Length)
@@ -424,13 +425,13 @@ namespace Tethys.Text
                 // ReSharper restore NotResolvedInText
             } // if
 
-            if ((this.text[this.location] >= '0') 
+            if ((this.text[this.location] >= '0')
                 && (this.text[this.location] <= '9'))
             {
                 return true;
             } // if
 
-            if ((this.text[this.location] == '-') 
+            if ((this.text[this.location] == '-')
                 && ((parseflags & ParseOptions.Signed) > 0))
             {
                 return true;
@@ -438,7 +439,7 @@ namespace Tethys.Text
 
             if ((parseflags & ParseOptions.Hex) > 0)
             {
-                char tocheck = this.text.Substring(this.location, 1).ToUpperInvariant()[0];
+                var tocheck = this.text.Substring(this.location, 1).ToUpperInvariant()[0];
                 if ((tocheck >= 'A') && (tocheck <= 'F'))
                 {
                     return true;
@@ -456,7 +457,7 @@ namespace Tethys.Text
         /// belongs to a number.</returns>
         public bool IsNumber()
         {
-            return IsNumber(ParseOptions.None);
+            return this.IsNumber(ParseOptions.None);
         } // IsNumber()
 
         /// <summary>
@@ -473,9 +474,10 @@ namespace Tethys.Text
         /// </list>
         /// </param>
         /// <returns>Returns the character read.</returns>
-        [SuppressMessage("Microsoft.Usage",
-        "CA2208:InstantiateArgumentExceptionsCorrectly",
-        Justification = "This parameter is the better help for the developer")]
+        [SuppressMessage(
+            "Microsoft.Usage",
+            "CA2208:InstantiateArgumentExceptionsCorrectly",
+            Justification = "This parameter is the better help for the developer")]
         public char GetNextChar(ParseOptions parseflags)
         {
             if (this.location < this.text.Length)
@@ -486,7 +488,7 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             if (this.location >= this.text.Length)
@@ -506,12 +508,12 @@ namespace Tethys.Text
         /// <returns>Returns the character read.</returns>
         public char GetNextChar()
         {
-            return GetNextChar(ParseOptions.None);
+            return this.GetNextChar(ParseOptions.None);
         } // GetNextChar()
 
         /// <summary>
         /// Reads the character from the subsequent parsing location,
-        /// optionally spaces are skipped, and returns this character without 
+        /// optionally spaces are skipped, and returns this character without
         /// changing the current parsing location.
         /// </summary>
         /// <param name="parseflags">
@@ -527,9 +529,9 @@ namespace Tethys.Text
         public char LookNextChar(ParseOptions parseflags)
         {
             // save location
-            int locSave = this.location;
+            var locSave = this.location;
 
-            char ch = GetNextChar(parseflags);
+            var ch = this.GetNextChar(parseflags);
 
             // set previous location
             this.location = locSave;
@@ -540,18 +542,18 @@ namespace Tethys.Text
 
         /// <summary>
         /// Reads the character from the subsequent parsing location,
-        /// optionally spaces are skipped, and returns this character without 
+        /// optionally spaces are skipped, and returns this character without
         /// changing the current parsing location.
         /// </summary>
         /// <returns>Returns the character read.</returns>
         public char LookNextChar()
         {
-            return LookNextChar(ParseOptions.None);
+            return this.LookNextChar(ParseOptions.None);
         } // LookNextChar()
 
         /// <summary>
         /// Checks if the end of line (= end of string, 0-terminator) is
-        /// reached. Space characters from the current location to the end 
+        /// reached. Space characters from the current location to the end
         /// location are skipped if the specific option is set (default).
         /// </summary>
         /// <param name="parseflags">
@@ -571,7 +573,7 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             return (this.location >= this.text.Length);
@@ -579,7 +581,7 @@ namespace Tethys.Text
 
         /// <summary>
         /// Checks if the end of line (= end of string, 0-terminator) is
-        /// reached. Space characters from the current location to the end 
+        /// reached. Space characters from the current location to the end
         /// location are skipped if the specific option is set (default).
         /// </summary>
         /// <returns>
@@ -587,7 +589,7 @@ namespace Tethys.Text
         /// </returns>
         public bool IsEndOfLine()
         {
-            return IsEndOfLine(ParseOptions.SkipSpace);
+            return this.IsEndOfLine(ParseOptions.SkipSpace);
         } // IsEndOfLine()
 
         /// <summary>
@@ -606,10 +608,10 @@ namespace Tethys.Text
         /// </param>
         public void CheckEndOfLine(ParseOptions parseflags)
         {
-            if (!IsEndOfLine(parseflags))
+            if (!this.IsEndOfLine(parseflags))
             {
-                SetLastToken(this.location, ParseOptions.SetEnd);
-                throw new ParsingException(ParsingError.EndExpected, GetLastToken());
+                this.SetLastToken(this.location, ParseOptions.SetEnd);
+                throw new ParsingException(ParsingError.EndExpected, this.GetLastToken());
             } // if
         } // CheckEndOfLine()
 
@@ -620,7 +622,7 @@ namespace Tethys.Text
         /// </summary>
         public void CheckEndOfLine()
         {
-            CheckEndOfLine(ParseOptions.SkipSpace);
+            this.CheckEndOfLine(ParseOptions.SkipSpace);
         } // CheckEndOfLine()
 
         /// <summary>
@@ -644,7 +646,7 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             if ((this.location >= this.text.Length) || (this.text[this.location] != ch))
@@ -659,7 +661,7 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             // character matches: return TRUE
@@ -675,13 +677,13 @@ namespace Tethys.Text
         /// specification, TRUE is returned and FALSE if not.</returns>
         public bool IsFixChar(char ch)
         {
-            return IsFixChar(ch, ParseOptions.None);
+            return this.IsFixChar(ch, ParseOptions.None);
         } // IsFixChar()
 
         /// <summary>
         /// Tests if the next character (after skipping space characters)
-        /// is one of the characters in the specified character list. The 
-        /// character is consumed. The character comparison is case sensitive!
+        /// is one of the characters in the specified character list. The
+        /// character is consumed. The character comparison is case sensitive.
         /// </summary>
         /// <param name="charlist">List of valid characters. The first
         /// character has the return index 1, the next 2 etc.</param>
@@ -695,14 +697,14 @@ namespace Tethys.Text
         /// </list>
         /// </param>
         /// <returns>If the character at the parsing location matches the string,
-        /// its index (relative to 1) is returned. If the character doesn't match, 
+        /// its index (relative to 1) is returned. If the character doesn't match,
         /// 0 is returned.</returns>
         public int GetFixChar(string charlist, ParseOptions parseflags)
         {
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             if (this.location >= this.text.Length)
@@ -711,7 +713,7 @@ namespace Tethys.Text
                 return 0;
             } // if
 
-            int index = charlist.IndexOf(this.text[this.location]);
+            var index = charlist.IndexOf(this.text[this.location]);
             if (index < 0)
             {
                 // character not found: no match
@@ -724,7 +726,7 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             // return index of character (relative to 1)
@@ -733,22 +735,22 @@ namespace Tethys.Text
 
         /// <summary>
         /// Tests if the next character (after skipping space characters)
-        /// is one of the characters in the specified character list. The 
+        /// is one of the characters in the specified character list. The
         /// character is consumed.
         /// </summary>
         /// <param name="charlist">List of valid characters. The first
         /// character has the return index 1, the next 2 etc.</param>
         /// <returns>If the character at the parsing location matches the string,
-        /// its index (relative to 1) is returned. If the character doesn't match, 
+        /// its index (relative to 1) is returned. If the character doesn't match,
         /// 0 is returned.</returns>
         public int GetFixChar(string charlist)
         {
-            return GetFixChar(charlist, ParseOptions.None);
+            return this.GetFixChar(charlist, ParseOptions.None);
         } // GetFixChar()
 
         /// <summary>
         /// Tests if the next character (after skipping space characters)
-        /// is one of the characters in the specified character list. The 
+        /// is one of the characters in the specified character list. The
         /// character is skipped.
         /// </summary>
         /// <param name="ch">Contains the character which is must match.</param>
@@ -763,16 +765,16 @@ namespace Tethys.Text
         /// </param>
         public void CheckFixChar(char ch, ParseOptions parseflags)
         {
-            if (!IsFixChar(ch, parseflags))
+            if (!this.IsFixChar(ch, parseflags))
             {
-                SetLastToken(this.location, ParseOptions.ToSpace);
-                throw new ParsingException(ParsingError.SpecNotFound, GetLastToken());
+                this.SetLastToken(this.location, ParseOptions.ToSpace);
+                throw new ParsingException(ParsingError.SpecNotFound, this.GetLastToken());
             } // if
         } // CheckFixChar()
 
         /// <summary>
         /// Tests if the next character (after skipping space characters)
-        /// is one of the characters in the specified character list. The 
+        /// is one of the characters in the specified character list. The
         /// character is skipped.
         /// </summary>
         /// <param name="charlist">List of valid characters. The first
@@ -786,38 +788,40 @@ namespace Tethys.Text
         /// </item>
         /// </list>
         /// </param>
-        /// <returns>If the character at the parsing location matches the string, 
+        /// <returns>If the character at the parsing location matches the string,
         /// its index (relative to 1) is returned. If the character doesn't match,
         /// an exception is thrown.</returns>
         public int CheckFixChar(string charlist, ParseOptions parseflags)
         {
-            int index = GetFixChar(charlist, parseflags);
+            var index = this.GetFixChar(charlist, parseflags);
             if (index == 0)
             {
                 // character doesn't match
                 if (this.text.Length > 0)
                 {
-                    SetLastToken(this.location, ParseOptions.ToSpace);
+                    this.SetLastToken(this.location, ParseOptions.ToSpace);
                 } // if
-                throw new ParsingException(ParsingError.SpecNotFound, GetLastToken());
+
+                throw new ParsingException(ParsingError.SpecNotFound, this.GetLastToken());
             } // if
+
             // character matched
             return index;
         } // CheckFixChar()
 
         /// <summary>
         /// Tests if the next character (after skipping space characters)
-        /// is one of the characters in the specified character list. The 
+        /// is one of the characters in the specified character list. The
         /// character is skipped.
         /// </summary>
         /// <param name="charlist">List of valid characters. The first
         /// character has the return index 1, the next 2 etc.</param>
-        /// <returns>If the character at the parsing location matches the string, 
+        /// <returns>If the character at the parsing location matches the string,
         /// its index (relative to 1) is returned. If the character doesn't match,
         /// an exception is thrown.</returns>
         public int CheckFixChar(string charlist)
         {
-            return CheckFixChar(charlist, ParseOptions.None);
+            return this.CheckFixChar(charlist, ParseOptions.None);
         } // CheckFixChar()
 
         /// <summary>
@@ -834,27 +838,27 @@ namespace Tethys.Text
                 return;
             } // if
 
-            if (IsSpace())
+            if (this.IsSpace())
             {
                 // skip determined space & return
-                SkipSpace();
+                this.SkipSpace();
                 return;
             } // if
 
             // exception: print characters until next space
-            SetLastToken();
-            throw new ParsingException(ParsingError.SpecNotFound, GetLastToken());
+            this.SetLastToken();
+            throw new ParsingException(ParsingError.SpecNotFound, this.GetLastToken());
         } // CheckSpace()
 
         /// <summary>
-        /// Parses the name at the current parsing location and returns its 
+        /// Parses the name at the current parsing location and returns its
         /// position in the specified string. The function doesn't select between
-        /// uppercase and lowercase characters. Commands may be abbreviated but 
-        /// must be unambiguous within the specified name list. A command name 
-        /// may contain all characters in the range A..Z or a..z or 
+        /// uppercase and lowercase characters. Commands may be abbreviated but
+        /// must be unambiguous within the specified name list. A command name
+        /// may contain all characters in the range A..Z or a..z or
         /// (if Digits is set) also digits in range 0..9.
         /// </summary>
-        /// <param name="namelist">String which contains the permitted names, 
+        /// <param name="namelist">String which contains the permitted names,
         /// separated by the horizontal tabulator character (\t). The names must
         /// be specified in lower case.</param>
         /// <param name="parseflags">
@@ -885,7 +889,7 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             if (this.location >= this.text.Length)
@@ -894,19 +898,19 @@ namespace Tethys.Text
                 return -1;
             } // if
 
-            if (0 == namelist.Length)
+            if (namelist.Length == 0)
             {
                 // end of line: no match
                 return 0;
             } // if
 
             // save begin of name as token
-            SetLastToken();
+            this.SetLastToken();
 
             var sb = new StringBuilder(30);
             while (this.location < this.text.Length)
             {
-                char ch = this.text.ToUpperInvariant()[this.location];
+                var ch = this.text.ToUpperInvariant()[this.location];
 
                 if ((((parseflags & ParseOptions.Digits) > 0)
                   && ch >= '0' && ch <= '9')
@@ -937,19 +941,20 @@ namespace Tethys.Text
                         break;
                     } // if
                 } // if
+
                 sb.Append(ch);
             } // while
 
-            string chunk = sb.ToString();
+            var chunk = sb.ToString();
             if (chunk.Length < 1)
             {
                 // no name parsed
                 return -1;
             } // if
 
-            string[] names = namelist.Split(new[] { '\t' }, StringSplitOptions.RemoveEmptyEntries);
-            int found = -1;
-            for (int i = 0; i < names.Length; i++)
+            var names = namelist.Split(new[] { '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            var found = -1;
+            for (var i = 0; i < names.Length; i++)
             {
                 if (names[i].StartsWith(chunk, StringComparison.OrdinalIgnoreCase))
                 {
@@ -962,8 +967,9 @@ namespace Tethys.Text
                         {
                             // ambiguous => throw exception
                             throw new ParsingException(
-                                ParsingError.SpecAmbiguous, GetLastToken());
+                                ParsingError.SpecAmbiguous, this.GetLastToken());
                         } // if
+
                         found = i + 1;
                     } // if
                 } // if
@@ -978,7 +984,7 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             // return index of character (relative to 1)
@@ -989,29 +995,32 @@ namespace Tethys.Text
         ///  Converts the specified hexadecimal character ('0'..'9',
         ///  'A'..'F', 'a'..'f') into the binary representation (0..15).
         /// </summary>
-        /// <param name="ch">Character to be handled as hex digit</param>
+        /// <param name="ch">Character to be handled as hex digit.</param>
         /// <returns>Returns the binary representation of the character if it a
         /// hexadecimal character; otherwise -1 is returned.</returns>
         public static int GetHexDigit(char ch)
         {
-            int val = -1;
+            var val = -1;
 
             if (ch < '0')
             {
                 // outside any range => no hexadecimal digit
                 return val;
             } // if
+
             if (ch <= '9')
             {
                 // range 0..9
                 val = ch - '0';
                 return val;
             } // if
+
             if (ch < 'A')
             {
                 // between '9'+1 and 'A'-1 => no hexadecimal digit
                 return val;
             } // if
+
             if (ch <= 'F')
             {
                 // range 10..15 in uppercase
@@ -1019,11 +1028,13 @@ namespace Tethys.Text
                 val += 10;
                 return val;
             } // if
+
             if (ch < 'a')
             {
                 // between 'F'+1 and 'a'-1 => no hexadecimal digit
                 return val;
             } // if
+
             if (ch <= 'f')
             {
                 // range 10..15 in lowercase
@@ -1040,7 +1051,7 @@ namespace Tethys.Text
         /// Checks whether the specified character is a hexadecimal digit
         /// (0..9, a..f, A..F).
         /// </summary>
-        /// <param name="ch">Character to check</param>
+        /// <param name="ch">Character to check.</param>
         /// <returns>Returns true if the character is a hexadecimal digit;
         /// otherwise false.</returns>
         public static bool IsHexDigit(char ch)
@@ -1050,26 +1061,31 @@ namespace Tethys.Text
                 // outside any range => no hexadecimal digit
                 return false;
             } // if
+
             if (ch <= '9')
             {
                 // range 0..9
                 return true;
             } // if
+
             if (ch < 'A')
             {
                 // between '9'+1 and 'A'-1 => no hexadecimal digit
                 return false;
             } // if
+
             if (ch <= 'F')
             {
                 // range 10..15 in uppercase
                 return true;
             } // if
+
             if (ch < 'a')
             {
                 // between 'F'+1 and 'a'-1 => no hexadecimal digit
                 return false;
             } // if
+
             if (ch <= 'f')
             {
                 // range 10..15 in lowercase
@@ -1080,7 +1096,7 @@ namespace Tethys.Text
         } // IsHexDigit()
 
         /// <summary>
-        /// Reads an unsigned number in decimal, hexadecimal or optional octal 
+        /// Reads an unsigned number in decimal, hexadecimal or optional octal
         /// notation from the parsing location, converts it into its binary
         /// representation and returns this value.
         /// </summary>
@@ -1103,21 +1119,23 @@ namespace Tethys.Text
         /// </list>
         /// </param>
         /// <param name="maxValue">
-        /// Contains the maximum value which is permitted. If the read value is 
-        /// larger than this value, the OverflowException exception is thrown. 
+        /// Contains the maximum value which is permitted. If the read value is
+        /// larger than this value, the OverflowException exception is thrown.
         /// If this value is 0, no maximum value is checked.
         /// </param>
         /// <returns>Returns the unsigned number read at the current location.</returns>
-        [SuppressMessage("Microsoft.Naming",
-          "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "unsigned",
-          Justification = "This is here the best solution!")]
+        [SuppressMessage(
+            "Microsoft.Naming",
+            "CA1720:IdentifiersShouldNotContainTypeNames",
+            MessageId = "unsigned",
+            Justification = "This is here the best solution!")]
         public uint GetUnsignedNumber(ParseOptions parseflags, uint maxValue)
         {
             if (this.location >= this.text.Length)
             {
                 // end of line => spec not found
-                throw new ParsingException(ParsingError.NumberExpected, 
-                    GetLastToken());
+                throw new ParsingException(
+                    ParsingError.NumberExpected, this.GetLastToken());
             } // if
 
             // check for missing flags
@@ -1132,21 +1150,21 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             // set token start location
-            SetLastToken();
+            this.SetLastToken();
 
             // analyse characters at <location>
             var sb = new StringBuilder(20);
 
-            bool isHex = false;
-            bool leadingX = false;
+            var isHex = false;
+            var leadingX = false;
             while ((this.location < this.text.Length))
             {
-                char ch = this.text[this.location];
-                bool valid = char.IsDigit(ch);
+                var ch = this.text[this.location];
+                var valid = char.IsDigit(ch);
                 if ((!valid) && ((parseflags & ParseOptions.Hex) > 0))
                 {
                     valid = IsHexDigit(ch);
@@ -1155,6 +1173,7 @@ namespace Tethys.Text
                         isHex = true;
                     } // if
                 } // if
+
                 if (ch == 'x')
                 {
                     if (((parseflags & ParseOptions.Hex) > 0)
@@ -1195,17 +1214,17 @@ namespace Tethys.Text
                 }
                 else
                 {
-                    throw new ParsingException(ParsingError.NumberExpected, 
-                        GetLastToken());
+                    throw new ParsingException(
+                    ParsingError.NumberExpected, this.GetLastToken());
                 } // if
             } // if
+
             try
             {
                 if ((isHex) || ((parseflags & ParseOptions.Hex) > 0)
                   || ((parseflags & ParseOptions.HexOnly) > 0))
                 {
-                    val = uint.Parse(num, NumberStyles.HexNumber,
-                      CultureInfo.CurrentCulture);
+                    val = uint.Parse(num, NumberStyles.HexNumber, CultureInfo.CurrentCulture);
                 }
                 else
                 {
@@ -1214,13 +1233,11 @@ namespace Tethys.Text
             }
             catch (ArgumentException)
             {
-                throw new ParsingException(ParsingError.NumberExpected, 
-                    GetLastToken());
+                throw new ParsingException(ParsingError.NumberExpected, this.GetLastToken());
             }
             catch (FormatException)
             {
-                throw new ParsingException(ParsingError.NumberExpected,
-                    GetLastToken());
+                throw new ParsingException(ParsingError.NumberExpected, this.GetLastToken());
             } // catch
 
             if ((maxValue > 0) && (val > maxValue))
@@ -1231,14 +1248,14 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             return val;
         } // GetUnsignedNumber()
 
         /// <summary>
-        /// Reads an signed number in decimal, hexadecimal or optional octal 
+        /// Reads an signed number in decimal, hexadecimal or optional octal
         /// notation from the parsing location, converts it into its binary
         /// representation and returns this value.<br/>
         /// This function is an enhanced version of get GetUnsignedNumber().
@@ -1262,37 +1279,37 @@ namespace Tethys.Text
         /// </list>
         /// </param>
         /// <param name="maxValue">
-        /// Contains the maximum value which is permitted. If the read value is 
-        /// larger than this value, the OverflowException exception is thrown. 
+        /// Contains the maximum value which is permitted. If the read value is
+        /// larger than this value, the OverflowException exception is thrown.
         /// If this value is 0, no maximum value is checked.
         /// </param>
         /// <returns>Returns the signed number read at the current location.</returns>
-        [SuppressMessage("Microsoft.Naming",
-          "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "signed",
-          Justification = "This is here the best solution!")]
+        [SuppressMessage(
+            "Microsoft.Naming",
+            "CA1720:IdentifiersShouldNotContainTypeNames",
+            MessageId = "signed",
+            Justification = "This is here the best solution!")]
         public int GetSignedNumber(ParseOptions parseflags, int maxValue)
         {
             if (this.location >= this.text.Length)
             {
                 // end of line => spec not found
-                throw new ParsingException(ParsingError.NumberExpected,
-                    GetLastToken());
+                throw new ParsingException(ParsingError.NumberExpected, this.GetLastToken());
             } // if
 
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             // set token start location
-            SetLastToken();
+            this.SetLastToken();
 
             if (this.location >= this.text.Length)
             {
                 // end of line => spec not found
-                throw new ParsingException(ParsingError.NumberExpected,
-                    GetLastToken());
+                throw new ParsingException(ParsingError.NumberExpected, this.GetLastToken());
             } // if
 
             bool minusSign = false;
@@ -1302,7 +1319,7 @@ namespace Tethys.Text
                 this.location++;
             } // if
 
-            var val = (int)GetUnsignedNumber(parseflags, (uint)maxValue);
+            var val = (int)this.GetUnsignedNumber(parseflags, (uint)maxValue);
 
             if (minusSign)
             {
@@ -1313,8 +1330,8 @@ namespace Tethys.Text
         } // GetSignedNumber()
 
         /// <summary>
-        /// Reads an unsigned decimal number at the parsing location, converts 
-        /// it into its binary representation and returns this value. If the 
+        /// Reads an unsigned decimal number at the parsing location, converts
+        /// it into its binary representation and returns this value. If the
         /// SkipSpace flag is set, leading or trailing space characters are
         /// skipped.
         /// </summary>
@@ -1329,22 +1346,23 @@ namespace Tethys.Text
         /// </list>
         /// </param>
         /// <param name="maxValue">
-        /// Contains the maximum value which is permitted. If the read value is 
-        /// larger than this value, the OverflowException exception is thrown. 
+        /// Contains the maximum value which is permitted. If the read value is
+        /// larger than this value, the OverflowException exception is thrown.
         /// If this value is 0, no maximum value is checked.
         /// </param>
         /// <returns>Returns the unsigned number read at the current location.
         /// </returns>
-        [SuppressMessage("Microsoft.Naming",
-          "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "unsigned",
-          Justification = "This is here the best solution!")]
+        [SuppressMessage(
+            "Microsoft.Naming",
+            "CA1720:IdentifiersShouldNotContainTypeNames",
+            MessageId = "unsigned",
+            Justification = "This is here the best solution!")]
         public uint GetUnsignedDecimal(ParseOptions parseflags, uint maxValue)
         {
             if (this.location >= this.text.Length)
             {
                 // end of line => spec not found
-                throw new ParsingException(ParsingError.DecimalNumberExpected, 
-                    GetLastToken());
+                throw new ParsingException(ParsingError.DecimalNumberExpected, this.GetLastToken());
             } // if
 
             uint val;
@@ -1352,19 +1370,19 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             // set token start location
-            SetLastToken();
+            this.SetLastToken();
 
             // analyse characters at <location>
             var sb = new StringBuilder(20);
 
             while ((this.location < this.text.Length))
             {
-                char ch = this.text[this.location];
-                bool valid = char.IsDigit(ch);
+                var ch = this.text[this.location];
+                var valid = char.IsDigit(ch);
 
                 if (valid)
                 {
@@ -1380,20 +1398,18 @@ namespace Tethys.Text
             } // while
 
             // use .Net method to parse string
-            string num = sb.ToString();
+            var num = sb.ToString();
             try
             {
                 val = uint.Parse(num, CultureInfo.CurrentCulture);
             }
             catch (ArgumentException)
             {
-                throw new ParsingException(ParsingError.DecimalNumberExpected,
-                    GetLastToken());
+                throw new ParsingException(ParsingError.DecimalNumberExpected, this.GetLastToken());
             }
             catch (FormatException)
             {
-                throw new ParsingException(ParsingError.DecimalNumberExpected, 
-                    GetLastToken());
+                throw new ParsingException(ParsingError.DecimalNumberExpected, this.GetLastToken());
             } // catch
 
             if ((maxValue > 0) && (val > maxValue))
@@ -1404,15 +1420,15 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             return val;
         } // GetUnsignedDecimal()
 
         /// <summary>
-        /// Reads an signed decimal number at the parsing location, converts 
-        /// it into its binary representation and returns this value. If the 
+        /// Reads an signed decimal number at the parsing location, converts
+        /// it into its binary representation and returns this value. If the
         /// SkipSpace flag is set, leading or trailing space characters are
         /// skipped.
         /// </summary>
@@ -1427,47 +1443,47 @@ namespace Tethys.Text
         /// </list>
         /// </param>
         /// <param name="maxValue">
-        /// Contains the maximum value which is permitted. If the read value is 
-        /// larger than this value, the OverflowException exception is thrown. 
+        /// Contains the maximum value which is permitted. If the read value is
+        /// larger than this value, the OverflowException exception is thrown
         /// If this value is 0, no maximum value is checked.
         /// </param>
         /// <returns>Returns the signed number read at the current location.</returns>
-        [SuppressMessage("Microsoft.Naming",
-          "CA1720:IdentifiersShouldNotContainTypeNames", MessageId = "signed",
-          Justification = "This is here the best solution!")]
+        [SuppressMessage(
+            "Microsoft.Naming",
+            "CA1720:IdentifiersShouldNotContainTypeNames",
+            MessageId = "signed",
+            Justification = "This is here the best solution!")]
         public int GetSignedDecimal(ParseOptions parseflags, int maxValue)
         {
             if (this.location >= this.text.Length)
             {
                 // end of line => spec not found
-                throw new ParsingException(ParsingError.DecimalNumberExpected,
-                    GetLastToken());
+                throw new ParsingException(ParsingError.DecimalNumberExpected, this.GetLastToken());
             } // if
 
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             // set token start location
-            SetLastToken();
+            this.SetLastToken();
 
             if (this.location >= this.text.Length)
             {
                 // end of line => spec not found
-                throw new ParsingException(ParsingError.DecimalNumberExpected,
-                    GetLastToken());
+                throw new ParsingException(ParsingError.DecimalNumberExpected, this.GetLastToken());
             } // if
 
-            bool minusSign = false;
+            var minusSign = false;
             if (this.text[this.location] == '-')
             {
                 minusSign = true;
                 this.location++;
             } // if
 
-            var val = (int)GetUnsignedDecimal(parseflags, (uint)maxValue);
+            var val = (int)this.GetUnsignedDecimal(parseflags, (uint)maxValue);
 
             if (minusSign)
             {
@@ -1478,11 +1494,11 @@ namespace Tethys.Text
         } // GetSignedDecimal()
 
         /// <summary>
-        /// Reads a signed floating point value at the parsing location, converts 
-        /// it into its binary representation and returns this value. If the 
-        /// SkipSpace flag is set, leading or trailing space characters are 
-        /// skipped. The number may be started with a '+' or a '-' character. 
-        /// Spaces between the leading sign and the first digit are also skipped 
+        /// Reads a signed floating point value at the parsing location, converts
+        /// it into its binary representation and returns this value. If the
+        /// SkipSpace flag is set, leading or trailing space characters are
+        /// skipped. The number may be started with a '+' or a '-' character.
+        /// Spaces between the leading sign and the first digit are also skipped
         /// if the SkipSpace option is set.
         /// </summary>
         /// <param name="parseflags">
@@ -1506,27 +1522,25 @@ namespace Tethys.Text
             if (this.location >= this.text.Length)
             {
                 // end of line => spec not found
-                throw new ParsingException(ParsingError.FloatNumberExpected, 
-                    GetLastToken());
+                throw new ParsingException(ParsingError.FloatNumberExpected, this.GetLastToken());
             } // if
 
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             // set token start location
-            SetLastToken();
+            this.SetLastToken();
 
             if (this.location >= this.text.Length)
             {
                 // end of line => spec not found
-                throw new ParsingException(ParsingError.FloatNumberExpected,
-                    GetLastToken());
+                throw new ParsingException(ParsingError.FloatNumberExpected, this.GetLastToken());
             } // if
 
-            bool minusSign = false;
+            var minusSign = false;
             if (this.text[this.location] == '-')
             {
                 minusSign = true;
@@ -1537,18 +1551,18 @@ namespace Tethys.Text
                 this.location++;
             } // if
 
-            var intval = (int)GetUnsignedDecimal(parseflags, 0);
-            int intval2 = 0;
-            int pos = this.location;
+            var intval = (int)this.GetUnsignedDecimal(parseflags, 0);
+            var intval2 = 0;
+            var pos = this.location;
 
             if ((this.text[this.location] == '.')
-              || (((parseflags & ParseOptions.Comma) > 0) 
+              || (((parseflags & ParseOptions.Comma) > 0)
               && (this.text[this.location] == ',')))
             {
                 // decimal separator found
                 this.location++;
                 pos = this.location;
-                intval2 = (int)GetUnsignedDecimal(parseflags, 0);
+                intval2 = (int)this.GetUnsignedDecimal(parseflags, 0);
             } // if
 
             double val = intval;
@@ -1556,7 +1570,7 @@ namespace Tethys.Text
             if (intval2 > 0)
             {
                 double df2 = intval2;
-                int digits = (this.location - pos);
+                var digits = (this.location - pos);
                 val += (df2 / Math.Pow(10, digits));
             } // if
 
@@ -1568,7 +1582,7 @@ namespace Tethys.Text
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
                 // skip spaces before next character
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             return val;
@@ -1577,10 +1591,10 @@ namespace Tethys.Text
         /// <summary>
         /// Parses a string at the current parsing location and stores it into the
         /// specified CTgString parameter. In dependence of the specified options,
-        /// the string may be quoted or unquoted. In the first case, it is 
+        /// the string may be quoted or unquoted. In the first case, it is
         /// encapsulated with "...". Spaces before the first between <c>successing</c>
         /// and after the final double quote are ignored if the SkipSpace flag
-        /// is specified. Unquoted strings are terminated by a space or tabulate 
+        /// is specified. Unquoted strings are terminated by a space or tabulate
         /// character or the end of the parsing string or any other separator
         /// character defined by SetWhitespaceList().<br/>
         /// Leading spaces before an unquoted string are not permitted. Subsequent
@@ -1599,7 +1613,7 @@ namespace Tethys.Text
         /// <description>
         /// Quoted = specifies that the string must be specified in quotes. If
         /// this flag is not specified, the string may be specified optionally
-        /// without quotes, but it is limited by the first subsequent space or 
+        /// without quotes, but it is limited by the first subsequent space or
         /// tabulator character.
         /// </description>
         /// </item>
@@ -1613,23 +1627,22 @@ namespace Tethys.Text
             if (this.location >= this.text.Length)
             {
                 // end of parsing line: throw exception
-                throw new ParsingException(ParsingError.StringExpected,
-                    GetLastToken());
+                throw new ParsingException(ParsingError.StringExpected, this.GetLastToken());
             } // if
 
             // determine start of string
-            if (IsSpace())
+            if (this.IsSpace())
             {
                 // leading space: quoted string or empty string
-                SetLastToken();
+                this.SetLastToken();
                 if ((parseflags & ParseOptions.SkipSpace) > 0)
                 {
-                    SkipSpace();
+                    this.SkipSpace();
                 } // if
             } // if
 
             // set token position to real start
-            SetLastToken();
+            this.SetLastToken();
             if (this.text[this.location] == '\"')
             {
                 // quoted string
@@ -1639,34 +1652,32 @@ namespace Tethys.Text
             else if (this.location >= this.text.Length)
             {
                 // end of parsing line: throw exception
-                throw new ParsingException(ParsingError.StringExpected,
-                    GetLastToken());
+                throw new ParsingException(ParsingError.StringExpected, this.GetLastToken());
             }
             else if ((parseflags & ParseOptions.Quoted) > 0)
             {
                 // no quotes & string must be quoted: throw exception
-                throw new ParsingException(ParsingError.StringExpected,
-                    GetLastToken());
+                throw new ParsingException(ParsingError.StringExpected, this.GetLastToken());
             } // if
 
             var sb = new StringBuilder(255);
             while (this.location < this.text.Length)
             {
                 // get & consume current character
-                char ch = this.text[this.location++];
+                var ch = this.text[this.location++];
 
                 if (quoted && ch == '\"')
                 {
                     // quote character: check if further string follows
                     if ((parseflags & ParseOptions.SkipSpace) > 0)
                     {
-                        SkipSpace();
+                        this.SkipSpace();
                     } // if
 
-                    if ((this.location < this.text.Length) 
+                    if ((this.location < this.text.Length)
                         && (this.text[this.location] == '\"'))
                     {
-                        // next string follows immediately: skip & ignore both 
+                        // next string follows immediately: skip & ignore both
                         // quote chars
                         this.location++;
                     }
@@ -1677,7 +1688,7 @@ namespace Tethys.Text
                         break;
                     } // if
                 }
-                else if (!quoted && (IsSpace(ch)))
+                else if (!quoted && (this.IsSpace(ch)))
                 {
                     // end of non-quoted/skip-space string: exit loop
                     // * this character is not consumed
@@ -1690,7 +1701,7 @@ namespace Tethys.Text
                     sb.Append('\n');
 
                     // skip next character if sequence is \n\r or \r\n
-                    char next = this.text[this.location];
+                    var next = this.text[this.location];
                     if ((next == '\n' || next == '\r') && (ch ^ next) ==
                      ('\n' ^ '\r'))
                     {
@@ -1707,15 +1718,14 @@ namespace Tethys.Text
             if (quoted)
             {
                 // infinite string in current line
-                throw new ParsingException(ParsingError.StringEndExpected, 
-                    GetLastToken());
+                throw new ParsingException(ParsingError.StringEndExpected, this.GetLastToken());
             } // if
 
             return sb.ToString();
         } // GetQuotedString()
 
         /// <summary>
-        /// Returns the next token, i.e. next next continuous string of characters 
+        /// Returns the next token, i.e. next next continuous string of characters
         /// starting at the current parsing location, that does not contain
         /// any whitespace characters.
         /// </summary>
@@ -1723,7 +1733,7 @@ namespace Tethys.Text
         /// Parsing flags. Valid flags for GetNextToken are:<br/>
         /// <list type="bullet">
         /// <item>
-        /// <description>SkipSpace = accepts whitespace before and after the 
+        /// <description>SkipSpace = accepts whitespace before and after the
         /// parsing location.</description>
         /// </item>
         /// </list>
@@ -1733,14 +1743,14 @@ namespace Tethys.Text
         {
             var sb = new StringBuilder(30);
 
-            if (IsEndOfLine(parseflags))
+            if (this.IsEndOfLine(parseflags))
             {
-                // check for end of line, 
+                // check for end of line,
                 // includes skipping spaces before next character
                 return string.Empty;
             } // if
 
-            while ((this.location < this.text.Length) && (!IsSpace()))
+            while ((this.location < this.text.Length) && (!this.IsSpace()))
             {
                 sb.Append(this.text[this.location]);
                 this.location++;
@@ -1748,25 +1758,25 @@ namespace Tethys.Text
 
             if ((parseflags & ParseOptions.SkipSpace) > 0)
             {
-                SkipSpace();
+                this.SkipSpace();
             } // if
 
             return sb.ToString();
         } // GetNextToken()
 
         /// <summary>
-        /// Returns the next token, i.e. next next continuous string of 
+        /// Returns the next token, i.e. next next continuous string of
         /// characters starting at the current parsing location, that does not
         /// contain any whitespace characters.
         /// </summary>
         /// <returns>The token is returned.</returns>
         public string GetNextToken()
         {
-            return GetNextToken(ParseOptions.None);
+            return this.GetNextToken(ParseOptions.None);
         } // GetNextToken()
 
         /// <summary>
-        /// Skips the next token, i.e. next next continuous string of characters 
+        /// Skips the next token, i.e. next next continuous string of characters
         /// starting at the current parsing location, that does not contain
         /// any whitespace characters.
         /// </summary>
@@ -1774,24 +1784,24 @@ namespace Tethys.Text
         /// Parsing flags. Valid flags for SkipNextToken are:<br/>
         /// <list type="bullet">
         /// <item>
-        /// <description>SkipSpace = accepts whitespace before and after the 
+        /// <description>SkipSpace = accepts whitespace before and after the
         /// parsing location.</description>
         /// </item>
         /// </list>
         /// </param>
         public void SkipNextToken(ParseOptions parseflags)
         {
-            GetNextToken(parseflags);
+            this.GetNextToken(parseflags);
         } // SkipNextToken()
 
         /// <summary>
-        /// Skips the next token, i.e. next next continuous string of characters 
+        /// Skips the next token, i.e. next next continuous string of characters
         /// starting at the current parsing location, that does not contain
         /// any whitespace characters.
         /// </summary>
         public void SkipNextToken()
         {
-            SkipNextToken(ParseOptions.None);
+            this.SkipNextToken(ParseOptions.None);
         } // SkipNextToken()
 
         /// <summary>
@@ -1807,7 +1817,7 @@ namespace Tethys.Text
         /// </item>
         /// </list>
         /// </param>
-        /// <returns>The next line of text</returns>
+        /// <returns>The next line of text.</returns>
         public string GetNextLine(ParseOptions parseflags)
         {
             if (this.location >= this.text.Length)
@@ -1816,24 +1826,23 @@ namespace Tethys.Text
             } // if
 
             // determine start of string
-            if (IsSpace())
+            if (this.IsSpace())
             {
-                SetLastToken();
+                this.SetLastToken();
 
                 // skip leading space
                 if ((parseflags & ParseOptions.SkipSpace) > 0)
                 {
-                    SkipSpace();
+                    this.SkipSpace();
                 } // if
             } // if
 
             // set token position to real start
-            SetLastToken();
+            this.SetLastToken();
             if (this.location >= this.text.Length)
             {
                 // end of parsing line: throw exception
-                throw new ParsingException(ParsingError.SpecNotFound, 
-                    GetLastToken());
+                throw new ParsingException(ParsingError.SpecNotFound, this.GetLastToken());
             } // if
 
             var sb = new StringBuilder(255);
@@ -1842,7 +1851,7 @@ namespace Tethys.Text
             while (this.location < this.text.Length)
             {
                 // get & consume current character
-                char ch = this.text[this.location++];
+                var ch = this.text[this.location++];
 
                 if ((this.location < this.text.Length) && (ch < ' '))
                 {
@@ -1875,7 +1884,7 @@ namespace Tethys.Text
         /// <returns>The next line of text.</returns>
         public string GetNextLine()
         {
-            return GetNextLine(ParseOptions.SkipSpace);
+            return this.GetNextLine(ParseOptions.SkipSpace);
         } // GetNextLine()
 
         /// <summary>
@@ -1883,7 +1892,7 @@ namespace Tethys.Text
         /// </summary>
         public void SkipSpace()
         {
-            while ((this.location < this.text.Length) && (IsSpace()))
+            while ((this.location < this.text.Length) && (this.IsSpace()))
             {
                 this.location++;
             } // if
@@ -1898,7 +1907,7 @@ namespace Tethys.Text
         /// </returns>
         public bool IsSpace(char ch)
         {
-            for (int i = 0; i < this.whiteSpaceList.Length; i++)
+            for (var i = 0; i < this.whiteSpaceList.Length; i++)
             {
                 if (this.whiteSpaceList[i] == ch)
                 {
@@ -1917,9 +1926,10 @@ namespace Tethys.Text
         /// <returns>
         /// Returns TRUE if a valid space area follows and FALSE if not.
         /// </returns>
-        [SuppressMessage("Microsoft.Usage",
-        "CA2208:InstantiateArgumentExceptionsCorrectly",
-        Justification = "This parameter is the better help for the developer")]
+        [SuppressMessage(
+            "Microsoft.Usage",
+            "CA2208:InstantiateArgumentExceptionsCorrectly",
+            Justification = "This parameter is the better help for the developer")]
         public bool IsSpace()
         {
             if ((this.location < 0) || (this.location >= this.text.Length))
@@ -1929,14 +1939,14 @@ namespace Tethys.Text
                 // ReSharper restore NotResolvedInText
             } // if
 
-            return IsSpace(this.text[this.location]);
+            return this.IsSpace(this.text[this.location]);
         } // IsSpace()
 
         /// <summary>
-        /// Returns a <see cref="System.String"/> that represents this instance.
+        /// Returns a <see cref="string"/> that represents this instance.
         /// </summary>
         /// <returns>
-        /// A <see cref="System.String"/> that represents this instance.
+        /// A <see cref="string"/> that represents this instance.
         /// </returns>
         public override string ToString()
         {
@@ -1945,8 +1955,10 @@ namespace Tethys.Text
                 return "0, <empty>";
             } // if
 
-            string str = string.Format(CultureInfo.CurrentUICulture, 
-                "{0}, \"{1}\"", this.location,
+            var str = string.Format(
+                CultureInfo.CurrentUICulture,
+                "{0}, \"{1}\"",
+                this.location,
                 this.text.Substring(this.location));
 
             return str;
@@ -1968,19 +1980,20 @@ namespace Tethys.Text
         /// </description>
         /// </item>
         /// <item>
-        /// <description>ToLocation = limit end of the token to the current 
+        /// <description>ToLocation = limit end of the token to the current
         /// location. If both options are set, the first end location is used.
         /// </description>
         /// </item>
         /// <item>
-        /// <description>ToEnd = activates the determining of the token-end 
+        /// <description>ToEnd = activates the determining of the token-end
         /// which must be set when no other flags are set.</description>
         /// </item>
         /// </list>
         /// </param>
-        [SuppressMessage("Microsoft.Usage",
-        "CA2208:InstantiateArgumentExceptionsCorrectly",
-        Justification = "This parameter is the better help for the developer")]
+        [SuppressMessage(
+            "Microsoft.Usage",
+            "CA2208:InstantiateArgumentExceptionsCorrectly",
+            Justification = "This parameter is the better help for the developer")]
         private void DetermineLastTokenEnd(ParseOptions parseflags)
         {
             if (this.tokenStart < 0)
@@ -2005,7 +2018,8 @@ namespace Tethys.Text
             else if (parseflags == ParseOptions.ToLocation)
             {
                 // set current location as end
-                Debug.Assert(this.location >= this.tokenStart,
+                Debug.Assert(
+                    this.location >= this.tokenStart,
                     "Invalid token position");
                 end = this.location;
             }
@@ -2013,7 +2027,7 @@ namespace Tethys.Text
             {
                 // search next space location
                 while ((end < this.text.Length)
-                  && (!IsSpace(this.text[end])))
+                  && (!this.IsSpace(this.text[end])))
                 {
                     end++;
                 } // while

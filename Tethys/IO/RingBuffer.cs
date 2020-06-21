@@ -1,6 +1,5 @@
-#region Header
 // --------------------------------------------------------------------------
-// Tethys.Silverlight
+// Tethys.Framework
 // ==========================================================================
 //
 // This library contains common code for WPF, Silverlight, Windows Phone and
@@ -9,26 +8,25 @@
 // ===========================================================================
 //
 // <copyright file="RingBuffer.cs" company="Tethys">
-// Copyright  1998-2015 by Thomas Graf
+// Copyright  1998-2020 by Thomas Graf
 //            All rights reserved.
 //            Licensed under the Apache License, Version 2.0.
-//            Unless required by applicable law or agreed to in writing, 
+//            Unless required by applicable law or agreed to in writing,
 //            software distributed under the License is distributed on an
 //            "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-//            either express or implied. 
+//            either express or implied.
 // </copyright>
 //
-// System ... Portable Library
-// Tools .... Microsoft Visual Studio 2012
+// System ... Library netstandard2.0
+// Tools .... Microsoft Visual Studio 2019
 //
 // ---------------------------------------------------------------------------
-#endregion
-
-using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Tethys.IO
 {
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     /// This class implements a circular buffer, i.e new incoming data that does not
     /// fit in the buffer overwrites the data at the beginning of the buffer. This is
@@ -77,7 +75,7 @@ namespace Tethys.IO
             set
             {
                 this.size = value;
-                Init();
+                this.Init();
             }
         } // Size
 
@@ -99,34 +97,26 @@ namespace Tethys.IO
         public RingBuffer()
         {
             this.size = DefaultSize;
-            Init();
+            this.Init();
         } // RingBuffer()
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RingBuffer"/> class.
         /// </summary>
-        /// <param name="size">Size in characters of the ring buffer</param>
+        /// <param name="size">Size in characters of the ring buffer.</param>
         /// <exception cref="System.ArgumentOutOfRangeException">size;
-        /// size must be > 0</exception>
+        /// size must be > 0.</exception>
         public RingBuffer(int size)
         {
             if (size == 0)
             {
-                throw new ArgumentOutOfRangeException("size", 
-                    "size must be > 0");
+                throw new ArgumentOutOfRangeException(
+                    nameof(size), "size must be > 0");
             } // if
-            this.size = size;
-            Init();
-        } // RingBuffer()
 
-        /// <summary>
-        /// Initializes a new buffer of the given size.
-        /// </summary>
-        private void Init()
-        {
-            this.position = 0;
-            this.buffer = new char[this.size];
-        } // Init()
+            this.size = size;
+            this.Init();
+        } // RingBuffer()
 
         /// <summary>
         /// This function resets the ring buffer, i.e. the current insert
@@ -143,22 +133,22 @@ namespace Tethys.IO
         /// <param name="data">The data.</param>
         public void AddData(string data)
         {
-            AddData(data.ToCharArray(), data.Length);
+            this.AddData(data.ToCharArray(), data.Length);
         } // AddData()
 
         /// <summary>
         /// This function adds character data to the ring buffer.
         /// </summary>
-        /// <param name="data">array of characters</param>
-        /// <param name="count">umber of characters to be added</param>
+        /// <param name="data">array of characters.</param>
+        /// <param name="count">umber of characters to be added.</param>
         public void AddData(char[] data, int count)
         {
             int i;
 
             if (count > this.size)
             {
-                throw new ArgumentOutOfRangeException("count",
-                    "ring buffer too small");
+                throw new ArgumentOutOfRangeException(
+                    nameof(count), "ring buffer too small");
             } // if
 
             if (this.position + count < this.size)
@@ -168,12 +158,13 @@ namespace Tethys.IO
                 {
                     this.buffer[this.position + i] = data[i];
                 } // for
+
                 this.position = this.position + count;
             }
             else
             {
                 // overflow
-                int diff = this.position + count - this.size;
+                var diff = this.position + count - this.size;
 
                 // move current data
                 for (i = 0; i < this.size - diff; i++)
@@ -192,7 +183,7 @@ namespace Tethys.IO
         } // AddData()
 
         /// <summary>
-        /// This function returns the (complete) current contents of the ring 
+        /// This function returns the (complete) current contents of the ring
         /// buffer.
         /// </summary>
         /// <returns>
@@ -200,7 +191,7 @@ namespace Tethys.IO
         /// </returns>
         public string GetData()
         {
-            return GetData(this.position);
+            return this.GetData(this.position);
         } // GetData()
 
         /// <summary>
@@ -208,16 +199,17 @@ namespace Tethys.IO
         /// </summary>
         /// <param name="count">maximum number of characters to return.</param>
         /// <returns>
-        /// String containing up to count characters of the  contents of the 
+        /// String containing up to count characters of the  contents of the
         /// ring buffer.
         /// </returns>
         public string GetData(int count)
         {
-            int help = count;
+            var help = count;
             if (help > this.position)
             {
                 help = this.position;
             } // if
+
             var data = new string(this.buffer, 0, help);
 
             return data;
@@ -228,12 +220,12 @@ namespace Tethys.IO
         /// i.e. the internal start of data pointer is increased by the given
         /// amount.
         /// </summary>
-        /// <param name="amount">number of characters to consume</param>
+        /// <param name="amount">number of characters to consume.</param>
         public void Consume(int amount)
         {
             if (amount > this.size)
             {
-                // throw new ArgumentOutOfRangeException("amount", 
+                // throw new ArgumentOutOfRangeException("amount",
                 //  "ring buffer smaller than amount");
                 // consume ALL data
                 this.position = 0;
@@ -255,6 +247,7 @@ namespace Tethys.IO
                 {
                     this.buffer[i] = this.buffer[this.position - diff + i];
                 } // for
+
                 this.position = diff;
             } // if
         } // Consume()
@@ -267,12 +260,13 @@ namespace Tethys.IO
         /// <remarks>
         /// Expected is CR/LF = "\r\n" = 0x0D 0x0A.<br/>
         /// Also allowed is only LF = '\n' = 0x0A.<br/>
-        /// <b>NOT</b> allowed is only CR = '\r' = 0x0D !!!!<br/>
+        /// <b>NOT</b> allowed is only CR = '\r' = 0x0D !!!!.<br/>
         /// </remarks>
         /// <returns>The next line.</returns>
-        [SuppressMessage("Microsoft.Design",
-        "CA1024:UsePropertiesWhereAppropriate",
-        Justification = "Best solution here.")]
+        [SuppressMessage(
+            "Microsoft.Design",
+            "CA1024:UsePropertiesWhereAppropriate",
+            Justification = "Best solution here.")]
         public string GetNextLine()
         {
             var strReturn = string.Empty;
@@ -301,6 +295,15 @@ namespace Tethys.IO
 
             return strReturn;
         } // GetNextLine()
+
+        /// <summary>
+        /// Initializes a new buffer of the given size.
+        /// </summary>
+        private void Init()
+        {
+            this.position = 0;
+            this.buffer = new char[this.size];
+        } // Init()
     } // RingBuffer
 } // Tethys.IO
 

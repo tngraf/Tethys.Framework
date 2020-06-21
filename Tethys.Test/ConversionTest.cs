@@ -1,5 +1,4 @@
-﻿#region Header
-// --------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------
 // Tethys.Silverlight
 // ==========================================================================
 //
@@ -9,17 +8,19 @@
 // ===========================================================================
 //
 // <copyright file="ConversionTest.cs" company="Tethys">
-// Copyright  1998-2015 by Thomas Graf
+// Copyright  1998-2020 by Thomas Graf
 //            All rights reserved.
 //            Licensed under the Apache License, Version 2.0.
-//            Unless required by applicable law or agreed to in writing, 
+//            Unless required by applicable law or agreed to in writing,
 //            software distributed under the License is distributed on an
 //            "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-//            either express or implied. 
+//            either express or implied.
 // </copyright>
 //
+// System ... netstandard2.0
+// Tools .... Microsoft Visual Studio 2019
+//
 // ---------------------------------------------------------------------------
-#endregion
 
 namespace Tethys.Test
 {
@@ -39,10 +40,11 @@ namespace Tethys.Test
         /// <summary>
         /// Test for <c>StringToByteArray</c>.
         /// </summary>
-        [SuppressMessage("StyleCop.CSharp.ReadabilityRules",
-          "SA1122:UseStringEmptyForEmptyStrings",
-          Justification = "Reviewed. Suppression is OK here."),
-        TestMethod]
+        [SuppressMessage(
+            "StyleCop.CSharp.ReadabilityRules",
+            "SA1122:UseStringEmptyForEmptyStrings",
+            Justification = "Reviewed. Suppression is OK here.")]
+        [TestMethod]
         public void StringToByteArrayTest()
         {
             var actual = ByteArrayConversion.StringToByteArray("");

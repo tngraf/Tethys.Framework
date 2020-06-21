@@ -1,6 +1,5 @@
-﻿#region Header
-// --------------------------------------------------------------------------
-// Tethys.Silverlight
+﻿// --------------------------------------------------------------------------
+// Tethys.Framework
 // ==========================================================================
 //
 // This library contains common code for WPF, Silverlight, Windows Phone and
@@ -9,20 +8,19 @@
 // ===========================================================================
 //
 // <copyright file="ByteArrayConversion.cs" company="Tethys">
-// Copyright  1998-2015 by Thomas Graf
+// Copyright  1998-2020 by Thomas Graf
 //            All rights reserved.
 //            Licensed under the Apache License, Version 2.0.
-//            Unless required by applicable law or agreed to in writing, 
+//            Unless required by applicable law or agreed to in writing,
 //            software distributed under the License is distributed on an
 //            "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-//            either express or implied. 
+//            either express or implied.
 // </copyright>
 //
-// System ... Portable Library
-// Tools .... Microsoft Visual Studio 2012
+// System ... Library netstandard2.0
+// Tools .... Microsoft Visual Studio 2019
 //
 // ---------------------------------------------------------------------------
-#endregion
 
 namespace Tethys.Conversion
 {
@@ -51,7 +49,7 @@ namespace Tethys.Conversion
       var dataBin = new byte[input.Length];
 
       // translate string to byte array
-      for (int i = 0; i < input.Length; i++)
+      for (var i = 0; i < input.Length; i++)
       {
         dataBin[i] = Convert.ToByte(input[i]);
       } // for
@@ -73,15 +71,15 @@ namespace Tethys.Conversion
     /// A byte array.
     /// </returns>
     /// <exception cref="System.ArgumentOutOfRangeException">
-    /// input;input must have an even length,</exception>
+    /// input;input must have an even length.</exception>
     /// <exception cref="System.ArgumentException">
     /// Invalid input value;input.</exception>
     public static byte[] HexStringToByteArray(string input)
     {
       if ((input.Length % 2) != 0)
       {
-        throw new ArgumentOutOfRangeException("input", 
-          "input must have an even length");
+        throw new ArgumentOutOfRangeException(
+            nameof(input), "input must have an even length");
       } // if
 
       var len = input.Length / 2;
@@ -93,13 +91,15 @@ namespace Tethys.Conversion
         for (var i = 0; i < len; i++)
         {
           var str = input.Substring(2 * i, 2);
-          dataBin[i] = byte.Parse(str, NumberStyles.HexNumber,
-            CultureInfo.InvariantCulture);
+          dataBin[i] = byte.Parse(
+              str,
+              NumberStyles.HexNumber,
+              CultureInfo.InvariantCulture);
         } // for
       }
       catch (Exception)
       {
-        throw new ArgumentException("Invalid input value", "input");
+        throw new ArgumentException("Invalid input value", nameof(input));
       } // catch
 
       return dataBin;
@@ -132,25 +132,23 @@ namespace Tethys.Conversion
     /// <param name="indexStart">The index start.</param>
     /// <param name="len">The len.</param>
     /// <returns>A string.</returns>
-    public static string ByteArrayToHexString(byte[] data, int indexStart,
-      int len)
+    public static string ByteArrayToHexString(byte[] data, int indexStart, int len)
     {
       if (indexStart >= data.Length)
       {
-        throw new ArgumentOutOfRangeException("indexStart");
+        throw new ArgumentOutOfRangeException(nameof(indexStart));
       } // if
 
       if (indexStart + len > data.Length)
       {
-        throw new ArgumentOutOfRangeException("len");
+        throw new ArgumentOutOfRangeException(nameof(len));
       } // if
 
       var sb = new StringBuilder(data.Length * 2);
 
-      for (int i = 0; i < len; i++)
+      for (var i = 0; i < len; i++)
       {
-        sb.AppendFormat(CultureInfo.InvariantCulture,
-          "{0:X2}", data[indexStart + i]);
+        sb.AppendFormat(CultureInfo.InvariantCulture, "{0:X2}", data[indexStart + i]);
       } // for
 
       return sb.ToString();

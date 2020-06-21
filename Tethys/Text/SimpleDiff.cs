@@ -1,6 +1,5 @@
-﻿#region Header
-// --------------------------------------------------------------------------
-// Tethys.Silverlight
+﻿// --------------------------------------------------------------------------
+// Tethys.Framework
 // ==========================================================================
 //
 // This library contains common code for WPF, Silverlight, Windows Phone and
@@ -9,20 +8,19 @@
 // ===========================================================================
 //
 // <copyright file="SimpleDiff.cs" company="Tethys">
-// Copyright  1998-2015 by Thomas Graf
+// Copyright  1998-2020 by Thomas Graf
 //            All rights reserved.
 //            Licensed under the Apache License, Version 2.0.
-//            Unless required by applicable law or agreed to in writing, 
+//            Unless required by applicable law or agreed to in writing,
 //            software distributed under the License is distributed on an
 //            "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-//            either express or implied. 
+//            either express or implied.
 // </copyright>
 //
-// System ... Portable Library
-// Tools .... Microsoft Visual Studio 2012
+// System ... netstandard2.0
+// Tools .... Microsoft Visual Studio 2019
 //
 // ---------------------------------------------------------------------------
-#endregion
 
 namespace Tethys.Text
 {
@@ -37,10 +35,10 @@ namespace Tethys.Text
     /// for details.
     /// </summary>
     /// <remarks>
-    /// Parts of this code are based on code of <c>Nish Sivakumar</c>. 
-    /// The original article can be found here 
+    /// Parts of this code are based on code of <c>Nish Sivakumar</c>.
+    /// The original article can be found here
     /// <a href="http://www.codeproject.com/Articles/39184/An-LCS-based-diff-ing-library-in-C">
-    /// link</a> and the original code is licensed by the Code Project Open 
+    /// link</a> and the original code is licensed by the Code Project Open
     /// License (CPOL).
     /// </remarks>
     public class SimpleDiff
@@ -59,9 +57,11 @@ namespace Tethys.Text
         /// <summary>
         /// The matrix.
         /// </summary>
-        [SuppressMessage("Microsoft.Performance",
-          "CA1814:PreferJaggedArraysOverMultidimensional", MessageId = "Member",
-          Justification = "Best solution here.")]
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1814:PreferJaggedArraysOverMultidimensional",
+            MessageId = "Member",
+            Justification = "Best solution here.")]
         private int[,] matrix;
 
         /// <summary>
@@ -109,8 +109,8 @@ namespace Tethys.Text
         #region PUBLIC METHODS
         /// <summary>
         /// This is the sole public method and it initializes
-        /// the LCS matrix the first time it's called, and 
-        /// proceeds to fire a series of LineUpdate events
+        /// the LCS matrix the first time it's called, and
+        /// proceeds to fire a series of LineUpdate event.
         /// </summary>
         public void RunDiff()
         {
@@ -127,13 +127,16 @@ namespace Tethys.Text
             } // for
 
             var totalSkip = this.preSkip + this.postSkip;
-            this.ShowDiff(this.left.Length - totalSkip, 
+            this.ShowDiff(
+                this.left.Length - totalSkip,
                 this.right.Length - totalSkip);
 
             var leftLen = this.left.Length;
             for (var i = this.postSkip; i > 0; i--)
             {
-                this.FireLineUpdate(DiffType.None, this.left[leftLen - i], 
+                this.FireLineUpdate(
+                    DiffType.None,
+                    this.left[leftLen - i],
                     leftLen - i);
             } // for
         } // RunDiff()
@@ -143,8 +146,21 @@ namespace Tethys.Text
 
         #region PRIVATE METHODS
         /// <summary>
+        /// This comparison is specifically
+        /// for strings, and was nearly thrice as
+        /// fast as the default comparison operation.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>A value indicating whether both string are the same.</returns>
+        private static bool StringCompare(string left, string right)
+        {
+            return Equals(left, right);
+        } // StringCompare()
+
+        /// <summary>
         /// This method is an optimization that
-        /// skips matching elements at the end of the 
+        /// skips matching elements at the end of the
         /// two arrays being compared.
         /// Care's taken so that this will never
         /// overlap with the pre-skip.
@@ -155,8 +171,9 @@ namespace Tethys.Text
             var rightLen = this.right.Length;
             while (this.postSkip < leftLen && this.postSkip < rightLen &&
                 this.postSkip < (leftLen - this.preSkip) &&
-                StringCompare(this.left[leftLen - this.postSkip - 1], 
-                this.right[rightLen - this.postSkip - 1]))
+                StringCompare(
+                    this.left[leftLen - this.postSkip - 1],
+                    this.right[rightLen - this.postSkip - 1]))
             {
                 this.postSkip++;
             } // while
@@ -197,10 +214,12 @@ namespace Tethys.Text
             while (leftIndex > 0 || rightIndex > 0)
             {
                 if (leftIndex > 0 && rightIndex > 0 &&
-                    StringCompare(this.left[this.preSkip + leftIndex - 1],
-                    this.right[this.preSkip + rightIndex - 1]))
+                    StringCompare(
+                        this.left[this.preSkip + leftIndex - 1],
+                        this.right[this.preSkip + rightIndex - 1]))
                 {
-                    updates.Add(new DiffEventArgs(DiffType.None, 
+                    updates.Add(new DiffEventArgs(
+                        DiffType.None,
                         this.left[this.preSkip + leftIndex - 1],
                         this.preSkip + leftIndex - 1));
                     leftIndex--;
@@ -210,20 +229,22 @@ namespace Tethys.Text
                 {
                     if (rightIndex > 0 &&
                         (leftIndex == 0 ||
-                        this.matrix[leftIndex, rightIndex - 1] 
+                        this.matrix[leftIndex, rightIndex - 1]
                         >= this.matrix[leftIndex - 1, rightIndex]))
                     {
-                        updates.Add(new DiffEventArgs(DiffType.Add, 
+                        updates.Add(new DiffEventArgs(
+                            DiffType.Add,
                             this.right[this.preSkip + rightIndex - 1],
                             this.preSkip + rightIndex - 1));
                         rightIndex--;
                     }
                     else if (leftIndex > 0 &&
                       (rightIndex == 0 ||
-                      this.matrix[leftIndex, rightIndex - 1] 
+                      this.matrix[leftIndex, rightIndex - 1]
                         < this.matrix[leftIndex - 1, rightIndex]))
                     {
-                        updates.Add(new DiffEventArgs(DiffType.Subtract, 
+                        updates.Add(new DiffEventArgs(
+                            DiffType.Subtract,
                             this.left[this.preSkip + leftIndex - 1],
                             this.preSkip + leftIndex - 1));
                         leftIndex--;
@@ -234,8 +255,7 @@ namespace Tethys.Text
             for (var i = updates.Count - 1; i >= 0; i--)
             {
                 var update = updates[i];
-                FireLineUpdate(update.DiffType, update.LineValue,
-                    update.LineIndex);
+                this.FireLineUpdate(update.DiffType, update.LineValue, update.LineIndex);
             } // for
         } // ShowDiff()
 #else
@@ -290,9 +310,11 @@ namespace Tethys.Text
         /// This is the core method in the entire class,
         /// and uses the standard LCS calculation algorithm.
         /// </summary>
-        [SuppressMessage("Microsoft.Performance",
-        "CA1814:PreferJaggedArraysOverMultidimensional", MessageId = "Body",
-         Justification = "Best solution here.")]
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1814:PreferJaggedArraysOverMultidimensional",
+            MessageId = "Body",
+            Justification = "Best solution here.")]
         private void CreateLcsMatrix()
         {
             var totalSkip = this.preSkip + this.postSkip;
@@ -303,13 +325,14 @@ namespace Tethys.Text
 
             // We only create a matrix large enough for the
             // unskipped contents of the diff'ed arrays
-            this.matrix = new int[this.left.Length - totalSkip + 1,
+            this.matrix = new int[
+                this.left.Length - totalSkip + 1,
                 this.right.Length - totalSkip + 1];
 
             for (var i = 1; i <= this.left.Length - totalSkip; i++)
             {
                 // Simple optimization to avoid this calculation
-                // inside the outer loop (may have got JIT optimized 
+                // inside the outer loop (may have got JIT optimized
                 // but my tests showed a minor improvement in speed)
                 var leftIndex = this.preSkip + i - 1;
 
@@ -318,10 +341,11 @@ namespace Tethys.Text
                 // incrementing will be a faster operation on most CPUs
                 // compared to addition. Again, this may have got JIT
                 // optimized but my tests showed a minor speed difference.
-                for (int j = 1, rightIndex = this.preSkip + 1; 
+                for (int j = 1, rightIndex = this.preSkip + 1;
                     j <= this.right.Length - totalSkip; j++, rightIndex++)
                 {
-                    this.matrix[i, j] = StringCompare(this.left[leftIndex],
+                    this.matrix[i, j] = StringCompare(
+                        this.left[leftIndex],
                         this.right[rightIndex - 1]) ?
                         this.matrix[i - 1, j - 1] + 1 :
                         Math.Max(this.matrix[i, j - 1], this.matrix[i - 1, j]);
@@ -337,31 +361,12 @@ namespace Tethys.Text
         /// <param name="diffType">Type of the diff.</param>
         /// <param name="lineValue">The line value.</param>
         /// <param name="index">The index.</param>
-        private void FireLineUpdate(DiffType diffType, string lineValue,
-            int index)
+        private void FireLineUpdate(DiffType diffType, string lineValue, int index)
         {
             var local = this.LineUpdate;
 
-            if (local == null)
-            {
-                return;
-            } // if
-
-            local(this, new DiffEventArgs(diffType, lineValue, index));
+            local?.Invoke(this, new DiffEventArgs(diffType, lineValue, index));
         } // FireLineUpdate()
-
-        /// <summary>
-        /// This comparison is specifically
-        /// for strings, and was nearly thrice as
-        /// fast as the default comparison operation.
-        /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="right">The right.</param>
-        /// <returns>A value indicating whether both string are the same.</returns>
-        private static bool StringCompare(string left, string right)
-        {
-            return Equals(left, right);
-        } // StringCompare()
         #endregion // PRIVATE METHODS
     } // SimpleDiff
 } // Tethys.Text.Diff

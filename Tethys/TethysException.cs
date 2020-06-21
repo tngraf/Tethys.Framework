@@ -1,6 +1,5 @@
-#region Header
 // --------------------------------------------------------------------------
-// Tethys.Silverlight
+// Tethys.Framework
 // ==========================================================================
 //
 // This library contains common code for WPF, Silverlight, Windows Phone and
@@ -9,25 +8,24 @@
 // ===========================================================================
 //
 // <copyright file="TethysException.cs" company="Tethys">
-// Copyright  1998-2015 by Thomas Graf
+// Copyright  1998-2020 by Thomas Graf
 //            All rights reserved.
 //            Licensed under the Apache License, Version 2.0.
-//            Unless required by applicable law or agreed to in writing, 
+//            Unless required by applicable law or agreed to in writing,
 //            software distributed under the License is distributed on an
 //            "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-//            either express or implied. 
+//            either express or implied.
 // </copyright>
 //
-// System ... Portable Library
-// Tools .... Microsoft Visual Studio 2012
+// System ... netstandard2.0
+// Tools .... Microsoft Visual Studio 2019
 //
 // ---------------------------------------------------------------------------
-#endregion
-
-using System;
 
 namespace Tethys
 {
+    using System;
+
     /// <summary>
     /// TgException is the base exception class for all Tethys exception.
     /// </summary>
@@ -42,21 +40,21 @@ namespace Tethys
         } // TethysException()
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TethysException"/> 
+        /// Initializes a new instance of the <see cref="TethysException"/>
         /// class.
         /// </summary>
-        /// <param name="message">exception message</param>
+        /// <param name="message">exception message.</param>
         public TethysException(string message)
             : base(message)
         {
         } // TethysException()
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TethysException"/> 
+        /// Initializes a new instance of the <see cref="TethysException"/>
         /// class.
         /// </summary>
-        /// <param name="message">exception message</param>
-        /// <param name="ex">inner exception</param>
+        /// <param name="message">exception message.</param>
+        /// <param name="ex">inner exception.</param>
         public TethysException(string message, Exception ex)
             : base(message, ex)
         {

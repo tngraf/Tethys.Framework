@@ -1,6 +1,5 @@
-﻿#region Header
-// --------------------------------------------------------------------------
-// Tethys.Silverlight
+﻿// --------------------------------------------------------------------------
+// Tethys.Framework
 // ==========================================================================
 //
 // This library contains common code for WPF, Silverlight, Windows Phone and
@@ -9,20 +8,19 @@
 // ===========================================================================
 //
 // <copyright file="ParsingException.cs" company="Tethys">
-// Copyright  1998-2015 by Thomas Graf
+// Copyright  1998-2020 by Thomas Graf
 //            All rights reserved.
 //            Licensed under the Apache License, Version 2.0.
-//            Unless required by applicable law or agreed to in writing, 
+//            Unless required by applicable law or agreed to in writing,
 //            software distributed under the License is distributed on an
 //            "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-//            either express or implied. 
+//            either express or implied.
 // </copyright>
 //
-// System ... Portable Library
-// Tools .... Microsoft Visual Studio 2012
+// System ... netstandard2.0
+// Tools .... Microsoft Visual Studio 2019
 //
 // ---------------------------------------------------------------------------
-#endregion
 
 namespace Tethys.Text
 {
@@ -76,12 +74,12 @@ namespace Tethys.Text
         /// <summary>
         /// End of string expected.
         /// </summary>
-        StringEndExpected = 8
+        StringEndExpected = 8,
     } // ParsingError
 
     /// <summary>
     /// Implements the ParsingException used by the TextParse class.
-    /// </summary> 
+    /// </summary>
     public class ParsingException : Exception
     {
         #region PRIVATE PROPERTIES
@@ -138,7 +136,7 @@ namespace Tethys.Text
         } // ParsingException
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ParsingException"/> 
+        /// Initializes a new instance of the <see cref="ParsingException"/>
         /// class.
         /// </summary>
         /// <param name="error">The error.</param>
@@ -150,7 +148,7 @@ namespace Tethys.Text
         } // ParsingException
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ParsingException"/> 
+        /// Initializes a new instance of the <see cref="ParsingException"/>
         /// class.
         /// </summary>
         /// <param name="message">The message.</param>
@@ -160,7 +158,7 @@ namespace Tethys.Text
         } // ParsingException()
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ParsingException"/> 
+        /// Initializes a new instance of the <see cref="ParsingException"/>
         /// class.
         /// </summary>
         /// <param name="message">The message.</param>
