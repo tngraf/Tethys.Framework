@@ -2,26 +2,29 @@
 <package >
   <metadata>
     <id>Tethys.Forms</id>
-    <version>4.4.0</version>
+    <version>4.5.0</version>
     <title>The Tethys Framework for Windows Forms</title>
     <authors>Thomas Graf</authors>
     <owners>Thomas Graf</owners>
-    <copyright>Copyright (C) 2009-2018 T. Graf</copyright>
-    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <copyright>Copyright (C) 2009-2020 T. Graf</copyright>
+    <license type="expression">Apache-2.0</license>
     <projectUrl>https://github.com/tngraf/Tethys.Framework/</projectUrl>
-    <iconUrl>http://www.4wp7.de/tethys/tethyb32.png</iconUrl>
+    <icon>tethys_icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Basic Services and Resources Development Library for .Net.</description>
     <releaseNotes></releaseNotes>
     <language>en-US</language>
     <tags>Tethys Framework WinForms</tags>
     <dependencies>
-      <dependency id="Tethys.Framework" version="4.4.0" />
-      <dependency id="Tethys.Win" version="4.4.0" />
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="Tethys.Framework" version="4.5.0" />
+        <dependency id="Tethys.Win" version="4.5.0" />
+      </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\Export\Release\Tethys.Forms.xml" target="lib\net40-client" />
-    <file src="..\Export\Release\Tethys.Forms.pdb" target="lib\net40-client" />
-  </files> 
+    <file src="..\tethys_icon.png" target="." />
+    <file src="..\Export\Release\Tethys.Forms.xml" target="lib\net472" />
+    <file src="..\Export\Release\Tethys.Forms.pdb" target="lib\net472" />
+  </files>
 </package>

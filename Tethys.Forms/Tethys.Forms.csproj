@@ -182,6 +182,7 @@
     <None Include="..\Tethys\TethysLibKey.snk">
       <Link>TethysLibKey.snk</Link>
     </None>
+    <None Include="Tethys.Forms.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SingleStepToolBoxBitmap.bmp" />

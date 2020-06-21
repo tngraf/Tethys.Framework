@@ -2,22 +2,26 @@
 <package >
   <metadata>
     <id>Tethys.Win</id>
-    <version>4.4.0</version>
+    <version>4.5.0</version>
     <title>The Tethys Framework for Windows</title>
     <authors>Thomas Graf</authors>
     <owners>Thomas Graf</owners>
     <copyright>Copyright (C) 2009-2018 T. Graf</copyright>
-    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <license type="expression">Apache-2.0</license>
     <projectUrl>https://github.com/tngraf/Tethys.Framework/</projectUrl>
-    <iconUrl>http://www.4wp7.de/tethys/tethyb32.png</iconUrl>
+    <icon>tethys_icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Basic Services and Resources Development Library for .Net.</description>
     <releaseNotes></releaseNotes>
     <language>en-US</language>
     <tags>Tethys Framework Windows</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2" />
+    </dependencies>
   </metadata>
   <files>
-    <file src="..\Export\Release\Tethys.Win.xml" target="lib\net40" />
-    <file src="..\Export\Release\Tethys.Win.pdb" target="lib\net40" />
+    <file src="..\tethys_icon.png" target="." />
+    <file src="..\Export\Release\Tethys.Win.xml" target="lib\net472" />
+    <file src="..\Export\Release\Tethys.Win.pdb" target="lib\net472" />
   </files> 
 </package>

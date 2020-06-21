@@ -4,10 +4,9 @@
 
 mkdir export\packages
 
-cd Tethys
-nuget pack Tethys.csproj
-move Tethys.*.nupkg ..\export\packages
-cd ..
+cd Tethys\bin\Release
+move Tethys.*.nupkg ..\..\..\export\packages 
+cd ..\..\..
 
 cd Tethys.Forms
 nuget pack Tethys.Forms.csproj
