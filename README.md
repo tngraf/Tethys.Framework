@@ -6,11 +6,11 @@ Basic Services and Resources Development Library for .Net
 ## Project Build Status ##
 [![Build status](https://ci.appveyor.com/api/projects/status/lxh0s8qexq6bi2tg?svg=true)](https://ci.appveyor.com/project/tngraf/tethys-framework)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![NuGet](https://img.shields.io/badge/nuget%20package-v4.4.0-blue.svg)](https://www.nuget.org/packages/Tethys.Framework/)
+[![NuGet](https://img.shields.io/badge/nuget%20package-v4.5.0-blue.svg)](https://www.nuget.org/packages/Tethys.Framework/)
 
 ## Libraries ##
 
-* **Tethys** - *portable* library with common code for WPF, Silverlight, Windows Phone and Windows 8 projects.
+* **Tethys** - netstandard2.0 library with common code for WPF, Silverlight, Windows Phone and Windows 8 projects.
 * **Tethys.Forms** - library with common code for Windows Forms applications.
 * **Tethys.Win** - library with common for .Net Windows applications.
 
@@ -77,7 +77,7 @@ Not all code is from me. Code parts are from:
 
 ## Copyright & License ##
 
-Copyright 1998-2018 T. Graf
+Copyright 1998-2020 T. Graf
 
 Licensed under the **Apache License, Version 2.0** (the "License");
 you may not use this file except in compliance with the License.
