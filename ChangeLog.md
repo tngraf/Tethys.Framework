@@ -1,5 +1,9 @@
-Tethys Framework Change Log
-===========================
+# Tethys Framework Change Log
+
+##V4.5.0
+* update frameworks:
+  * Tethys.Framework is now based on netstandard2.0.
+  * All other libraries are based on .Net Framework 4.7.2.
 
 ##V4.4.0	(2018-03-03)##
 * TethysAppConfig2 added.

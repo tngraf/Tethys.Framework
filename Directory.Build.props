@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <Version>4.5.0</Version>
+    <FileVersion>4.5.0.0</FileVersion>
+    <Product>Tethys.Logging</Product>
+    <Company>Tethys</Company>
+    <Copyright>Copyright © 2009-2020 T. Graf</Copyright>
+    <Authors>T. Graf</Authors>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/tngraf/Tethys.Framework/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tngraf/Tethys.Framework/</RepositoryUrl>
+    <PackageTags>Tethys Framework</PackageTags>
+  </PropertyGroup>
+</Project>

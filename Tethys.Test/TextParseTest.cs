@@ -1,16 +1,18 @@
-﻿using TgLib.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-namespace TestTgLibParsing
+﻿namespace TestTgLibParsing
 {
-  /// <summary>
-  ///This is a test class for TextParseTest and is intended
-  ///to contain all TextParseTest Unit Tests
-  ///</summary>
-  [TestClass()]
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+    /// <summary>
+    ///This is a test class for TextParseTest and is intended
+    ///to contain all TextParseTest Unit Tests
+    ///</summary>
+    [TestClass()]
   public class TextParseTest
   {
-    private const double Delta = 0.000001D;
+#if false
+
+        private const double Delta = 0.000001D;
     private TestContext testContextInstance;
 
     /// <summary>
@@ -29,7 +31,7 @@ namespace TestTgLibParsing
       }
     }
 
-    #region Additional test attributes
+        #region Additional test attributes
     // 
     //You can use the following additional attributes as you write your tests:
     //
@@ -57,13 +59,13 @@ namespace TestTgLibParsing
     //{
     //}
     //
-    #endregion
+        #endregion
 
     public TextParseTest()
     {
     } // TextParseTest()
 
-    #region PROPERTY TESTS
+        #region PROPERTY TESTS
     /// <summary>
     /// A test for WhiteSpaceList.
     ///</summary>
@@ -237,7 +239,7 @@ namespace TestTgLibParsing
 
       target.MoveLocation(3);
     }
-    #endregion // PROPERTY TESTS
+        #endregion // PROPERTY TESTS
 
     /// <summary>
     /// A test for MoveLocation
@@ -2126,5 +2128,6 @@ namespace TestTgLibParsing
       Assert.AreEqual(0, target._tokenStart);
       Assert.AreEqual(expected, target._tokenEnd);
     }
-  }
+#endif
+    }
 }
