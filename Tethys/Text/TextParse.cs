@@ -182,7 +182,7 @@ namespace Tethys.Text
         /// <param name="newLocation">new parsing location.</param>
         public void SetLocation(int newLocation)
         {
-            if ((this.location < 0) || (this.location > this.text.Length))
+            if ((newLocation < 0) || (newLocation > this.text.Length))
             {
                 throw new ArgumentOutOfRangeException(
                   nameof(newLocation),

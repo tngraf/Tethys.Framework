@@ -246,23 +246,23 @@ namespace Tethys.Test
         [TestMethod]
         public void GetLastTokenTest1()
         {
-            var text = "123 ABC";
-            var target = new TextParse(text);
+            const string Text = "123 ABC";
+            var target = new TextParse(Text);
             var expected = string.Empty;
             var actual = target.GetLastToken();
             Assert.AreEqual(expected, actual);
 
-            target = new TextParse(text);
+            target = new TextParse(Text);
             actual = target.GetLastToken(ParseOptions.ToSpace);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual("123", actual);
 
             expected = "12";
-            target = new TextParse(text);
+            target = new TextParse(Text);
             target.MoveLocation(2);
             actual = target.GetLastToken(ParseOptions.ToLocation);
             Assert.AreEqual(expected, actual);
 
-            target = new TextParse(text);
+            target = new TextParse(Text);
             expected = string.Empty;
             actual = target.GetLastToken(ParseOptions.ToSpace | ParseOptions.ToLocation);
             Assert.AreEqual(expected, actual);
