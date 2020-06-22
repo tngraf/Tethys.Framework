@@ -9,6 +9,8 @@
     <PackageIcon>tethys_icon.png</PackageIcon>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>TethysLibKey.snk</AssemblyOriginatorKeyFile>
+    <PackageId>Tethys.Framework</PackageId>
+    <Product>Tethys.Framework</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
