@@ -30,6 +30,8 @@ namespace Tethys.Win32
     using System.Runtime.InteropServices;
     using System.Text;
 
+#pragma warning disable 1591
+
     /// <summary>
     /// The class Win32 Api encapsulates native Win32 constants and functions.
     /// </summary>
@@ -569,7 +571,7 @@ namespace Tethys.Win32
 
         #endregion // WIN32 API FUNCTIONS
 
-        //// ------------------------------------------------------------------
+#pragma warning restore 1591
     } // Win32Api
 } // Tethys
 

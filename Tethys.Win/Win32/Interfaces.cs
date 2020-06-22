@@ -28,6 +28,7 @@ namespace Tethys.Win32
     using System;
     using System.Runtime.InteropServices;
 
+#pragma warning disable 1591
     [ComImport, Guid("0000010c-0000-0000-c000-000000000046"),
     InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IPersist
@@ -60,4 +61,5 @@ namespace Tethys.Win32
     public class ShellLink
     {
     } // ShellLink
+#pragma warning restore 1591
 } // Tethys.Win32
