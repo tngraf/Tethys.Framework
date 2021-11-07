@@ -30,10 +30,10 @@
   </metadata>
   <files>
     <file src="..\tethys_icon.png" target="." />
-    <file src="Tethys.Win.NET5.xml" target="lib\net5.0-windows7.0" />
+    <file src="bin\Tethys.Win.NET5.xml" target="lib\net5.0-windows7.0" />
     <file src="bin\Release\net5.0-windows\Tethys.Win.NET5.dll" target="lib\net5.0-windows7.0" />
     <file src="bin\Release\net5.0-windows\Tethys.Win.NET5.pdb" target="lib\net5.0-windows7.0" />
-    <file src="Tethys.Win.NET5.xml" target="lib\netcoreapp3.1" />
+    <file src="bin\Tethys.Win.NET5.xml" target="lib\netcoreapp3.1" />
     <file src="bin\Release\netcoreapp3.1\Tethys.Win.NET5.dll" target="lib\netcoreapp3.1" />
     <file src="bin\Release\netcoreapp3.1\Tethys.Win.NET5.pdb" target="lib\netcoreapp3.1" />
   </files> 
