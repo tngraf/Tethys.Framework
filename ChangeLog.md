@@ -1,5 +1,9 @@
 # Tethys Framework Change Log
 
+## V4.6.0
+* Tethys.Win.NET5 is the .NET Core 3 / .NET 5 version of Tethys.Win.
+* Tethys.Forms.NET5 is the .NET Core 3 / .NET 5 version of Tethys.Forms.
+
 ## V4.5.0
 * update frameworks:
   * Tethys.Framework is now based on netstandard2.0.

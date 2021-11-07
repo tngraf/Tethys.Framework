@@ -6,21 +6,25 @@ Basic Services and Resources Development Library for .Net
 ## Project Build Status ##
 [![Build status](https://ci.appveyor.com/api/projects/status/lxh0s8qexq6bi2tg?svg=true)](https://ci.appveyor.com/project/tngraf/tethys-framework)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![NuGet](https://img.shields.io/badge/nuget%20package-v4.5.0-blue.svg)](https://www.nuget.org/packages/Tethys.Framework/)
+[![NuGet](https://img.shields.io/badge/nuget%20package-v4.6.0-blue.svg)](https://www.nuget.org/packages/Tethys.Framework/)
 
 ## Libraries ##
 
-* **Tethys** - netstandard2.0 library with common code for WPF, Silverlight, Windows Phone and Windows 8 projects.
-* **Tethys.Forms** - library with common code for Windows Forms applications.
-* **Tethys.Win** - library with common for .Net Windows applications.
+* **Tethys.Framework** - netstandard2.0 library with common code for WPF, Silverlight, Windows Phone and Windows 8 projects.
+* **Tethys.Forms** - library with common code for Windows Forms applications (.NET Framework 4.7.2).
+* **Tethys.Forms.NET5** - library with common code for Windows Forms applications (.NET Core 3 / .NET 5).
+* **Tethys.Win** - library with common for .Net Windows applications (.NET Framework 4.7.2).
+* **Tethys.Win.NET5** - library with common for .Net Windows applications (.NET Core 3 / .NET 5).
 
 ## Get Packages ##
 
 Nuget packages are available, see the following links
 
-* **Tethys** - package [Tethys.Framework](https://www.nuget.org/packages/Tethys.Framework/)
+* **Tethys.Framework** - package [Tethys.Framework](https://www.nuget.org/packages/Tethys.Framework/)
 * **Tethys.Forms** - package [Tethys.Forms](https://www.nuget.org/packages/Tethys.Forms/)
+* **Tethys.Forms.NET5** - package [Tethys.Forms](https://www.nuget.org/packages/Tethys.Forms/) 
 * **Tethys.Win** - package [Tethys.Win](https://www.nuget.org/packages/Tethys.Win/)
+* **Tethys.Win.NET5** - package [Tethys.Win](https://www.nuget.org/packages/Tethys.Win/)
 
 ## Main Features ##
 
@@ -30,7 +34,7 @@ Nuget packages are available, see the following links
 * `Ringbuffer` - a circular buffer.
 * `TextParse` - an elaborate text parsing class.
 * `SimpleDiff` - a simple (but for most cases sufficient) file/text line comparer.
-*  `ByteArrayConversion` - byte array conversion methods.
+* `ByteArrayConversion` - byte array conversion methods.
 
 ### Tethys.Forms ###
 
@@ -59,7 +63,7 @@ Tethys.Forms contains a lot of WinForms custom controls:
 
 ### Requisites ###
 
-* Visual Studio 2017
+* Visual Studio 2019
 
 ### Symbols for conditional compilation ###
 * WINDOWS       ==> Windows platform
@@ -77,7 +81,7 @@ Not all code is from me. Code parts are from:
 
 ## Copyright & License ##
 
-Copyright 1998-2020 T. Graf
+Copyright 1998-2021 T. Graf
 
 Licensed under the **Apache License, Version 2.0** (the "License");
 you may not use this file except in compliance with the License.

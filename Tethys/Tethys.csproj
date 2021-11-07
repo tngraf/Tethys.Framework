@@ -5,7 +5,7 @@
     <CodeAnalysisRuleSet>..\Tethys.Framework.ruleset</CodeAnalysisRuleSet>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Tethys base library</Description>
-    <Copyright>Copyright © 1998-2020 T. Graf</Copyright>
+    <Copyright>Copyright © 1998-2021 T. Graf</Copyright>
     <PackageIcon>tethys_icon.png</PackageIcon>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>TethysLibKey.snk</AssemblyOriginatorKeyFile>

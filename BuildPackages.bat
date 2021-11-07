@@ -4,18 +4,29 @@
 
 mkdir export\packages
 
-cd Tethys\bin\Release
-move Tethys.*.nupkg ..\..\..\export\packages 
-cd ..\..\..
+cd Tethys
+nuget pack Tethys.Framework.nuspec
+move Tethys.*.nupkg ..\export\packages 
+cd ..
 
 cd Tethys.Forms
-nuget pack Tethys.Forms.csproj
+nuget pack Tethys.Forms.nuspec
 move Tethys.*.nupkg ..\export\packages
 cd ..
 
+cd Tethys.Forms.NET5
+nuget pack Tethys.Forms.NET5.nuspec
+move Tethys.*.nupkg ..\export\packages 
+cd ..
+
 cd Tethys.Win
-nuget pack Tethys.Win.csproj
+nuget pack Tethys.Win.nuspec
 move Tethys.*.nupkg ..\export\packages
+cd ..
+
+cd Tethys.Win.NET5
+nuget pack Tethys.Win.NET5.nuspec
+move Tethys.*.nupkg ..\export\packages 
 cd ..
 
 :REM ============================
