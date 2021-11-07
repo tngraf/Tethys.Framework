@@ -19,6 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecentFileListDemo", "Tests
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Global", "Global", "{6E4F33D1-CD36-4E7B-B040-67454D75DA9B}"
 	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
 		GlobalAssemblyInfo.cs = GlobalAssemblyInfo.cs
 	EndProjectSection
 EndProject
@@ -34,9 +35,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{DC9D06B5-CB0
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tethys.Win.NET5", "Tethys.Win.NET5\Tethys.Win.NET5.csproj", "{6C9D9A9B-C205-43A0-949E-F561A9607F72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tethys.Win.NET5", "Tethys.Win.NET5\Tethys.Win.NET5.csproj", "{6C9D9A9B-C205-43A0-949E-F561A9607F72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tethys.Forms.NET5", "Tethys.Forms.NET5\Tethys.Forms.NET5.csproj", "{DE66A253-2030-436C-A1DB-55C90BEEC789}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tethys.Forms.NET5", "Tethys.Forms.NET5\Tethys.Forms.NET5.csproj", "{DE66A253-2030-436C-A1DB-55C90BEEC789}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
