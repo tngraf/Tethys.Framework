@@ -1,29 +1,16 @@
-﻿#region Header
-// ---------------------------------------------------------------------------
-// Tethys.Forms - RecentFileListDemo
-// ===========================================================================
-//
-// This library contains common code of .Net projects of Thomas Graf.
-//
-// ===========================================================================
-// <copyright file="MainForm.cs" company="Thomas Graf">
-// Copyright  1998 - 2013 by Thomas Graf
-//            Email: tngraf@gmx.de
-//            See the file "License.rtf" for information on usage and 
-//            redistribution of this file and for a DISCLAIMER OF ALL WARRANTIES.
+﻿// ---------------------------------------------------------------------------
+// <copyright file="MainForm.cs" company="Tethys">
+//   Copyright (C) 1998-2021 T. Graf
 // </copyright>
-// 
-// Version .. 4.00.00.00 of 13Apr14
-// Project .. Tethys.Forms
-// Creater .. Thomas Graf (tg)
-// System ... Microsoft .Net Framework 4.5
-// Tools .... Microsoft Visual Studio 2012
 //
-// Change Report
-// 03Nov22 3.00.02.00 tg: initial version
+// SPDX-License-Identifier: Apache-2.0
 //
+// Licensed under the Apache License, Version 2.0.
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+// either express or implied.
 // ---------------------------------------------------------------------------
-#endregion
 
 namespace RecentFileListDemo
 {
@@ -47,18 +34,13 @@ namespace RecentFileListDemo
 
         //// ------------------------------------------------------------------
 
-        #region PUBLIC PROPERTIES
-        #endregion // PUBLIC PROPERTIES
-
-        //// ------------------------------------------------------------------
-
         #region CONSTRUCTION
         /// <summary>
         /// Initializes a new instance of the <see cref="MainForm"/> class.
         /// </summary>
         public MainForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         } // MainForm()
         #endregion // CONSTRUCTION
 
@@ -73,12 +55,12 @@ namespace RecentFileListDemo
         /// event data.</param>
         private void MainFormLoad(object sender, EventArgs e)
         {
-            string regEntry = "Software\\Tethys\\" + Application.ProductName
-              + "\\Recent File List";
+            var regEntry = "Software\\Tethys\\" + Application.ProductName
+                                                + "\\Recent File List";
             this.mtfl = new RecentFileList(regEntry, "File", 6, 30);
-            this.mtfl.Click += MenuFileMruClick;
+            this.mtfl.Click += this.MenuFileMruClick;
             this.mtfl.ReadList();
-            this.mtfl.UpdateMenu(menuFileMru);
+            this.mtfl.UpdateMenu(this.menuFileMru);
         } // MainFormLoad()
 
         /// <summary>
@@ -94,9 +76,7 @@ namespace RecentFileListDemo
                 // write MRU file list
                 this.mtfl.WriteList();
             }
-            // ReSharper disable EmptyGeneralCatchClause
             catch
-            // ReSharper restore EmptyGeneralCatchClause
             {
                 // Log.Error("Error storing application configuration", ex);
             } // catch
@@ -126,7 +106,7 @@ namespace RecentFileListDemo
                 return;
             } // if
 
-            NewMdiChild(openFileDialog.FileName);
+            this.NewMdiChild(openFileDialog.FileName);
         } // MenuFileOpenClick()
 
         /// <summary>
@@ -137,14 +117,14 @@ namespace RecentFileListDemo
         /// the event data.</param>
         private void MenuFileSaveClick(object sender, EventArgs e)
         {
-            var child = (MdiChildForm)ActiveMdiChild;
+            var child = (MdiChildForm)this.ActiveMdiChild;
             if (child != null)
             {
                 // save the child data ...
 
                 // add to MRU list
                 this.mtfl.Add(child.Text);
-                this.mtfl.UpdateMenu(menuFileMru);
+                this.mtfl.UpdateMenu(this.menuFileMru);
             } // if
         } // MenuFileSaveClick()
 
@@ -156,12 +136,12 @@ namespace RecentFileListDemo
         /// the event data.</param>
         private void MenuFileCloseClick(object sender, EventArgs e)
         {
-            var child = (MdiChildForm)ActiveMdiChild;
+            var child = (MdiChildForm)this.ActiveMdiChild;
             if (child != null)
             {
                 // add to MRU list
                 this.mtfl.Add(child.Text);
-                this.mtfl.UpdateMenu(menuFileMru);
+                this.mtfl.UpdateMenu(this.menuFileMru);
 
                 child.Close();
             } // if
@@ -193,22 +173,24 @@ namespace RecentFileListDemo
             } // if
 
             // save and close any open documents
-            MenuFileCloseClick(this, EventArgs.Empty);
+            this.MenuFileCloseClick(this, EventArgs.Empty);
 
             if (!File.Exists(tsmi.Text))
             {
                 // remove from MRU list
                 this.mtfl.Remove(tsmi.Text);
-                this.mtfl.UpdateMenu(menuFileMru);
+                this.mtfl.UpdateMenu(this.menuFileMru);
 
                 // ReSharper disable LocalizableElement
-                MessageBox.Show("File not found", Application.ProductName,
-                    // ReSharper restore LocalizableElement
-                  MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show(
+                    "File not found",
+                    Application.ProductName,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop);
                 return;
             } // if
 
-            NewMdiChild(tsmi.Text);
+            this.NewMdiChild(tsmi.Text);
         } // MenuFileMruClick()
         #endregion // UI HANDLING
 

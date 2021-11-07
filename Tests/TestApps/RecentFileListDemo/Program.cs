@@ -1,29 +1,16 @@
-﻿#region Header
-// ---------------------------------------------------------------------------
-// Tethys.Forms - RecentFileListDemo
-// ===========================================================================
-//
-// This library contains common code of .Net projects of Thomas Graf.
-//
-// ===========================================================================
-// <copyright file="Program.cs" company="Thomas Graf">
-// Copyright  1998 - 2013 by Thomas Graf
-//            Email: tngraf@gmx.de
-//            See the file "License.rtf" for information on usage and 
-//            redistribution of this file and for a DISCLAIMER OF ALL WARRANTIES.
+﻿// ---------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Tethys">
+//   Copyright (C) 1998-2021 T. Graf
 // </copyright>
-// 
-// Version .. 4.00.00.00 of 13Apr14
-// Project .. Tethys.Forms
-// Creater .. Thomas Graf (tg)
-// System ... Microsoft .Net Framework 4.5
-// Tools .... Microsoft Visual Studio 2012
 //
-// Change Report
-// 03Nov22 3.00.02.00 tg: initial version
+// SPDX-License-Identifier: Apache-2.0
 //
+// Licensed under the Apache License, Version 2.0.
+// Unless required by applicable law or agreed to in writing,
+// software distributed under the License is distributed on an
+// "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+// either express or implied.
 // ---------------------------------------------------------------------------
-#endregion
 
 namespace RecentFileListDemo
 {
