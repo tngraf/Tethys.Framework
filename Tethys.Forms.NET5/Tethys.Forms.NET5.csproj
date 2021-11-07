@@ -1,0 +1,141 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1;net5.0-windows</TargetFrameworks>
+    <UseWindowsForms>true</UseWindowsForms>
+    <CodeAnalysisRuleSet>..\Tethys.Framework.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="SingleStepToolBoxBitmap.bmp" />
+    <None Remove="ToolBoxGraphic.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SingleStepToolBoxBitmap.bmp" />
+    <Content Include="ToolBoxGraphic.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Tethys\TethysLibKey.snk" Link="TethysLibKey.snk" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tethys.Win.NET5\Tethys.Win.NET5.csproj" />
+    <ProjectReference Include="..\Tethys\Tethys.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ApplicationExceptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ApplicationExceptionForm.designer.cs">
+      <DependentUpon>ApplicationExceptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="CheckTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="CheckTreeView.designer.cs">
+      <DependentUpon>CheckTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Update="FilterTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="LedControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="LedControl.designer.cs">
+      <DependentUpon>LedControl.cs</DependentUpon>
+    </Compile>
+    <Compile Update="NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="NumericTextBox.Designer.cs">
+      <DependentUpon>NumericTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ProgressBarNeverEnd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ProgressBarNeverEnd.Designer.cs">
+      <DependentUpon>ProgressBarNeverEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Update="SimpleAboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SimpleAboutForm.designer.cs">
+      <DependentUpon>SimpleAboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="SingleStep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="SingleStep.designer.cs">
+      <DependentUpon>SingleStep.cs</DependentUpon>
+    </Compile>
+    <Compile Update="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SplashScreen.designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Update="StepControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StepControl.designer.cs">
+      <DependentUpon>StepControl.cs</DependentUpon>
+    </Compile>
+    <Compile Update="TableLayoutPanelSizable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="VerticalProgressBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="VerticalProgressBar.designer.cs">
+      <DependentUpon>VerticalProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Update="VerticalText.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="VerticalText.designer.cs">
+      <DependentUpon>VerticalText.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="ApplicationExceptionForm.resx">
+      <DependentUpon>ApplicationExceptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CheckTreeView.resx">
+      <DependentUpon>CheckTreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LedControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LedControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SimpleAboutForm.resx">
+      <DependentUpon>SimpleAboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SingleStep.resx">
+      <DependentUpon>SingleStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="StepControl.resx">
+      <DependentUpon>StepControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="VerticalProgressBar.resx">
+      <DependentUpon>VerticalProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="VerticalText.resx">
+      <DependentUpon>VerticalText.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
