@@ -4,20 +4,21 @@
     <TargetFrameworks>netcoreapp3.1;net5.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <CodeAnalysisRuleSet>..\Tethys.Framework.ruleset</CodeAnalysisRuleSet>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageIcon>tethys_icon.png</PackageIcon>
+    <PackageIconUrl />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
+    <DocumentationFile>E:\PROG\My_OSS\GitHub\Tethys.Framework\Tethys.Forms.NET5\Tethys.Forms.NET5.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="SingleStepToolBoxBitmap.bmp" />
-    <None Remove="ToolBoxGraphic.bmp" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="SingleStepToolBoxBitmap.bmp" />
-    <Content Include="ToolBoxGraphic.bmp" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\Tethys\TethysLibKey.snk" Link="TethysLibKey.snk" />
+    <None Include="..\tethys_icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
