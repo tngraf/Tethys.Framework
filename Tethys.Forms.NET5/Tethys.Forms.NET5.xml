@@ -1,0 +1,3157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tethys.Forms.NET5</name>
+    </assembly>
+    <members>
+        <member name="T:Tethys.Forms.ApplicationErrorReporter">
+            <summary>
+            The ApplicationErrorReporter class is a helper class to handle
+            application exception not caught somewhere else.
+            We need a class because event handling methods can't be static.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ApplicationErrorReporter.textSevereError">
+            <summary>
+            Error text.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationErrorReporter.TextSevereError">
+            <summary>
+            Gets or sets the culture specific text for 'Severe Error'.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationErrorReporter.ApplicationAssembly">
+            <summary>
+            Gets or sets the application assembly.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ApplicationErrorReporter.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Tethys.Forms.ApplicationErrorReporter" /> class.
+            </summary>
+            <param name="applicationAssembly">The application assembly.</param>
+        </member>
+        <member name="M:Tethys.Forms.ApplicationErrorReporter.HandleThreadException(System.Object,System.Threading.ThreadExceptionEventArgs)">
+            <summary>
+            Handle the exception event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="threadExceptionEventArgs">thread exception.</param>
+        </member>
+        <member name="M:Tethys.Forms.ApplicationErrorReporter.ShowThreadExceptionDialog(System.Exception)">
+            <summary>
+            Display a dialog indicating the exception to the user.
+            </summary>
+            <param name="e">The exception.</param>
+            <returns>A dialog result.</returns>
+        </member>
+        <member name="T:Tethys.Forms.ApplicationExceptionForm">
+            <summary>
+            ApplicationExceptionForm implements a form to be shown to the user
+            in case of an exception. This is more polite than the default exception
+            handling.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ApplicationExceptionForm.culture">
+            <summary>
+            Internal property: culture info to be used for all output operations.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationExceptionForm.CultureInfo">
+            <summary>
+            Gets or sets the culture to be used.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationExceptionForm.AddAssemblyList">
+            <summary>
+            Gets or sets a value indicating whether to add assembly list at the
+            end of the stack trace.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationExceptionForm.ExceptionText">
+            <summary>
+            Gets or sets the exception text to be displayed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationExceptionForm.DescriptionText">
+            <summary>
+            Gets or sets the description text ('An unhandled exception...').
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationExceptionForm.ButtonDetailsText">
+            <summary>
+            Gets or sets the details button text.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationExceptionForm.ButtonContinueText">
+            <summary>
+            Gets or sets the continue button text.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationExceptionForm.ButtonQuitText">
+            <summary>
+            Gets or sets the details button text.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationExceptionForm.StackText">
+            <summary>
+            Gets or sets the stack text to be displayed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ApplicationExceptionForm.ApplicationAssembly">
+            <summary>
+            Gets or sets the application assembly.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ApplicationExceptionForm.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Initializes a new instance of the
+            <see cref="T:Tethys.Forms.ApplicationExceptionForm" /> class.
+            </summary>
+            <param name="applicationAssembly">The application assembly.</param>
+        </member>
+        <member name="M:Tethys.Forms.ApplicationExceptionForm.ApplicationExceptionFormLoad(System.Object,System.EventArgs)">
+            <summary>
+            Is called when the form is loaded.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing
+            the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.ApplicationExceptionForm.CheckDetailsCheckedChanged(System.Object,System.EventArgs)">
+            <summary>
+            Handles a change of the 'Show Details' checkbox.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.ApplicationExceptionForm.BtnContinueClick(System.Object,System.EventArgs)">
+            <summary>
+            Handles a click on the Continue button.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing
+            the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.ApplicationExceptionForm.BtnAbortClick(System.Object,System.EventArgs)">
+            <summary>
+            Handles a click on the Abort button.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing
+            the event data.</param>
+        </member>
+        <member name="F:Tethys.Forms.ApplicationExceptionForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ApplicationExceptionForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.ApplicationExceptionForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.Caret">
+            <summary>
+            A class for Win32 caret handling.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.Caret.pos">
+            <summary>
+            Current caret position.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.Caret.visible">
+            <summary>
+            Flag 'caret is visible'.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.Caret.Control">
+            <summary>
+            Gets the caret control.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.Caret.Size">
+            <summary>
+            Gets or sets the caret size.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.Caret.Position">
+            <summary>
+            Gets or sets the caret position.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.Caret.Visible">
+            <summary>
+            Gets or sets a value indicating whether to show the caret.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.Caret.#ctor(System.Windows.Forms.Control)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.Caret"/> class.
+            </summary>
+            <param name="ctrl">The control.</param>
+        </member>
+        <member name="M:Tethys.Forms.Caret.Show">
+            <summary>
+            Show caret.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.Caret.Hide">
+            <summary>
+            Hide caret.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.Caret.Dispose">
+            <summary>
+            Disposes this object.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.Caret.ControlOnGotFocus(System.Object,System.EventArgs)">
+            <summary>
+            Is called when the control received the focus.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="ea">The <see cref="T:System.EventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.Caret.ControlOnLostFocus(System.Object,System.EventArgs)">
+            <summary>
+            Is called when the control lost the focus.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="ea">The <see cref="T:System.EventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="T:Tethys.Forms.CenteredMessageBox">
+            <summary>
+            CenteredMessageBox implements a message box that is always centered over
+            the parent window like the normal Win32 MessageBox.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.CenteredMessageBox.Show(System.Windows.Forms.IWin32Window,System.String)">
+            <summary>
+            Displays a message box with specified text.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.CenteredMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String)">
+            <summary>
+            Displays a message box with specified text and caption.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the
+             message box. </param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.CenteredMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            Displays a message box with specified text, caption, and buttons.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the
+            message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies
+            which buttons to display in the message box.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.CenteredMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            Displays a message box with specified text, caption, buttons, and
+            icon.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the
+            message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies
+            which buttons to display in the message box.</param>
+            <param name="icon">One of the MessageBoxIcon values that specifies
+            which icon to display in the message box. </param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.CenteredMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton)">
+            <summary>
+            Displays a message box with the specified text, caption, buttons,
+            icon, and default button.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the
+            message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies
+            which buttons to display in the message box.</param>
+            <param name="icon">One of the MessageBoxIcon values that specifies
+            which icon to display in the message box.</param>
+            <param name="defButton">One for the MessageBoxDefaultButton values
+            which specifies which is the default button for the message box.
+            </param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.CenteredMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Windows.Forms.MessageBoxOptions)">
+            <summary>
+            Displays a message box with the specified text, caption, buttons,
+            icon, and default button.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the
+            message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies
+            which buttons to display in the message box.</param>
+            <param name="icon">One of the MessageBoxIcon values that specifies
+            which icon to display in the message box.</param>
+            <param name="defButton">One for the MessageBoxDefaultButton values
+            which specifies which is the default button for the message box.
+            </param>
+            <param name="options">Message box Options.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="F:Tethys.Forms.CenteredMessageBox.HookProc">
+            <summary>
+            The hook.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CenteredMessageBox.hookCaption">
+            <summary>
+            Hook caption.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CenteredMessageBox.handleHook">
+            <summary>
+            Hook handle.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CenteredMessageBox.parent">
+            <summary>
+            Parent window.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.CenteredMessageBox.Init(System.String,System.Windows.Forms.IWin32Window)">
+            <summary>
+            Initialize hook management.
+            </summary>
+            <param name="caption">The caption.</param>
+            <param name="owner">The owner.</param>
+            <exception cref="T:System.NotSupportedException">multiple
+            calls are not supported.</exception>
+        </member>
+        <member name="M:Tethys.Forms.CenteredMessageBox.MessageBoxHookProc(System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            This is the function called by the Windows hook management.
+            We assume, that when an WM_INITDIALOG message is sent and
+            the window text is the same like the one of our window that
+            the window to hook call comes from is indeed our window.
+            We start the timer and unhook ourselves.
+            </summary>
+            <param name="code">The code.</param>
+            <param name="wParam">The w parameter.</param>
+            <param name="lParam">The l parameter.</param>
+            <returns>The handle.</returns>
+        </member>
+        <member name="T:Tethys.Forms.CheckTreeNode">
+            <summary>
+            A tree node that has a checkbox.
+            This class is needed for CheckTreeView.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CheckTreeNode.check">
+            <summary>
+            Internal property: check value.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.CheckTreeNode.Checked">
+            <summary>
+            Gets or sets a value indicating whether the check box is in
+            the checked state.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeNode.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.CheckTreeNode"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeNode.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.CheckTreeNode"/> class.
+            </summary>
+            <param name="text">node text.</param>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeNode.#ctor(Tethys.Forms.CheckTreeNode[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.CheckTreeNode"/> class.
+            </summary>
+            <param name="children">array of child nodes.</param>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeNode.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.CheckTreeNode"/> class.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="T:Tethys.Forms.CheckValue">
+            <summary>
+            Possible tree checkbox states (for CheckTreeView).
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CheckValue.Unchecked">
+            <summary>
+            Item unchecked.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CheckValue.Checked">
+            <summary>
+            Item checked.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CheckValue.TriState">
+            <summary>
+            Item undefined.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.CheckTreeView">
+            <summary>
+            Tree view with a checkbox for each node.
+            The check of a parent node always reflects the state of the
+            child nodes.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CheckTreeView.ImageIndex">
+            <summary>
+            Hide public ImageIndex.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CheckTreeView.SelectedImageIndex">
+            <summary>
+            Hide public SelectedImageIndex.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CheckTreeView.triStateStyle">
+            <summary>
+            Style: normal checkboxes or tristate checkboxes.
+            </summary>
+        </member>
+        <member name="E:Tethys.Forms.CheckTreeView.AfterCheck">
+            <summary>
+            Occurs after the tree node check box is checked.
+            </summary>
+        </member>
+        <member name="E:Tethys.Forms.CheckTreeView.BeforeCheck">
+            <summary>
+            Occurs before the tree node is selected.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.CheckTreeView.CheckBoxes">
+            <summary>
+            Gets a value indicating whether check boxes are displayed next to
+            the tree nodes in the tree view control.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.CheckTreeView.TriStateStyle">
+            <summary>
+            Gets or sets a value indicating whether to use normal checkboxes or
+            tristate checkboxes.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.CheckTreeView"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.SetCheck(Tethys.Forms.CheckTreeNode,Tethys.Forms.CheckValue)">
+            <summary>
+            Sets the checkbox of the specified node to the specified value.
+            </summary>
+            <param name="node">tree node.</param>
+            <param name="newValue">new value for the checkbox.</param>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.SetCheckValue(Tethys.Forms.CheckTreeNode,Tethys.Forms.CheckValue)">
+            <summary>
+            Sets the checkbox of the specified node and all child nodes
+            to the specified value.
+            </summary>
+            <param name="node">tree node.</param>
+            <param name="newValue">new value for the checkbox.</param>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.GetCheck(Tethys.Forms.CheckTreeNode)">
+            <summary>
+            This function returns the check state of the checkbox of the
+            specified node.
+            </summary>
+            <param name="node">The node.</param>
+            <returns>The check value.</returns>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.GetCheckChildren(System.Windows.Forms.TreeNode)">
+            <summary>
+            This function retrieves the summarized check state of the
+            checkboxes of all children of the specified node.
+            </summary>
+            <param name="node">The node.</param>
+            <returns>
+            The check value.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.InitializeCheckBoxes">
+            <summary>
+            Initializes the image list with the checkbox bitmaps.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.OnClick(System.EventArgs)">
+            <summary>
+            Handles a click on the tree view control.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that
+            contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.GetNextCheckValue(Tethys.Forms.CheckValue)">
+            <summary>
+            Returns the next CheckValue value in the order<br />
+            Unchecked -&gt; Checked -&gt; [-&gt; TriState] -&gt; Unchecked.
+            </summary>
+            <param name="val">The val.</param>
+            <returns>The check value.</returns>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.HandleStateChange(Tethys.Forms.CheckTreeNode)">
+            <summary>
+            Handles a state change of the specified node.
+            </summary>
+            <param name="node">The node.</param>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Handles the key down event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.KeyEventArgs" />
+            that contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.IsHitCheckBox(System.Windows.Forms.TreeNode,System.Drawing.Point)">
+            <summary>
+            Determines whether at the specified location the checkbox is.
+            </summary>
+            <param name="node">The node.</param>
+            <param name="pt">The point.</param>
+            <returns>
+            <c>true</c> if [is hit check box] [the specified node];
+            otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="F:Tethys.Forms.CheckTreeView.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.CheckTreeView.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.ColorGroup">
+            <summary>
+            ColorGroup is a helper class to get VSNet IDE colors.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorGroup.BackgroundColor">
+            <summary>
+            Gets the background color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorGroup.StripeColor">
+            <summary>
+            Gets the stripe color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorGroup.SelectionColor">
+            <summary>
+            Gets the selection color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorGroup.BorderColor">
+            <summary>
+            Gets the border color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorGroup.DarkSelectionColor">
+            <summary>
+            Gets the dark selection color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorGroup.PressedColor">
+            <summary>
+            Gets the 'pressed item' color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorGroup.SelectionBorderColor">
+            <summary>
+            Gets the selection Border color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorGroup.ToggleColor">
+            <summary>
+            Gets the toggle color.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ColorGroup.#ctor(System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.ColorGroup" /> class.
+            </summary>
+            <param name="backgroundColor">Color of the background.</param>
+            <param name="stripeColor">Color of the stripe.</param>
+            <param name="selectionColor">Color of the selection.</param>
+            <param name="borderColor">Color of the border.</param>
+            <param name="darkSelectionColor">Color of the dark selection.</param>
+            <param name="pressedColor">Color of the pressed.</param>
+            <param name="selectionBorderColor">Color of the selection border.
+            </param>
+            <param name="toggleColor">Color of the toggle.</param>
+        </member>
+        <member name="M:Tethys.Forms.ColorGroup.GetVsColorGroup">
+            <summary>
+            Returns VSNet IDE colors.
+            </summary>
+            <returns>The color group.</returns>
+        </member>
+        <member name="T:Tethys.Forms.ColorUtil">
+            <summary>
+            The class <see cref="T:Tethys.Forms.ColorUtil"/> implements support functions for
+            color conversion and color detection.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ColorUtil.systemColorNames">
+            <summary>
+            The system color names.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ColorUtil.knownColorNames">
+            <summary>
+            The known color names.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorUtil.KnownColorNames">
+            <summary>
+            Gets the known color names.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorUtil.SystemColorNames">
+            <summary>
+            Gets the system color names.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.HslToRgb(System.Single,System.Single,System.Single,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Conversion HSL to RGB.
+            </summary>
+            <param name="h">The h.</param>
+            <param name="s">The s.</param>
+            <param name="l">The l.</param>
+            <param name="r">The r.</param>
+            <param name="g">The g.</param>
+            <param name="b">The b.</param>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.GetRgbValue(System.Single,System.Single,System.Single)">
+            <summary>
+            Helper function for the HSLToRGB function above.
+            </summary>
+            <param name="n1">The n1.</param>
+            <param name="n2">The n2.</param>
+            <param name="hue">The hue.</param>
+            <returns>An RGB value.</returns>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.RgbToHsl(System.Int32,System.Int32,System.Int32,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Conversion RGB to HSL.
+            </summary>
+            <param name="r">The r.</param>
+            <param name="g">The g.</param>
+            <param name="b">The b.</param>
+            <param name="h">The h.</param>
+            <param name="s">The s.</param>
+            <param name="l">The l.</param>
+        </member>
+        <member name="P:Tethys.Forms.ColorUtil.VsNetBackgroundColor">
+            <summary>
+            Gets a Visual Studio .Net like menu item background color.
+            Also used as toolbar background color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorUtil.VsNetSelectionColor">
+            <summary>
+            Gets a Visual Studio .Net like menu item selection color.
+            Also used as toolbar background color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorUtil.VsNetStripeColor">
+            <summary>
+            Gets a Visual Studio .Net like menu item stripe color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorUtil.VsNetPressedColor">
+            <summary>
+            Gets a Visual Studio .Net like pressed menu item color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorUtil.VsNetToggleColor">
+            <summary>
+            Gets a Visual Studio .Net like menu item toggle color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ColorUtil.VsNetSelectionBorderColor">
+            <summary>
+            Gets a Visual Studio .Net like selection border color.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.CalculateColor(System.Drawing.Color,System.Drawing.Color,System.Int32)">
+            <summary>
+            Returns the color the is an alpha blending of the given front color
+            over the given background color with the given alpha blending level.
+            </summary>
+            <param name="front">The front.</param>
+            <param name="back">The back.</param>
+            <param name="alpha">The alpha.</param>
+            <returns>Alpha blend color.</returns>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.IsKnownColor(System.Drawing.Color,System.Drawing.Color@,System.Boolean)">
+            <summary>
+            Verifies whether the given color is a .Net 'known' color.
+            </summary>
+            <param name="color">The color.</param>
+            <param name="knownColor">Color of the known.</param>
+            <param name="useTransparent">if set to <c>true</c> [use transparent].</param>
+            <returns>
+              <c>true</c> if [is known color] [the specified color]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.IsSystemColor(System.Drawing.Color,System.Drawing.Color@)">
+            <summary>
+            Verifies whether the given color is a system color.
+            </summary>
+            <param name="color">The color.</param>
+            <param name="knownColor">Color of the known.</param>
+            <returns>
+            <c>true</c> if [is system color] [the specified color];
+            otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.GetColorRef(System.Drawing.Color)">
+            <summary>
+            Return a 24-bit color value of the given color.
+            </summary>
+            <param name="color">The color.</param>
+            <returns>Color value.</returns>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.GetRValue(System.UInt32)">
+            <summary>
+            Returns the red components of the given 24-bit RGB color value.
+            </summary>
+            <param name="color">The color.</param>
+            <returns>The red value.</returns>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.GetGValue(System.UInt32)">
+            <summary>
+            Returns the green components of the given 24-bit RGB color value.
+            </summary>
+            <param name="color">The color.</param>
+            <returns>The green value.</returns>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.GetBValue(System.UInt32)">
+            <summary>
+            Returns the blue components of the given 24-bit RGB color value.
+            </summary>
+            <param name="color">The color.</param>
+            <returns>The blue value.</returns>
+        </member>
+        <member name="M:Tethys.Forms.ColorUtil.Rgb(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns a 24 bit RGB value of the specified R, G, B colors.
+            </summary>
+            <param name="r">The r.</param>
+            <param name="g">The g.</param>
+            <param name="b">The b.</param>
+            <returns>A value.</returns>
+        </member>
+        <member name="T:Tethys.Forms.ComboBoxItem">
+            <summary>
+            The class ComboBoxItem implements an extended container
+            to hold information about a specific combo box item.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ComboBoxItem.dataTag">
+            <summary>
+            Data object to hold more information about the item.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ComboBoxItem.ItemText">
+            <summary>
+            Gets or sets the display string of the current object.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ComboBoxItem.DataTag">
+            <summary>
+            Gets or sets the data value of the current object.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ComboBoxItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.ComboBoxItem"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ComboBoxItem.#ctor(System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.ComboBoxItem"/> class.
+            </summary>
+            <param name="itemText">item test.</param>
+            <param name="tag">object tag to add.</param>
+        </member>
+        <member name="M:Tethys.Forms.ComboBoxItem.ToString">
+            <summary>
+            Returns a string representing this object instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:Tethys.Forms.Extensions">
+            <summary>
+            Extension methods and other support methods.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.Extensions.AbbreviatePath(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Abbreviates the specified file path.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="maxLength">Length of the max.</param>
+            <param name="minimumName">if set to <c>true</c> at least the name
+            is returned.</param>
+            <returns>
+            The abbreviated file path.
+            </returns>
+            <code>
+            name = C:\MYAPP\DEBUGS\C\TESWIN.C
+            maxLength   b   Result
+            ---------   -   ---------
+            1- 7        F   (empty)
+            1- 7        T   TESWIN.C
+            8-14        x   TESWIN.C
+            15-16       x   C:\...\TESWIN.C
+            17-23       x   C:\...\C\TESWIN.C
+            24-25       x   C:\...\DEBUGS\C\TESWIN.C
+            26+         x   C:\MYAPP\DEBUGS\C\TESWIN.C.
+            </code>
+        </member>
+        <member name="T:Tethys.Forms.CharacterTypes">
+            <summary>
+            Type of characters the FilterTextBox should accept.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CharacterTypes.None">
+            <summary>
+            No characters.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CharacterTypes.Letters">
+            <summary>
+            letters (no numbers).
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CharacterTypes.Numbers">
+            <summary>
+            Only numbers 0..9.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CharacterTypes.HexNumbers">
+            <summary>
+            Only hex numbers 0..9, A..F.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.CharacterTypes.Space">
+            <summary>
+            Spaces allowed.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.FilterTextBox">
+            <summary>
+            FilterTextBox implements an enhanced textbox control that can restrict
+            the type of character that can be entered: only letters, only numbers,
+            or both (default).
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.FilterTextBox.characterType">
+            <summary>
+            Internal property: Type of characters the textbox should accept.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.FilterTextBox.CharacterType">
+            <summary>
+            Gets or sets the type of characters the textbox should accept.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.FilterTextBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.FilterTextBox"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.FilterTextBox.IsValidChar(System.Char)">
+            <summary>
+            Determines if a character is an input character that the
+            control recognizes.
+            </summary>
+            <param name="code">The code.</param>
+            <returns>
+              <c>true</c> if this is valid char; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.FilterTextBox.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Processes Windows messages.
+            </summary>
+            <param name="m">A Windows Message object.</param>
+        </member>
+        <member name="T:Tethys.Forms.LedColor">
+            <summary>
+            Enumeration of possible LedControl LED colors.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedColor.Red">
+            <summary>
+            Red LED.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedColor.Green">
+            <summary>
+            Green LED.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedColor.Yellow">
+            <summary>
+            Yellow LED.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedColor.Blue">
+            <summary>
+            Blue LED.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.LedState">
+            <summary>
+            Enumeration of possible LedControl LED states.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedState.On">
+            <summary>
+            LED on.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedState.Off">
+            <summary>
+            LED off.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedState.Disabled">
+            <summary>
+            led control disabled.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.LedControl">
+            <summary>
+            The class LedControl implements a simple LED like control.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.LedControl.LedBitmap">
+            <summary>
+            Enumeration of LED bitmaps.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.LedBitmap.Off">
+            <summary>
+            Led off.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.LedBitmap.RedLow">
+            <summary>
+            Led: RedLow
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.LedBitmap.RedHigh">
+            <summary>
+            Led: RedHigh
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.LedBitmap.GreenLow">
+            <summary>
+            Led: GreenLow
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.LedBitmap.GreenHigh">
+            <summary>
+            Led: GreenHigh
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.LedBitmap.YellowLow">
+            <summary>
+            Led: YellowLow
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.LedBitmap.YellowHigh">
+            <summary>
+            Led: YellowHigh
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.LedBitmap.BlueLow">
+            <summary>
+            Led: BlueLow
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.LedBitmap.BlueHigh">
+            <summary>
+            Led: BlueHigh
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.DefaultPingIntervall">
+            <summary>
+            Default ping interval.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.color">
+            <summary>
+            Current LED color.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.imageIndex">
+            <summary>
+            Current index within the image list.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.state">
+            <summary>
+            Current LED state.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.timer">
+            <summary>
+            Timer for blink mode.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.LedControl.Color">
+            <summary>
+            Gets or sets the color of the LED.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.LedControl.State">
+            <summary>
+            Gets or sets the current state of the LED.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.LedControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.LedControl"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.LedControl.Ping(System.Int32)">
+            <summary>
+            Enables the ping mode, i.e. the LED will turn on and off
+            in the given interval values.
+            </summary>
+            <param name="pingInterval">ping interval.</param>
+        </member>
+        <member name="M:Tethys.Forms.LedControl.Ping">
+            <summary>
+            Enables the ping mode, i.e. the LED will turn on and off
+            in a one second interval.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.LedControl.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be
+            disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.LedControl.TimerTick(System.Object,System.EventArgs)">
+            <summary>
+            Function that is called when the timer is elapsed.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.LedControl.ChangeState(Tethys.Forms.LedState)">
+            <summary>
+            Changes the current LED state to the specified LED state.
+            </summary>
+            <param name="newState">new LED state.</param>
+            <returns>returns the bitmap for the new LED state.</returns>
+        </member>
+        <member name="M:Tethys.Forms.LedControl.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            The function is the paint handler.
+            </summary>
+            <param name="e">Paint event arguments.</param>
+        </member>
+        <member name="F:Tethys.Forms.LedControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.LedControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.ListViewItemType">
+            <summary>
+            ListView item types.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ListViewItemType.Text">
+            <summary>
+            Text items.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ListViewItemType.Numeric">
+            <summary>
+            Numeric items.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.ListViewSorter">
+            <summary>
+            ListViewSorter is a helper class to sort a list view
+            depending on the contents of selected columns.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ListViewSorter.Column">
+            <summary>
+            Gets or sets the column to be used for sorting.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ListViewSorter.Sorting">
+            <summary>
+            Gets or sets the sort order.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ListViewSorter.ItemType">
+            <summary>
+            Gets or sets the item type.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ListViewSorter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.ListViewSorter"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ListViewSorter.Compare(System.Object,System.Object)">
+            <summary>
+            Compares two objects and returns a value indicating whether one is less
+            than, equal to or greater than the other.
+            </summary>
+            <param name="x">First object to compare.</param>
+            <param name="y">Second object to compare.</param>
+            <returns>
+            * Less than zero -> x is less than y.<br/>
+            * Zero -> x equals y.<br/>
+            * Greater than zero x is greater than y.<br/>
+            </returns>
+        </member>
+        <member name="T:Tethys.Forms.NumericTextBox">
+            <summary>
+            The numeric text box takes numeric(decimal) values as input.
+            It has the following extra properties:<br/>
+               NumericPrecision: Precision<br/>
+               NumericScaleOnFocus: The scale to display when the text box has got the focus.<br/>
+               NumericScaleOnLostFocus: The scale to display when the text box hasn't got the focus.<br/>
+               NumericValue: The current numeric value displayed in the text box (decimal)<br/>
+               ZeroIsValid: Zero is a valid as input<br/>
+               AllowNegative: Allow input of negative decimal numbers<br/>
+             It has the following extra events:<br/>
+               NumericValueChanged: The event fires when the numeric value changes <br/>
+                          by user input or programmatically.(Like TextChanged)<br/>
+             Use NumericValueChanged event instead of the TextChanged event!
+             The NumericValue property is also capable of data binding.
+             The decimal number is displayed with grouping char.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.NumericTextBox.scaleOnLostFocus">
+            <summary>
+            The scale displayed when the textbox has no focus.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.NumericTextBox.internalValue">
+            <summary>
+            Current internal value.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.NumericTextBox.numericValue">
+            <summary>
+            The current numeric value displayed in the textbox.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.NumericTextBox.scaleOnFocus">
+            <summary>
+            The maximum scale allowed.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.NumericTextBox.precision">
+            <summary>
+            The maximum allowed precision.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.NumericTextBox.noChangeEvent">
+            <summary>
+            Flag to block the changed event.
+            </summary>
+        </member>
+        <member name="E:Tethys.Forms.NumericTextBox.NumericValueChanged">
+            <summary>
+            Occurs when the numeric value of the control has changed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.NumericTextBox.ZeroIsValid">
+            <summary>
+            Gets or sets a value indicating whether the value zero (0) valid.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.NumericTextBox.NumericPrecision">
+            <summary>
+            Gets or sets the maximum allowed precision.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.NumericTextBox.NumericScaleOnFocus">
+            <summary>
+            Gets or sets the maximum scale allowed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.NumericTextBox.NumericScaleOnLostFocus">
+            <summary>
+            Gets or sets the scale displayed when the textbox has no focus.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.NumericTextBox.DecimalSeparator">
+            <summary>
+            Gets the decimal separator.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.NumericTextBox.GroupSeparator">
+            <summary>
+            Gets the group separator.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.NumericTextBox.AllowNegative">
+            <summary>
+            Gets or sets a value indicating whether negative numbers are allowed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.NumericTextBox.NumericValue">
+            <summary>
+            Gets or sets the current numeric value displayed in the textbox.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.NumericTextBox"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.NumericTextBoxLostFocus(System.Object,System.EventArgs)">
+            <summary>
+            Occurs when the control loses focus.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.NumericTextBoxGotFocus(System.Object,System.EventArgs)">
+            <summary>
+            Occurs when the control receives focus.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.NumericTextBoxTextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Occurs when the user changes the text of a TextBox.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.NumericTextBoxKeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Handles the key down event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.KeyEventArgs"/> instance containing the
+            event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.NumericTextBoxKeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            Handles the key press event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.KeyPressEventArgs"/> instance containing
+            the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.OnNumericValueChanged(System.EventArgs)">
+            <summary>
+            Raises the NumericValueChanged event.
+            </summary>
+            <param name="e">The event args.</param>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.FormatNumber">
+            <summary>
+            Formats a the text in the textbox (which represents a number) according to
+            the scale, precision and the environment settings.
+            </summary>
+            <returns>The formatted string.</returns>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.NumericTextBoxValidating(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Handles the Validating event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> instance containing
+            the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.DivRem(System.Int64,System.Int64,System.Int64@)">
+            <summary>
+            Returns the quotient of two 32-bit signed integers, also passing the
+            remainder as an output parameter.
+            </summary>
+            <remarks>
+            This function has been implemented here to support the .Net framework 1.0,
+            it is part of System.Math of the .Net framework 1.1.
+            </remarks>
+            <param name="a">The <see cref="T:System.Int64"/> that contains the
+            dividend.</param>
+            <param name="b">The <see cref="T:System.Int64"/> that contains the
+            divisor.</param>
+            <param name="result">The <see cref="T:System.Int64"/> that receives the
+            remainder.</param>
+            <returns>The <see cref="T:System.Int64"/> containing the quotient of the
+            specified numbers.</returns>
+        </member>
+        <member name="F:Tethys.Forms.NumericTextBox.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.NumericTextBox.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.ProgressStyle">
+            <summary>
+            Progress indicator rotation styles.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressStyle.LeftToRight">
+            <summary>
+            Display progress from left to right.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressStyle.LeftAndRight">
+            <summary>
+            Display progress from right to left and back to right.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.ProgressType">
+            <summary>
+            Possible types of progress bar.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressType.Box">
+            <summary>
+            Box image.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressType.Graphic">
+            <summary>
+            User defined image.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.ProgressBoxStyle">
+            <summary>
+            Possible Progress bar box styles.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBoxStyle.SolidSameSize">
+            <summary>
+            Solid Same Size
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBoxStyle.BoxAround">
+            <summary>
+            Box Around
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBoxStyle.SolidBigger">
+            <summary>
+            Solid Bigger
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBoxStyle.SolidSmaller">
+            <summary>
+            Solid Smaller
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.ProgressBarNeverEnd">
+            <summary>
+            ProgressBarNeverEnd is a progress bar that never ends, i.e.
+            the progress indicator will always move from left to right
+            or from left to right and the back to left.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.SpeedMultiplier">
+            <summary>
+            Speed multiplier for indicator speed.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.timerAutoProgress">
+            <summary>
+            Timer for auto progress.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.progressType">
+            <summary>
+            Determines the type of progress bar.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.progressStyle">
+            <summary>
+            Indicates the progress indicator rotation style.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.progressBoxStyle">
+            <summary>
+            Progress bar box style.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.normalImage">
+            <summary>
+            Background graphic.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.pointImage">
+            <summary>
+            Point graphic.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.showBorder">
+            <summary>
+            Determines if the border is shown.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.numPoints">
+            <summary>
+            Number of points in the Progress bar.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.position">
+            <summary>
+            Position of the progress indicator.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.indicatorColor">
+            <summary>
+            Color of the indicator.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.autoProgress">
+            <summary>
+            Indicates whether auto-progress is enabled.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.autoProgressSpeed">
+            <summary>
+            Indicates the speed of the progress indicator (1 [slower] to 254 [faster]).
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.requireClear">
+            <summary>
+            Flag that the control needs to be redrawn.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.increasing">
+            <summary>
+            Flag for left and right progress style for the direction.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.ProgressType">
+            <summary>
+            Gets or sets the type of progress bar.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.NormalImage">
+            <summary>
+            Gets or sets the background graphic.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.PointImage">
+            <summary>
+            Gets or sets the point graphic.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.ShowBorder">
+            <summary>
+            Gets or sets a value indicating whether the border is shown.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.PointNumber">
+            <summary>
+            Gets the number of points in the Progress bar.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.Position">
+            <summary>
+            Gets or sets the position of the progress indicator.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.IndicatorColor">
+            <summary>
+            Gets or sets the color of the indicator.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.ProgressStyle">
+            <summary>
+            Gets or sets the indicator rotation style.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.AutoProgress">
+            <summary>
+            Gets or sets a value indicating whether auto-progress is enabled.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.AutoProgressSpeed">
+            <summary>
+            Gets or sets the speed of the progress indicator (1 [slower] to 254 [faster].
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.ProgressBarNeverEnd.ProgressBoxStyle">
+            <summary>
+            Gets or sets the progress bar box style.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.ProgressBarNeverEnd"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be
+            disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.ShouldSerializeProgressType">
+            <summary>
+            Should the type of the serialize progress.
+            </summary>
+            <returns>A flag.</returns>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.ShouldSerializeNormalImage">
+            <summary>
+            Should the serialize normal image.
+            </summary>
+            <returns>A flag.</returns>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.ShouldSerializePointImage">
+            <summary>
+            Should the serialize point image.
+            </summary>
+            <returns>A flag.</returns>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.ShouldSerializeIndicatorColor">
+            <summary>
+            Should the color of the serialize indicator.
+            </summary>
+            <returns>
+            A flag.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.ShouldSerializeProgressStyle">
+            <summary>
+            Should the serialize progress style.
+            </summary>
+            <returns>
+            A flag.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.ShouldSerializeAutoProgressSpeed">
+            <summary>
+            Should the serialize auto progress speed.
+            </summary>
+            <returns>
+            A flag.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.ShouldSerializeProgressBoxStyle">
+            <summary>
+            Should the serialize progress box style.
+            </summary>
+            <returns>
+            A flag.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.ResizeHandler(System.Object,System.EventArgs)">
+            <summary>
+            Handles the resizing of the control.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.TimerHandler(System.Object,System.EventArgs)">
+            <summary>
+            Timers the handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.PaintHandler(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Paints the handler.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.DrawBackground(System.Drawing.Graphics)">
+            <summary>
+            Draws the background.
+            </summary>
+            <param name="grfx">The GRFX.</param>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.PositionIndicator(System.Drawing.Rectangle,System.Drawing.Graphics)">
+            <summary>
+            Positions the indicator.
+            </summary>
+            <param name="rect">The rectangle.</param>
+            <param name="grfx">The GRFX.</param>
+        </member>
+        <member name="F:Tethys.Forms.ProgressBarNeverEnd.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.ProgressBarNeverEnd.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.RecentFileList">
+            <summary>
+            The class RecentFileList which implements the support for
+            a "most recently used files" list in C# projects.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.RecentFileList.listSize">
+            <summary>
+            Size of the MRU list.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.RecentFileList.mruItemText">
+            <summary>
+            contents of the MRU list.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.RecentFileList.toolstripItems">
+            <summary>
+            menu items of the MRU list.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.RecentFileList.sectionName">
+            <summary>
+            section name where to store the list in the registry.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.RecentFileList.entryFormat">
+            <summary>
+            Format string to be used for the names of the entries
+            stored in the registry.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.RecentFileList.maxDisplayLength">
+            <summary>
+            Maximum length, in characters, available for the menu display
+            of a filename in the MRU file list.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.RecentFileList.initDone">
+            <summary>
+            Flag "menu items added".
+            </summary>
+        </member>
+        <member name="E:Tethys.Forms.RecentFileList.Click">
+            <summary>
+            Click event.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.RecentFileList.Size">
+            <summary>
+            Gets the current size (number of entries) of the MRU list.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.RecentFileList.Item(System.Int32)">
+            <summary>
+            Indexer for recent file list items.
+            </summary>
+            <value>
+            The <see cref="T:System.String"/>.
+            </value>
+            <param name="index">The index.</param>
+            <returns>The item with the specified index.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            index;index out of range
+            or
+            index;index out of range.
+            </exception>
+        </member>
+        <member name="M:Tethys.Forms.RecentFileList.#ctor(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.RecentFileList"/> class.
+            </summary>
+            <param name="section">Points to the name of the section of the
+            registry or the application's INI file where the MRU file list is
+            read and/or written.</param>
+            <param name="entryFormat">Points to a format string to be used for
+            the names of the entries stored in the registry or the application's
+            INI file.</param>
+            <param name="maxSize">Maximum number of files in the MRU file list.
+            </param>
+            <param name="maxDisplayLength">Maximum length, in characters,
+            available for the menu display of a filename in the MRU file list.
+            </param>
+            <remarks>
+            The format string pointed to by entryFormat should contain "{0}",
+            which will be used for substituting the index of each MRU item.
+            For example, if the format string is "file%d" then the entries will
+            be named file0, file1, and so on.
+            </remarks>
+        </member>
+        <member name="M:Tethys.Forms.RecentFileList.Add(System.String)">
+            <summary>
+            Adds the file whose path is given in file to the most recently used
+            (MRU) file list.
+            </summary>
+            <param name="file">Pathname to be added to the list. </param>
+            <remarks>
+            The file name will be added to the top of the MRU list. If the file
+            name already exists in the MRU list, it will be moved to the top.
+            </remarks>
+        </member>
+        <member name="M:Tethys.Forms.RecentFileList.GetDisplayName(System.String,System.Int32,System.String)">
+            <summary>
+            Obtains a display name for a file in the MRU file list, for use in
+            the menu display of the MRU list.
+            </summary>
+            <param name="name">Full path of the file whose name is to be
+            displayed in the menu list of MRU files.</param>
+            <param name="index">The index.</param>
+            <param name="curDirectory">String holding the current directory.</param>
+            <returns>
+            Full path of the file whose name is to be
+            displayed in the menu list of MRU files or an abbreviated path.
+            </returns>
+            <remarks>
+            If the file is in the current directory, the function leaves the
+            directory off the display. If the filename is too long, the directory
+            and extension are stripped. If the filename is still too long, the
+            display name is set to an empty string unless bAtLeastName is nonzero.
+            </remarks>
+        </member>
+        <member name="M:Tethys.Forms.RecentFileList.ReadList">
+            <summary>
+            Reads the most recently used (MRU) file list from the registry.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.RecentFileList.Remove(System.Int32)">
+            <summary>
+            Removes a file from the MRU file list.
+            </summary>
+            <param name="index">Zero-based index of the file to be removed from
+            the most recently used (MRU) file list.</param>
+        </member>
+        <member name="M:Tethys.Forms.RecentFileList.Remove(System.String)">
+            <summary>
+            Removes a file from the MRU file list.
+            </summary>
+            <param name="file">Full path of the file to be removed.</param>
+        </member>
+        <member name="M:Tethys.Forms.RecentFileList.UpdateMenu(System.Windows.Forms.ToolStripMenuItem)">
+            <summary>
+            Updates the menu display of the MRU file list.
+            </summary>
+            <param name="menuItemStart">The menu item start.</param>
+        </member>
+        <member name="M:Tethys.Forms.RecentFileList.WriteList">
+            <summary>
+            Writes the most recently used (MRU) file list into the registry.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.RecentFileList.OnItemClick(System.Object,System.EventArgs)">
+            <summary>
+            Is called when the user has clicked on one of the
+            ToolBarMenuItems created by this object.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the
+            event data.</param>
+        </member>
+        <member name="T:Tethys.Forms.SimpleAboutForm">
+            <summary>
+            The class SimpleAboutForm displays a form with the information
+            what this application is about, who created it and what
+            is the current version.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.SimpleAboutForm.iconPath">
+            <summary>
+            Internal property: resource path to the icon.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.SimpleAboutForm.useAssemblyInfo">
+            <summary>
+            Internal property: extract ALL information from the assembly.
+            attributes.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SimpleAboutForm.UseVersionInfo">
+            <summary>
+            Gets or sets a value indicating whether to use Tethys VersionInfo for
+            version display instead of TextProductVersion property.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SimpleAboutForm.TextProductDescription">
+            <summary>
+            Gets or sets the product version to be displayed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SimpleAboutForm.TextProductVersion">
+            <summary>
+            Gets or sets the product version to be displayed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SimpleAboutForm.TextCopyright">
+            <summary>
+            Gets or sets the product version to be displayed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SimpleAboutForm.SourceAssembly">
+            <summary>
+            Gets or sets the assembly that should be used to retrieve information.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SimpleAboutForm.IconPath">
+            <summary>
+            Gets or sets the resource path to the icon.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SimpleAboutForm.UseAssemblyInfo">
+            <summary>
+            Gets or sets a value indicating whether to extract ALL information
+            from the assembly attributes.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SimpleAboutForm.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.SimpleAboutForm"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SimpleAboutForm.BtnOkClick(System.Object,System.EventArgs)">
+            <summary>
+            Handler for the click event of the OK button. The dialog is closed.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing
+            the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.SimpleAboutForm.SimpleAboutFormLoad(System.Object,System.EventArgs)">
+            <summary>
+            This function is called when the form is loaded. We resize the application
+            icon and display the current version information.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing
+            the event data.</param>
+        </member>
+        <member name="F:Tethys.Forms.SimpleAboutForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SimpleAboutForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.SimpleAboutForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.StepResult">
+            <summary>
+            Step result codes.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.StepResult.NotStarted">
+            <summary>
+            Step not yet started.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.StepResult.Skip">
+            <summary>
+            Step skipped.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.StepResult.Working">
+            <summary>
+            Current step.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.StepResult.Success">
+            <summary>
+            Step successfully completed.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.StepResult.Failure">
+            <summary>
+            Step finished with failures.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.StepResult.Unknown">
+            <summary>
+            Step finish with unknown result.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.SingleStep">
+            <summary>
+            SingleStep implements a single step of the step control.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.SingleStep.stepResult">
+            <summary>
+            Step result.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SingleStep.Caption">
+            <summary>
+            Gets or sets the step caption.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SingleStep.Result">
+            <summary>
+            Gets or sets the step result code.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SingleStep.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.SingleStep"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SingleStep.UpdateIcon">
+            <summary>
+            Updates the icon display.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.SingleStep.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SingleStep.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.SingleStep.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.SplashScreen">
+            <summary>
+            The class SplashScreen implements a simple splash screen window.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.SplashScreen.isVisible">
+            <summary>
+            Internal property: is splash screen visible.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.SplashScreen.DefaultTimeout">
+            <summary>
+            Default timeout for the Splash Screen (5000 milliseconds).
+            </summary>
+        </member>
+        <member name="E:Tethys.Forms.SplashScreen.HidingEvent">
+            <summary>
+            Hiding event.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SplashScreen.IsVisible">
+            <summary>
+            Gets a value indicating whether the splash is screen visible.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SplashScreen.Timeout">
+            <summary>
+            Gets or sets the timeout for the Splash Screen.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SplashScreen.SplashBitmapPath">
+            <summary>
+            Gets or sets the resource path to the splash bitmap.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SplashScreen.UseProductName">
+            <summary>
+            Gets or sets a value indicating whether to use Application.ProductName
+            instead  of TextProductName property".
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SplashScreen.UseVersionInfo">
+            <summary>
+            Gets or sets a value indicating whether to use Tethys VersionInfo for
+            version display instead of TextProductVersion property.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SplashScreen.TextProductName">
+            <summary>
+            Gets or sets the product name to be displayed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SplashScreen.TextProductDescription">
+            <summary>
+            Gets or sets the product description to be displayed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SplashScreen.TextProductVersion">
+            <summary>
+            Gets or sets the product version to be displayed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SplashScreen.TextTestVersion">
+            <summary>
+            Gets or sets the 'test version' text to be displayed.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.SplashScreen.SourceAssembly">
+            <summary>
+            Gets or sets the Assembly that should be use to retrieve information.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.SplashScreen"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.Show">
+            <summary>
+            Displays the control to the user.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.PreFilterMessage(System.Windows.Forms.Message@)">
+            <summary>
+            This function filters out a message before it is dispatched.
+            We use it to catch all messages that should immediately
+            close/hide the splash screen.
+            </summary>
+            <param name="m">The message to be dispatched. You cannot modify
+            this message.</param>
+            <returns>
+            true to filter the message and stop it from being dispatched;
+            false to allow the message to continue to the next filter or
+            control.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.InitializeSplashBitmap">
+            <summary>
+            Loads the splash screen bitmap and assigns it to picture control.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.SplashScreenLoad(System.Object,System.EventArgs)">
+            <summary>
+            This function is called when the splash screen is loaded (and displayed).
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.HideSplashScreen">
+            <summary>
+            Hides the Splash Screen and raises the notification event.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.TimerTick(System.Object,System.EventArgs)">
+            <summary>
+            Hides the Splash Screen when we got a timeout event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.HideWindowOnMouseEvent(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Hides the Splash Screen when any mouse button has been pressed.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> instance containing
+            the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.HideWindowOnKeyEvent(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Hides the Splash Screen when any key has been pressed.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.KeyEventArgs"/> instance containing the
+            event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.PaintHandler(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Paint our Splash Screen.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.Forms.PaintEventArgs"/> instance containing
+            the event data.</param>
+        </member>
+        <member name="F:Tethys.Forms.SplashScreen.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.SplashScreen.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.StepControl">
+            <summary>
+            Step control implements a control to show single
+            step of an operation consisting of an icon and a text.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.StepControl.steps">
+            <summary>
+            The steps.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.StepControl.centerParent">
+            <summary>
+            Parent to center above.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.StepControl.nextStep">
+            <summary>
+            The next step.
+            </summary>
+        </member>
+        <member name="E:Tethys.Forms.StepControl.UserCancelEvent">
+            <summary>
+            Delegate for the 'user has pressed the cancel button' event.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.StepControl.AlwaysOnTop">
+            <summary>
+            Gets or sets a value indicating whether to always stay on top.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.StepControl.CurrentStep">
+            <summary>
+            Gets the current step.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.StepControl.PercentComplete">
+            <summary>
+            Gets or sets the progress bar value.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.StepControl.StepCount">
+            <summary>
+            Gets the step count.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.StepControl.CenterParent">
+            <summary>
+            Gets or sets the parent where the Message Form should center above.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.StepControl.AbortButtonText">
+            <summary>
+            Gets or sets the abort button text.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.StepControl"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.AddStep(System.String)">
+            <summary>
+            Adds a new step to the step control.
+            </summary>
+            <param name="caption">The caption.</param>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.EndSteps">
+            <summary>
+            Ends the step display.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.FinishStep(Tethys.Forms.StepResult)">
+            <summary>
+            Finishes the current step.
+            </summary>
+            <param name="result">The result.</param>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.StartSteps(System.Windows.Forms.Form)">
+            <summary>
+            Starts (and shows) the step control on top of the specified form.
+            </summary>
+            <param name="parent">The parent.</param>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.StepControlLoad(System.Object,System.EventArgs)">
+            <summary>
+            This function is called when the form is loaded.
+            We display the network icon.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.BtnCancelClick(System.Object,System.EventArgs)">
+            <summary>
+            This function is called when the user has clicked the Cancel button.
+            We raise the UserCancelEvent event to notify the caller.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.CenterOverWindow(System.Windows.Forms.Form)">
+            <summary>
+            This function centers the form over the given window.
+            </summary>
+            <param name="form">The form.</param>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.Show(System.Windows.Forms.Form)">
+            <summary>
+            Displays the control to the user.
+            </summary>
+            <param name="parent">The parent.</param>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.Hide">
+            <summary>
+            Hides the form, enables the parent window again.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.StepControl.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.StepControl.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.ResizeMode">
+            <summary>
+            Resize modes.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ResizeMode.Horizontal">
+            <summary>
+            Horizontal resize.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.ResizeMode.Vertical">
+            <summary>
+            Vertical resize.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.TableLayoutPanelSizable">
+            <summary>
+            This class implements an enhanced TableLayoutPanel. The cells sizes
+            of this table can be resized dynamically during runtime.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.TableLayoutPanelSizable.PositionItem">
+            <summary>
+            Information about resize positions.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.PositionItem.item">
+            <summary>
+            Item id.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.PositionItem.p1">
+            <summary>
+            Position 1.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.PositionItem.p2">
+            <summary>
+            Position 2.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.TableLayoutPanelSizable.PositionItem.Item">
+            <summary>
+            Gets the item or cell that belongs to the coordinates.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.TableLayoutPanelSizable.PositionItem.P1">
+            <summary>
+            Gets the coordinate P1.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.TableLayoutPanelSizable.PositionItem.P2">
+            <summary>
+            Gets the coordinate P2.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.PositionItem.#ctor(System.Int32,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.TableLayoutPanelSizable.PositionItem"/> class.
+            </summary>
+            <param name="item">Item or cell that belongs to the coordinates.</param>
+            <param name="p1">Coordinate P1.</param>
+            <param name="p2">Coordinate P2.</param>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.TrackSize">
+            <summary>
+            The track size.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.tracking">
+            <summary>
+            We're tracking.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.resizing">
+            <summary>
+            Currently resizing.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.resizeMode">
+            <summary>
+            The resize mode.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.resizeStart">
+            <summary>
+            Resize starting point.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.firstColumn">
+            <summary>
+            The first column.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.firstRow">
+            <summary>
+            The first row.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.baseValue">
+            <summary>
+            Resize factor base value.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.pmapsInitialized">
+            <summary>
+            Flag that we're initialized.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.pmapHorz">
+            <summary>
+            Horizontal positions.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.pmapVert">
+            <summary>
+            Vertical positions.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TableLayoutPanelSizable.cellTable">
+            <summary>
+            The cell table.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.TableLayoutPanelSizable.ColumnCount">
+            <summary>
+            Gets or sets the number of columns in the table.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.TableLayoutPanelSizable.RowCount">
+            <summary>
+            Gets or sets the number of rows in the table.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.TableLayoutPanelSizable"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.OnLayout(System.Windows.Forms.LayoutEventArgs)">
+            <summary>
+            Occurs when a control should reposition its child controls.
+            </summary>
+            <param name="levent">A <see cref="T:System.Windows.Forms.LayoutEventArgs" />
+            that contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.OnMouseClick(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Occurs when the control is clicked by the mouse.
+            </summary>
+            <param name="e">An <see cref="T:System.Windows.Forms.MouseEventArgs" />
+            that contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Occurs when the mouse pointer is over the control and
+            a mouse button is pressed.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs" />
+            that contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            If we are tracking, check for the current mouse position
+            whether we need to display either a vertical or horizontal
+            resize cursor.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs" />
+            that contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Occurs when the mouse pointer is over the control and
+            a mouse button is released.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.MouseEventArgs" />
+            that contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.OnMouseLeave(System.EventArgs)">
+            <summary>
+            Occurs when the mouse pointer leaves the control.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" />
+            that contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.OnCellPaint(System.Windows.Forms.TableLayoutCellPaintEventArgs)">
+            <summary>
+            IS called when a cells needs to be repainted.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.TableLayoutCellPaintEventArgs" />
+            that provides data for the event.</param>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.CreateCellTable">
+            <summary>
+            Create the cell table array.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.UpdateCellList(System.Windows.Forms.TableLayoutCellPaintEventArgs)">
+            <summary>
+            Update the location of the distinct cells.
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.Forms.TableLayoutCellPaintEventArgs"/>
+            instance containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.BuildPositionMaps">
+            <summary>
+            (re)build a map of all position where a resize handle
+            might be used.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.ResizeCells(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Resize cells while moving mouse.
+            Called by OnMouseMove().
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.IsOnHorizontalBorder(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Check whether the cursor is on a horizontal border.
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> instance containing the event data.</param>
+            <returns>
+              <c>true</c> if [is on horizontal border] [the specified e]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.IsOnVerticalBorder(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Check whether the cursor is on a vertical border.
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> instance containing the event data.</param>
+            <returns>
+              <c>true</c> if [is on vertical border] [the specified e]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.CheckForResizePosition(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Checks if the mouse is currently over a cell border
+            and a resize operation is possible.
+            Called by OnMouseMove().
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.Forms.MouseEventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.TableLayoutPanelSizable.IsDesignMode(System.Windows.Forms.Control)">
+            <summary>
+            Diese Funktion dient der umgehung des .DesignMode Problems in .Net
+            Die Eigenschaft .DesignMode eines Controls,
+            welches die ISite Schnittstelle implementiert gibt zurück, ob sich das
+            Control im DesignMode befindet.
+            Sobald das Control in ein anderes Control im Designer eingebettet wird
+            gibt die Eigenschaft immer false zurück, obwohl noch im Designer gearbeitet
+            wird.
+            Diese Funktionalität steht noch nicht im Konstruktor zur verfügung,
+            Diese Eigenschaft kann im Load Event eines Controls abgefragt werden.
+            </summary>
+            <param name="control">Control, welches auf den DesignMode überprüft werden soll.</param>
+            <returns>True Wenn sich das Control im DesignMode befindet.</returns>
+        </member>
+        <member name="T:Tethys.Forms.TethysCustomExceptionHandler">
+            <summary>
+            The Error Handler class
+            We need a class because event handling methods can't be static.
+            </summary>
+            <remarks>
+            This file contains the implementation of the class TethysCustomExceptionHandler
+            which supplies a new general exception handler for .Net applications.
+            If this exception handler is installed in an application by adding the
+            following lines of code to Main():
+            <code>
+            TethysCustomExceptionHandler eh = new TethysCustomExceptionHandler();
+            Application.ThreadException +=
+            new ThreadExceptionEventHandler(eh.OnThreadException);
+            </code>
+            you will get your own final exception handler instead of a crashed
+            application.
+            </remarks>
+        </member>
+        <member name="M:Tethys.Forms.TethysCustomExceptionHandler.OnThreadException(System.Object,System.Threading.ThreadExceptionEventArgs)">
+            <summary>
+            Handle the exception event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="eventArgs">The <see cref="T:System.Threading.ThreadExceptionEventArgs"/> instance
+            containing the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.TethysCustomExceptionHandler.ShowThreadExceptionDialog(System.Exception)">
+            <summary>
+            Display a dialog indicating the exception to the user.
+            </summary>
+            <param name="e">The e.</param>
+            <returns>
+            The dialog result.
+            </returns>
+        </member>
+        <member name="T:Tethys.Forms.TimeoutMessageBox">
+            <summary>
+            TimeoutMessageBox implements a message box that is closed automatically
+            after a given timeout.
+            </summary>
+            <remarks>
+            How does it work?
+            Just before calling MessageBox.Show(...), SetWindowsHookEx(WH_CALLWNDPROCRET,)
+            is called. The hook procedure looks for a WM_INITDIALOG on a window with text equal
+            to the message box caption. A windows timer is started on that window with
+            the appropriate timeout. When the timeout fires EndDialog is called with the
+            result set to the dialog default button ID. You can get that ID by sending
+            a dialog box a DM_GETDEFID message. Pretty simple.
+            <br/>
+            This implementation is based on the work of RodgerB that has been
+            published on <a href="www.codeproject.com">Code Project</a>.
+            </remarks>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.String,System.Int32)">
+            <summary>
+            Displays a message box with specified text.
+            </summary>
+            <param name="text">The text to display in the message box.</param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.String,System.String,System.Int32)">
+            <summary>
+            Displays a message box with specified text and caption.
+            </summary>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the message box. </param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Int32)">
+            <summary>
+            Displays a message box with specified text, caption, and buttons.
+            </summary>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies which buttons to display in the message box.</param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Int32)">
+            <summary>
+            Displays a message box with specified text, caption, buttons, and icon.
+            </summary>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies which buttons to display in the message box.</param>
+            <param name="icon">One of the MessageBoxIcon values that specifies which icon to display in the message box. </param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Int32)">
+            <summary>
+            Displays a message box with the specified text, caption, buttons,
+            icon, and default button.
+            </summary>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies which buttons to display in the message box.</param>
+            <param name="icon">One of the MessageBoxIcon values that specifies which icon to display in the message box.</param>
+            <param name="defButton">One for the MessageBoxDefaultButton values which specifies which is the default button for the message box.</param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Windows.Forms.MessageBoxOptions,System.Int32)">
+            <summary>
+            Displays a message box with the specified text, caption, buttons,
+            icon, and default button.
+            </summary>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies which buttons to display in the message box.</param>
+            <param name="icon">One of the MessageBoxIcon values that specifies which icon to display in the message box.</param>
+            <param name="defButton">One for the MessageBoxDefaultButton values which specifies which is the default button for the message box.</param>
+            <param name="options">Message box Options.</param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.Int32)">
+            <summary>
+            Displays a message box with specified text.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box.</param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Int32)">
+            <summary>
+            Displays a message box with specified text and caption.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the message box. </param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Int32)">
+            <summary>
+            Displays a message box with specified text, caption, and buttons.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies which buttons to display in the message box.</param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Int32)">
+            <summary>
+            Displays a message box with specified text, caption, buttons, and icon.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies which buttons to display in the message box.</param>
+            <param name="icon">One of the MessageBoxIcon values that specifies which icon to display in the message box. </param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Int32)">
+            <summary>
+            Displays a message box with the specified text, caption, buttons,
+            icon, and default button.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies which buttons to display in the message box.</param>
+            <param name="icon">One of the MessageBoxIcon values that specifies which icon to display in the message box.</param>
+            <param name="defButton">One for the MessageBoxDefaultButton values which specifies which is the default button for the message box.</param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Windows.Forms.MessageBoxOptions,System.Int32)">
+            <summary>
+            Displays a message box with the specified text, caption, buttons,
+            icon, and default button.
+            </summary>
+            <param name="owner">Window parent (owner).</param>
+            <param name="text">The text to display in the message box. </param>
+            <param name="caption">The text to display in the title bar of the message box. </param>
+            <param name="buttons">One of the MessageBoxButtons that specifies which buttons to display in the message box.</param>
+            <param name="icon">One of the MessageBoxIcon values that specifies which icon to display in the message box.</param>
+            <param name="defButton">One for the MessageBoxDefaultButton values which specifies which is the default button for the message box.</param>
+            <param name="options">Message box Options.</param>
+            <param name="timeout">timeout value in milliseconds.</param>
+            <returns>One of the DialogResult values.</returns>
+        </member>
+        <member name="F:Tethys.Forms.TimeoutMessageBox.DM_GETDEFID">
+            <summary>
+            The user message id.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TimeoutMessageBox.TimerId">
+            <summary>
+            Timer Id.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TimeoutMessageBox.HookProc">
+            <summary>
+            Hook 1.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TimeoutMessageBox.HookTimer">
+            <summary>
+            Hook 2.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TimeoutMessageBox.hookTimeout">
+            <summary>
+            Hook timeout.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TimeoutMessageBox.hookCaption">
+            <summary>
+            Hook caption.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.TimeoutMessageBox.handleHook">
+            <summary>
+            Hook handle.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.Init(System.String,System.Int32)">
+            <summary>
+            Initialize hook management.
+            </summary>
+            <param name="caption">The caption.</param>
+            <param name="timeout">The timeout.</param>
+            <exception cref="T:System.NotSupportedException">multiple calls are not supported.</exception>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.MessageBoxHookProc(System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            This is the function called by the Windows hook management.
+            We assume, that when an WM_INITDIALOG message is sent and
+            the window text is the same like the one of our window that
+            the window to hook call comes from is indeed our window.
+            We start the timer and unhook ourselves.
+            </summary>
+            <param name="nCode">The n code.</param>
+            <param name="wParam">The w parameter.</param>
+            <param name="lParam">The l parameter.</param>
+            <returns>A handle.</returns>
+        </member>
+        <member name="M:Tethys.Forms.TimeoutMessageBox.MessageBoxTimerProc(System.IntPtr,System.UInt32,System.UIntPtr,System.UInt32)">
+            <summary>
+            This function is called when the timeout is reached.
+            Then we close the dialog.
+            </summary>
+            <param name="hWnd">The h WND.</param>
+            <param name="uMsg">The u MSG.</param>
+            <param name="idEvent">The n ID event.</param>
+            <param name="time">The dw time.</param>
+        </member>
+        <member name="T:Tethys.Forms.VerticalBarStyle">
+            <summary>
+            Vertical progress bar styles.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalBarStyle.Classic">
+            <summary>
+            Classic style (same as ProgressBar).
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalBarStyle.Solid">
+            <summary>
+            Solid style.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.VerticalBarBorderStyle">
+            <summary>
+            Vertical progress bar border styles.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalBarBorderStyle.Classic">
+            <summary>
+            Classic style (same as ProgressBar).
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalBarBorderStyle.None">
+            <summary>
+            No border.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.VerticalProgressBar">
+            <summary>
+            Represents a Windows vertical progress bar control.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalProgressBar.value">
+            <summary>
+            Default value.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalProgressBar.minimum">
+            <summary>
+            Minimum value.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalProgressBar.maximum">
+            <summary>
+            Maximum value.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalProgressBar.step">
+            <summary>
+            Step value.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalProgressBar.style">
+            <summary>
+            Vertical bar style.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalProgressBar.borderStyle">
+            <summary>
+            Vertical border style.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalProgressBar.color">
+            <summary>
+            Bar color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.VerticalProgressBar.Maximum">
+            <summary>
+            Gets or sets the verticalProgressBar Maximum Value.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.VerticalProgressBar.Minimum">
+            <summary>
+            Gets or sets the minimum.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.VerticalProgressBar.Step">
+            <summary>
+            Gets or sets the VerticalProgressBar Step.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.VerticalProgressBar.Value">
+            <summary>
+            Gets or sets the current value.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.VerticalProgressBar.Color">
+            <summary>
+            Gets or sets the color.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.VerticalProgressBar.BorderStyle">
+            <summary>
+            Gets or sets the border style.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.VerticalProgressBar.VerticalBarStyle">
+            <summary>
+            Gets or sets the style.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.VerticalProgressBar"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.PerformStep">
+            <summary>
+            Increments the progress bar by the defined step value.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.Progress(System.Int32)">
+            <summary>
+            Increments the progress bar by the specified value.
+            </summary>
+            <param name="increment">The increment.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.DrawBorder(System.Drawing.Graphics)">
+            <summary>
+            Draws the border.
+            </summary>
+            <param name="dc">The dc.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.DrawBar(System.Drawing.Graphics)">
+            <summary>
+            Draws the bar.
+            </summary>
+            <param name="dc">The dc.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.DrawSolidBar(System.Drawing.Graphics,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws the solid bar.
+            </summary>
+            <param name="dc">The dc.</param>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.DrawClassicBar(System.Drawing.Graphics,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws the classic bar.
+            </summary>
+            <param name="dc">The dc.</param>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Paint"/> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs"/> that
+            contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.OnSizeChanged(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.SizeChanged" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains
+            the event data.</param>
+        </member>
+        <member name="F:Tethys.Forms.VerticalProgressBar.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalProgressBar.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.Forms.VerticalText">
+            <summary>
+            This class implements a user control that displays text vertically.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalText.text">
+            <summary>
+            Text to be drawn vertically.
+            </summary>
+        </member>
+        <member name="F:Tethys.Forms.VerticalText.brush">
+            <summary>
+            Brush for drawing text.
+            </summary>
+        </member>
+        <member name="P:Tethys.Forms.VerticalText.VText">
+            <summary>
+            Gets or sets the text to be drawn vertically.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.VerticalText.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tethys.Forms.VerticalText"/> class.
+            </summary>
+        </member>
+        <member name="M:Tethys.Forms.VerticalText.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed;
+            otherwise, false.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalText.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            The function is the paint handler.
+            </summary>
+            <param name="e">An EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalText.OnForeColorChanged(System.EventArgs)">
+            <summary>
+            Is called when the fore color has been changed.
+            </summary>
+            <param name="e">An EventArgs that contains the event data.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalText.DrawText(System.Drawing.Graphics)">
+            <summary>
+            Draws the text vertically on the form.
+            </summary>
+            <param name="g">graphics context.</param>
+        </member>
+        <member name="M:Tethys.Forms.VerticalText.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Tethys.IO.SHFileOperation">
+            <summary>
+            SHFileOperation is the wrapper class for the Win32 Shell API function
+            SHFileOperation().
+            </summary>
+        </member>
+        <member name="M:Tethys.IO.SHFileOperation.Copy(System.String,System.String)">
+            <summary>
+            Copies an existing file to a new file.
+            </summary>
+            <param name="sourceFile">fully qualified path of the file to be
+            copied.</param>
+            <param name="destinationFile">fully qualified path of the
+            destination.</param>
+            <returns>True if the operation succeeded and otherwise False.
+            </returns>
+        </member>
+        <member name="M:Tethys.IO.SHFileOperation.Copy(System.String,System.String,System.Int16)">
+            <summary>
+            Copies an existing file to a new file.
+            </summary>
+            <param name="sourceFile">fully qualified path of the file to be
+            copied.</param>
+            <param name="destinationFile">fully qualified path of the
+            destination.</param>
+            <param name="options"><c>ShFileOperation</c> options.</param>
+            <returns>True if the operation succeeded and otherwise False.
+            </returns>
+        </member>
+        <member name="M:Tethys.IO.SHFileOperation.Rename(System.String,System.String)">
+            <summary>
+            Renames the specified file.
+            </summary>
+            <param name="sourceFile">fully qualified path of the file to be
+            renamed.</param>
+            <param name="destinationFile">new name/path.</param>
+            <returns>True if the operation succeeded and otherwise False.
+            </returns>
+        </member>
+        <member name="M:Tethys.IO.SHFileOperation.Rename(System.String,System.String,System.Int16)">
+            <summary>
+            Renames the specified file.
+            </summary>
+            <param name="sourceFile">fully qualified path of the file to be
+            renamed.</param>
+            <param name="destinationFile">new name/path.</param>
+            <param name="options"><c>ShFileOperation</c> options.</param>
+            <returns>True if the operation succeeded and otherwise False.
+            </returns>
+        </member>
+        <member name="M:Tethys.IO.SHFileOperation.Move(System.String,System.String)">
+            <summary>
+            Moves a specified file to a new location, providing the option
+            to specify a new file name.
+            </summary>
+            <param name="sourceFile">fully qualified path of the file to be
+            moved.</param>
+            <param name="destinationFile">fully qualified path of the
+            destination.</param>
+            <returns>True if the operation succeeded and otherwise False.
+            </returns>
+        </member>
+        <member name="M:Tethys.IO.SHFileOperation.Move(System.String,System.String,System.Int16)">
+            <summary>
+            Moves a specified file to a new location, providing the option
+            to specify a new file name.
+            </summary>
+            <param name="sourceFile">fully qualified path of the file to be
+            moved.</param>
+            <param name="destinationFile">fully qualified path of the
+            destination.</param>
+            <param name="options"><c>ShFileOperation</c> options.</param>
+            <returns>True if the operation succeeded and otherwise False.
+            </returns>
+        </member>
+        <member name="M:Tethys.IO.SHFileOperation.Delete(System.String)">
+            <summary>
+            Deletes the file specified by the fully qualified path.
+            An exception is not thrown if the specified file does not exist.
+            </summary>
+            <param name="path">fully qualified path of the file to be deleted.
+            </param>
+            <returns>True if the operation succeeded and otherwise False.
+            </returns>
+        </member>
+        <member name="M:Tethys.IO.SHFileOperation.Delete(System.String,System.Int16)">
+            <summary>
+            Deletes the file specified by the fully qualified path.
+            An exception is not thrown if the specified file does not exist.
+            </summary>
+            <param name="path">fully qualified path of the file to be deleted.
+            </param>
+            <param name="options"><c>ShFileOperation</c> options.</param>
+            <returns>True if the operation succeeded and otherwise False.
+            </returns>
+        </member>
+    </members>
+</doc>
