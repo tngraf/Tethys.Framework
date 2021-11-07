@@ -12,7 +12,6 @@
     <icon>tethys_icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Basic Services and Resources Development Library for .Net.</description>
-    <releaseNotes></releaseNotes>
     <language>en-US</language>
     <tags>Tethys Framework WinForms</tags>
     <dependencies>
@@ -24,7 +23,8 @@
   </metadata>
   <files>
     <file src="..\tethys_icon.png" target="." />
-    <file src="..\Export\Release\Tethys.Forms.xml" target="lib\net472" />
+    <file src="..\Export\Release\Tethys.Forms.dll" target="lib\net472" />
     <file src="..\Export\Release\Tethys.Forms.pdb" target="lib\net472" />
+    <file src="..\Export\Release\Tethys.Forms.xml" target="lib\net472" />
   </files>
 </package>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Tethys.Forms.NET5</id>
+    <version>4.6.0</version>
+    <authors>T. Graf</authors>
+    <license type="expression">Apache-2.0</license>
+    <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
+    <icon>tethys_icon.png</icon>
+    <projectUrl>https://github.com/tngraf/Tethys.Framework/</projectUrl>
+    <repository type="git" url="https://github.com/tngraf/Tethys.Framework/" />
+    <description>Package Description</description>
+    <copyright>Copyright © 2009-2021 T. Graf</copyright>
+    <tags>Tethys Framework</tags>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Tethys.Win.NET5" version="4.6.0" exclude="Build,Analyzers" />
+        <dependency id="Tethys.Framework" version="4.6.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net5.0-windows7.0">
+        <dependency id="Tethys.Win.NET5" version="4.6.0" exclude="Build,Analyzers" />
+        <dependency id="Tethys.Framework" version="4.6.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+      <group targetFramework="net5.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="..\tethys_icon.png" target="." />
+    <file src="Tethys.Forms.NET5.xml" target="lib\net5.0-windows7.0" />
+    <file src="bin\Release\net5.0-windows\Tethys.Forms.NET5.dll" target="lib\net5.0-windows7.0" />
+    <file src="bin\Release\net5.0-windows\Tethys.Forms.NET5.pdb" target="lib\net5.0-windows7.0" />
+    <file src="Tethys.Forms.NET5.xml" target="lib\netcoreapp3.1" />
+    <file src="bin\Release\netcoreapp3.1\Tethys.Forms.NET5.dll" target="lib\netcoreapp3.1" />
+    <file src="bin\Release\netcoreapp3.1\Tethys.Forms.NET5.pdb" target="lib\netcoreapp3.1" />
+  </files>
+</package>
