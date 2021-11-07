@@ -75,7 +75,7 @@ namespace Tethys.Forms
         /// Handle the exception event.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="threadExceptionEventArgs">thread exception</param>
+        /// <param name="threadExceptionEventArgs">thread exception.</param>
         public void HandleThreadException(
             object sender,
             ThreadExceptionEventArgs threadExceptionEventArgs)

@@ -134,7 +134,7 @@ namespace Tethys.Forms
     /// <param name="buttons">One of the MessageBoxButtons that specifies which buttons to display in the message box.</param>
     /// <param name="icon">One of the MessageBoxIcon values that specifies which icon to display in the message box.</param>
     /// <param name="defButton">One for the MessageBoxDefaultButton values which specifies which is the default button for the message box.</param>
-    /// <param name="options">Message box Options</param>
+    /// <param name="options">Message box Options.</param>
     /// <param name="timeout">timeout value in milliseconds.</param>
     /// <returns>One of the DialogResult values.</returns>
     public static DialogResult Show(
@@ -254,7 +254,7 @@ namespace Tethys.Forms
     /// <param name="buttons">One of the MessageBoxButtons that specifies which buttons to display in the message box.</param>
     /// <param name="icon">One of the MessageBoxIcon values that specifies which icon to display in the message box.</param>
     /// <param name="defButton">One for the MessageBoxDefaultButton values which specifies which is the default button for the message box.</param>
-    /// <param name="options">Message box Options</param>
+    /// <param name="options">Message box Options.</param>
     /// <param name="timeout">timeout value in milliseconds.</param>
     /// <returns>One of the DialogResult values.</returns>
     public static DialogResult Show(
@@ -325,7 +325,7 @@ namespace Tethys.Forms
     /// </summary>
     /// <param name="caption">The caption.</param>
     /// <param name="timeout">The timeout.</param>
-    /// <exception cref="System.NotSupportedException">multiple calls are not supported</exception>
+    /// <exception cref="System.NotSupportedException">multiple calls are not supported.</exception>
     private static void Init(string caption, int timeout)
     {
       if (handleHook != IntPtr.Zero)

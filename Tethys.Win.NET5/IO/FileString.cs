@@ -95,7 +95,7 @@ namespace Tethys.IO
     /// The class FileString contains functions to manipulate filename
     /// strings.
     /// </summary>
-    [Obsolete("FileString is obsolte, use .Net Framework 2.0 File.IO classes!")]
+    [Obsolete("FileString is obsolete, use .Net Framework 2.0 File.IO classes!")]
     public class FileString
     {
         /// <summary>
@@ -303,7 +303,7 @@ namespace Tethys.IO
         /// <summary>
         /// This function checks whether the specified fileName really exists.
         /// </summary>
-        /// <param name="file">File to be checked</param>
+        /// <param name="file">File to be checked.</param>
         /// <returns>
         ///   <c>true</c> if [is real file] [the specified file]; otherwise, <c>false</c>.
         /// </returns>
@@ -329,7 +329,7 @@ namespace Tethys.IO
         /// 15-16    x   C:\...\TESWIN.C
         /// 17-23    x   C:\...\C\TESWIN.C
         /// 24-25    x   C:\...\DEBUGS\C\TESWIN.C
-        /// 26+      x   C:\MYAPP\DEBUGS\C\TESWIN.C
+        /// 26+      x   C:\MYAPP\DEBUGS\C\TESWIN.C.
         /// </code>
         public static string AbbreviateName(string name, int maxLength, bool atLeastName)
         {

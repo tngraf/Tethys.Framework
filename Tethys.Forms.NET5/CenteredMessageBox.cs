@@ -140,7 +140,7 @@ namespace Tethys.Forms
         /// <param name="defButton">One for the MessageBoxDefaultButton values
         /// which specifies which is the default button for the message box.
         /// </param>
-        /// <param name="options">Message box Options</param>
+        /// <param name="options">Message box Options.</param>
         /// <returns>One of the DialogResult values.</returns>
         public static DialogResult Show(
             IWin32Window owner,
@@ -189,7 +189,7 @@ namespace Tethys.Forms
         /// <param name="caption">The caption.</param>
         /// <param name="owner">The owner.</param>
         /// <exception cref="System.NotSupportedException">multiple
-        /// calls are not supported</exception>
+        /// calls are not supported.</exception>
         private static void Init(string caption, IWin32Window owner)
         {
             if (handleHook != IntPtr.Zero)

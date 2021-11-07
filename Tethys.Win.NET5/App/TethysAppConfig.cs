@@ -69,9 +69,9 @@ namespace Tethys.App
         /// This function writes the (user dependent) application configuration
         /// to a XML fileName that is located in the path for the application data
         /// of a roaming user, i.e. something like:
-        /// Base Path\CompanyName\ProductName\filename
+        /// Base Path\CompanyName\ProductName\filename.
         /// </summary>
-        /// <param name="fileName">Name of the XML fileName to be used</param>
+        /// <param name="fileName">Name of the XML fileName to be used.</param>
         /// <returns>
         /// The function returns true if all configuration data has
         /// been successfully written; otherwise false will be returned.
@@ -105,14 +105,14 @@ namespace Tethys.App
         /// This function reads the (user dependent) application configuration
         /// from a XML fileName that is located in the path for the application data
         /// of a roaming user, i.e. something like:
-        ///   Base Path\CompanyName\ProductName\filename
+        ///   Base Path\CompanyName\ProductName\filename.
         /// </summary>
         /// <remarks>
         /// This is the SAX-like version.
         /// The function does not throw ANY exceptions. All exceptions will be
         /// caught inside of ReadXml().
         /// </remarks>
-        /// <param name="fileName">Name of the XML fileName to be used</param>
+        /// <param name="fileName">Name of the XML fileName to be used.</param>
         /// <returns>The function returns true if all configuration data has
         /// been successfully read; otherwise false will be returned.
         /// </returns>

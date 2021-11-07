@@ -32,9 +32,9 @@ namespace Tethys.IO
         /// Copies an existing file to a new file.
         /// </summary>
         /// <param name="sourceFile">fully qualified path of the file to be
-        /// copied</param>
+        /// copied.</param>
         /// <param name="destinationFile">fully qualified path of the
-        /// destination</param>
+        /// destination.</param>
         /// <returns>True if the operation succeeded and otherwise False.
         /// </returns>
         public static bool Copy(string sourceFile, string destinationFile)
@@ -60,9 +60,9 @@ namespace Tethys.IO
         /// Copies an existing file to a new file.
         /// </summary>
         /// <param name="sourceFile">fully qualified path of the file to be
-        /// copied</param>
+        /// copied.</param>
         /// <param name="destinationFile">fully qualified path of the
-        /// destination</param>
+        /// destination.</param>
         /// <param name="options"><c>ShFileOperation</c> options.</param>
         /// <returns>True if the operation succeeded and otherwise False.
         /// </returns>
@@ -89,8 +89,8 @@ namespace Tethys.IO
         /// Renames the specified file.
         /// </summary>
         /// <param name="sourceFile">fully qualified path of the file to be
-        /// renamed</param>
-        /// <param name="destinationFile">new name/path</param>
+        /// renamed.</param>
+        /// <param name="destinationFile">new name/path.</param>
         /// <returns>True if the operation succeeded and otherwise False.
         /// </returns>
         public static bool Rename(string sourceFile, string destinationFile)
@@ -116,9 +116,9 @@ namespace Tethys.IO
         /// Renames the specified file.
         /// </summary>
         /// <param name="sourceFile">fully qualified path of the file to be
-        /// renamed</param>
-        /// <param name="destinationFile">new name/path</param>
-        /// <param name="options"><c>ShFileOperation</c> options</param>
+        /// renamed.</param>
+        /// <param name="destinationFile">new name/path.</param>
+        /// <param name="options"><c>ShFileOperation</c> options.</param>
         /// <returns>True if the operation succeeded and otherwise False.
         /// </returns>
         public static bool Rename(string sourceFile, string destinationFile, short options)
@@ -145,9 +145,9 @@ namespace Tethys.IO
         /// to specify a new file name.
         /// </summary>
         /// <param name="sourceFile">fully qualified path of the file to be
-        /// moved</param>
+        /// moved.</param>
         /// <param name="destinationFile">fully qualified path of the
-        /// destination</param>
+        /// destination.</param>
         /// <returns>True if the operation succeeded and otherwise False.
         /// </returns>
         public static bool Move(string sourceFile, string destinationFile)
@@ -174,10 +174,10 @@ namespace Tethys.IO
         /// to specify a new file name.
         /// </summary>
         /// <param name="sourceFile">fully qualified path of the file to be
-        /// moved</param>
+        /// moved.</param>
         /// <param name="destinationFile">fully qualified path of the
-        /// destination</param>
-        /// <param name="options"><c>ShFileOperation</c> options</param>
+        /// destination.</param>
+        /// <param name="options"><c>ShFileOperation</c> options.</param>
         /// <returns>True if the operation succeeded and otherwise False.
         /// </returns>
         public static bool Move(string sourceFile, string destinationFile, short options)
@@ -203,7 +203,7 @@ namespace Tethys.IO
         /// Deletes the file specified by the fully qualified path.
         /// An exception is not thrown if the specified file does not exist.
         /// </summary>
-        /// <param name="path">fully qualified path of the file to be deleted
+        /// <param name="path">fully qualified path of the file to be deleted.
         /// </param>
         /// <returns>True if the operation succeeded and otherwise False.
         /// </returns>
@@ -230,9 +230,9 @@ namespace Tethys.IO
         /// Deletes the file specified by the fully qualified path.
         /// An exception is not thrown if the specified file does not exist.
         /// </summary>
-        /// <param name="path">fully qualified path of the file to be deleted
+        /// <param name="path">fully qualified path of the file to be deleted.
         /// </param>
-        /// <param name="options"><c>ShFileOperation</c> options</param>
+        /// <param name="options"><c>ShFileOperation</c> options.</param>
         /// <returns>True if the operation succeeded and otherwise False.
         /// </returns>
         public static bool Delete(string path, short options)

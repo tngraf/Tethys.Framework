@@ -80,9 +80,9 @@ namespace Tethys.App
         /// This function writes the (user dependent) application configuration
         /// to an XML file that is located in the path for the application data
         /// of a roaming user, i.e. something like:
-        /// Base Path\CompanyName\ProductName\filename
+        /// Base Path\CompanyName\ProductName\filename.
         /// </summary>
-        /// <param name="fileName">Name of the XML fileName to be used</param>
+        /// <param name="fileName">Name of the XML fileName to be used.</param>
         public void WriteToFile(string fileName)
         {
             // generate complete filename
@@ -119,9 +119,9 @@ namespace Tethys.App
         /// This function reads the (user dependent) application configuration
         /// from a XML file that is located in the path for the application data
         /// of a roaming user, i.e. something like:
-        ///   Base Path\CompanyName\ProductName\filename
+        ///   Base Path\CompanyName\ProductName\filename.
         /// </summary>
-        /// <param name="fileName">Name of the XML fileName to be used</param>
+        /// <param name="fileName">Name of the XML fileName to be used.</param>
         /// <returns>The function returns true if all configuration data has
         /// been successfully read; otherwise false will be returned.
         /// </returns>
@@ -139,7 +139,7 @@ namespace Tethys.App
 
         /// <summary>
         /// This function reads the (user dependent) application configuration
-        /// from a XML file using the given encoding
+        /// from a XML file using the given encoding.
         /// </summary>
         /// <param name="stream">The stream.</param>
         /// <param name="encoding">The encoding.</param>

@@ -147,8 +147,8 @@ namespace Tethys.Forms
         /// <summary>
         /// Sets the checkbox of the specified node to the specified value.
         /// </summary>
-        /// <param name="node">tree node</param>
-        /// <param name="newValue">new value for the checkbox</param>
+        /// <param name="node">tree node.</param>
+        /// <param name="newValue">new value for the checkbox.</param>
         public void SetCheck(CheckTreeNode node, CheckValue newValue)
         {
             if (this.BeforeCheck != null)
@@ -186,8 +186,8 @@ namespace Tethys.Forms
         /// Sets the checkbox of the specified node and all child nodes
         /// to the specified value.
         /// </summary>
-        /// <param name="node">tree node</param>
-        /// <param name="newValue">new value for the checkbox</param>
+        /// <param name="node">tree node.</param>
+        /// <param name="newValue">new value for the checkbox.</param>
         public void SetCheckValue(CheckTreeNode node, CheckValue newValue)
         {
             // check node

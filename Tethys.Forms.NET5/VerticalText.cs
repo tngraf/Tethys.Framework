@@ -117,7 +117,7 @@ namespace Tethys.Forms
         /// <summary>
         /// Draws the text vertically on the form.
         /// </summary>
-        /// <param name="g">graphics context</param>
+        /// <param name="g">graphics context.</param>
         private void DrawText(Graphics g)
         {
             var format = new StringFormat(StringFormatFlags.DirectionVertical);

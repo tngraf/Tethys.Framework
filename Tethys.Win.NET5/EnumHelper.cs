@@ -28,8 +28,8 @@ namespace Tethys
     /// Convert any possible string-value of a given enumeration
     /// to its internal representation.
     /// </summary>
-    /// <param name="type">enumeration (type)</param>
-    /// <param name="value">string value to be translated</param>
+    /// <param name="type">enumeration (type).</param>
+    /// <param name="value">string value to be translated.</param>
     /// <returns>enumeration value.</returns>
     public static object StringToEnum(Type type, string value)
     {

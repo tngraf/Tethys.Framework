@@ -208,7 +208,7 @@ namespace Tethys.Forms
         } // NumericScaleOnLostFocus
 
         /// <summary>
-        /// Gets the decimal separator
+        /// Gets the decimal separator.
         /// </summary>
         private static string DecimalSeparator
         {
@@ -808,7 +808,7 @@ namespace Tethys.Forms
         /// <summary>
         /// Raises the NumericValueChanged event.
         /// </summary>
-        /// <param name="e">The event args</param>
+        /// <param name="e">The event args.</param>
         private void OnNumericValueChanged(EventArgs e)
         {
             this.NumericValueChanged?.Invoke(this, e);

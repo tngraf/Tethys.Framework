@@ -160,7 +160,7 @@ namespace Tethys.IO
         /// Tests whether the specified object is a GermanEncoding object
         /// and is equivalent to this GermanEncoding object.
         /// </summary>
-        /// <param name="obj">operand to be compared to the object</param>
+        /// <param name="obj">operand to be compared to the object.</param>
         /// <returns>The function returns true if the two operands are identical.</returns>
         public override bool Equals(object obj)
         {

@@ -20,17 +20,20 @@ namespace Tethys.Win32
     using System.Drawing;
     using System.Runtime.InteropServices;
 
-    [SuppressMessage(
-        "StyleCop.CSharp.DocumentationRules",
-        "SA1649:File name should match first type name",
-        Justification = "Not here")]
-
     // Structures to interoperate with the Windows 32 API
 #pragma warning disable 1591
     #region
     /// <summary>
     /// The SIZE structure specifies the width and height of a rectangle.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1649:File name should match first type name",
+        Justification = "Not here!")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [SuppressMessage(
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
@@ -52,6 +55,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct RECT
     {
@@ -76,6 +83,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1401:Field should be private",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public class INITCOMMONCONTROLSEX
     {
@@ -92,6 +103,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct TBBUTTON
     {
@@ -136,14 +151,14 @@ namespace Tethys.Win32
         public int y;
 
         /// <summary>
-        /// Default constructor.
+        /// Initializes a new instance of the <see cref="POINT"/> class.
         /// </summary>
         public POINT()
         {
         } // POINT()
 
         /// <summary>
-        /// Constructs a POINT structure with the given coordinates.
+        /// Initializes a new instance of the <see cref="POINT"/> class.
         /// </summary>
         /// <param name="x">The x.</param>
         /// <param name="y">The y.</param>
@@ -163,6 +178,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct NMHDR
     {
@@ -180,6 +199,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     public struct TOOLTIPTEXTA
     {
@@ -200,6 +223,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct TOOLTIPTEXT
     {
@@ -220,6 +247,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct NMCUSTOMDRAW
     {
@@ -242,6 +273,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct NMTBCUSTOMDRAW
     {
@@ -270,6 +305,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct NMLVCUSTOMDRAW
     {
@@ -288,6 +327,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct TBBUTTONINFO
     {
@@ -312,6 +355,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct REBARBANDINFO
     {
@@ -347,6 +394,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct MOUSEHOOKSTRUCT
     {
@@ -366,6 +417,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct NMTOOLBAR
     {
@@ -387,6 +442,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct NMREBARCHEVRON
     {
@@ -407,6 +466,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct BITMAP
     {
@@ -432,6 +495,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1310:Field should not contain an underscore",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct BITMAPINFO_FLAT
     {
@@ -459,6 +526,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     public struct RGBQUAD
     {
         public byte rgbBlue;
@@ -484,6 +555,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1402:File may only contain a single type",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public class BITMAPINFOHEADER
     {
@@ -515,6 +590,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1402:File may only contain a single type",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public class BITMAPINFO
     {
@@ -530,6 +609,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct PALETTEENTRY
     {
@@ -550,6 +633,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1310:Field should not contain an underscore",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct MSG
     {
@@ -569,6 +656,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct CWPRETSTRUCT
     {
@@ -586,6 +677,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct HD_HITTESTINFO
     {
@@ -601,6 +696,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct DLLVERSIONINFO
     {
@@ -618,6 +717,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct PAINTSTRUCT
     {
@@ -639,6 +742,10 @@ namespace Tethys.Win32
 
     // BLENDFUNCTION
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct BLENDFUNCTION
     {
@@ -656,6 +763,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct TRACKMOUSEEVENTS
     {
@@ -672,6 +783,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct STRINGBUFFER
     {
@@ -686,6 +801,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential)]
     public struct NMTVCUSTOMDRAW
     {
@@ -702,6 +821,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct TVITEM
     {
@@ -730,6 +853,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct LVITEM
     {
@@ -755,6 +882,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct HDITEM
     {
@@ -779,6 +910,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, Pack = 1, CharSet = CharSet.Auto)]
     public struct SHFILEOPSTRUCT
     {
@@ -875,6 +1010,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct LOGFONT
     {
@@ -907,6 +1046,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct TEXTMETRIC
     {
@@ -940,7 +1083,7 @@ namespace Tethys.Win32
 
     #region FONTFAMILYTYPES
     /// <summary>
-    /// FontFamilyTypes
+    /// FontFamilyTypes.
     /// </summary>
     public enum FontFamilyTypes
     {
@@ -981,6 +1124,10 @@ namespace Tethys.Win32
         "StyleCop.CSharp.DocumentationRules",
         "SA1307:Field should begin with upper-case letter",
         Justification = "Not here because of Win32")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     public struct WIN32_FIND_DATAW
     {

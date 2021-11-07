@@ -117,7 +117,7 @@ namespace Tethys.App
         /// (c) Return user specific path, i.e. ...\Documents and Settings\user\ApplicationData\...<br />
         /// (d) Return application specific path, i.e. ...\Documents and Settings\All Users\ApplicationData\...
         /// </summary>
-        /// <param name="fileName">(source) filename</param>
+        /// <param name="fileName">(source) filename.</param>
         /// <returns>The complete filename.</returns>
         protected virtual string GetCompleteFilename(string fileName)
         {

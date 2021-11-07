@@ -19,9 +19,15 @@ namespace Tethys.Win32
     using System.Diagnostics.CodeAnalysis;
     using System.Runtime.InteropServices;
 
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:File name should match first type name", Justification = "Not here")]
-
 #pragma warning disable 1591
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1649:File name should match first type name",
+        Justification = "Not here!")]
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [ComImport]
     [Guid("0000010c-0000-0000-c000-000000000046")]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
@@ -31,6 +37,10 @@ namespace Tethys.Win32
         void GetClassID(out Guid pClassId);
     } // IPersist
 
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [ComImport]
     [Guid("0000010b-0000-0000-C000-000000000046")]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
@@ -58,6 +68,10 @@ namespace Tethys.Win32
         void GetCurFile([In, MarshalAs(UnmanagedType.LPWStr)] string ppszFileName);
     } // IPersistFile
 
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1600:Elements should be documented",
+        Justification = "Not here!")]
     [ComImport]
     [Guid("00021401-0000-0000-C000-000000000046")]
     public class ShellLink

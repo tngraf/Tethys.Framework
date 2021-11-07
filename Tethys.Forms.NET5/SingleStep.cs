@@ -59,7 +59,6 @@ namespace Tethys.Forms
     /// SingleStep implements a single step of the step control.
     /// </summary>
     [Description("SingleStep control")]
-    [ToolboxBitmap(typeof(SingleStep), "SingleStepToolboxBitmap")]
     public partial class SingleStep : UserControl
     {
         #region PRIVATE PROPERTIES

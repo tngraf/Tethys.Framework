@@ -95,7 +95,7 @@ namespace Tethys.Forms
         /// <exception cref="System.ArgumentOutOfRangeException">
         /// index;index out of range
         /// or
-        /// index;index out of range
+        /// index;index out of range.
         /// </exception>
         public string this[int index]
         {
@@ -293,7 +293,7 @@ namespace Tethys.Forms
         /// <summary>
         /// Removes a file from the MRU file list.
         /// </summary>
-        /// <param name="file">Full path of the file to be removed</param>
+        /// <param name="file">Full path of the file to be removed.</param>
         public void Remove(string file)
         {
             for (var mru = 0; mru < this.listSize - 1; mru++)

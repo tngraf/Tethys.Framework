@@ -28,27 +28,27 @@ namespace Tethys.IO
         // see http://www.kostis.net/charsets
 
         /// <summary>
-        /// IBM ASCII 0-255 byte conversion
+        /// IBM ASCII 0-255 byte conversion.
         /// </summary>
         public const int CodePageAsciiUs = 437;
 
         /// <summary>
-        /// Windows ASCII 0-255 byte conversion
+        /// Windows ASCII 0-255 byte conversion.
         /// </summary>
         public const int CodePageAnsi = 1252;
 
         /// <summary>
-        /// MS-DOS Code page 850 (Multilingual Latin 1)
+        /// MS-DOS Code page 850 (Multilingual Latin 1).
         /// </summary>
         public const int CodePageLatin1 = 850;
 
         /// <summary>
-        /// MS-DOS Code page 850 (Multilingual Latin 2)
+        /// MS-DOS Code page 850 (Multilingual Latin 2).
         /// </summary>
         public const int CodePageLatin2 = 852;
 
         /// <summary>
-        /// MS-DOS Code page 850 (Multilingual Latin 3)
+        /// MS-DOS Code page 850 (Multilingual Latin 3).
         /// </summary>
         public const int CodePageLatin3 = 853;
 
@@ -197,7 +197,7 @@ namespace Tethys.IO
         /// Tests whether the specified object is a CodePageEncoding object
         /// and is equivalent to this CodePageEncoding object.
         /// </summary>
-        /// <param name="obj">operand to be compared to the object</param>
+        /// <param name="obj">operand to be compared to the object.</param>
         /// <returns>The function returns true if the two operands are identical.</returns>
         public override bool Equals(object obj)
         {

@@ -227,7 +227,7 @@ namespace Tethys.Forms
         } // PointImage
 
         /// <summary>
-        /// Gets or sets a value indicating whether the border is shown
+        /// Gets or sets a value indicating whether the border is shown.
         /// </summary>
         [Category("Appearance")]
         [Description("Determines if the border is shown")]

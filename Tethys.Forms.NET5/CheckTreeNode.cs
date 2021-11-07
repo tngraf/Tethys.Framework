@@ -66,7 +66,7 @@ namespace Tethys.Forms
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckTreeNode"/> class.
         /// </summary>
-        /// <param name="text">node text</param>
+        /// <param name="text">node text.</param>
         public CheckTreeNode(string text)
         {
             this.check = CheckValue.Unchecked;
@@ -78,7 +78,7 @@ namespace Tethys.Forms
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckTreeNode"/> class.
         /// </summary>
-        /// <param name="children">array of child nodes</param>
+        /// <param name="children">array of child nodes.</param>
         public CheckTreeNode(CheckTreeNode[] children)
         {
             this.check = CheckValue.Unchecked;

@@ -259,7 +259,7 @@ namespace Tethys.Cryptography
         /// final result must be 0, otherwise one or more bits in the complete sequence
         /// is wrong.
         /// It uses following generator polynomial:
-        /// x**16 + x**15 + x**2 + x + 1
+        /// x**16 + x**15 + x**2 + x + 1.
         /// </remarks>
         protected override void HashCore(byte[] buffer, int offset, int count)
         {

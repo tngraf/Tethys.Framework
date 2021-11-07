@@ -23,6 +23,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Peek Message Flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum PeekMessageFlags
     {
         /// <summary>
@@ -49,6 +53,10 @@ namespace Tethys.Win32
     /// Windows Messages.
     /// </summary>
 #pragma warning disable 1591
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum Msg
     {
         // ReSharper disable InconsistentNaming
@@ -261,6 +269,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Window Styles.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
 #pragma warning disable 1591
     public enum WindowStyles : uint
@@ -300,6 +312,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Window Extended Styles.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum WindowExStyles
     {
@@ -334,6 +350,10 @@ namespace Tethys.Win32
     /// <summary>
     /// ShowWindow Styles.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum ShowWindowStyles : short
     {
@@ -361,6 +381,10 @@ namespace Tethys.Win32
     /// <summary>
     /// SetWindowPos Z Order.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum SetWindowPosZOrder
     {
 #pragma warning disable 1591
@@ -376,6 +400,10 @@ namespace Tethys.Win32
     /// <summary>
     /// SetWindowPosFlags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum SetWindowPosFlags : uint
     {
@@ -403,6 +431,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Virtual Keys.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum VirtualKeys
     {
 #pragma warning disable 1591
@@ -517,6 +549,10 @@ namespace Tethys.Win32
     /// <summary>
     /// PatBlt Types.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum PatBltTypes
     {
 #pragma warning disable 1591
@@ -543,6 +579,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Clipboard Formats.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum ClipboardFormats : uint
     {
 #pragma warning disable 1591
@@ -580,6 +620,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Common Controls Initialization flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum CommonControlInitFlags
     {
@@ -607,6 +651,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Common Controls Styles.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum CommonControlStyles
     {
@@ -630,6 +678,10 @@ namespace Tethys.Win32
     /// <summary>
     /// ToolBar Styles.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum ToolBarStyles
     {
@@ -659,6 +711,10 @@ namespace Tethys.Win32
     /// <summary>
     /// ToolBar Ex Styles.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum ToolBarExStyles
     {
@@ -675,6 +731,10 @@ namespace Tethys.Win32
     /// <summary>
     /// ToolBar Messages.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum ToolBarMessages
     {
 #pragma warning disable 1591
@@ -772,6 +832,10 @@ namespace Tethys.Win32
     /// <summary>
     /// ToolBar Notifications.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum ToolBarNotifications
     {
 #pragma warning disable 1591
@@ -786,8 +850,12 @@ namespace Tethys.Win32
 
     #region Reflected Messages
     /// <summary>
-    /// Reflected Messages
+    /// Reflected Messages.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum ReflectedMessages
     {
 #pragma warning disable 1591
@@ -817,8 +885,12 @@ namespace Tethys.Win32
 
     #region Notification Messages
     /// <summary>
-    /// Notification Messages
+    /// Notification Messages.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum NotificationMessages
     {
 #pragma warning disable 1591
@@ -831,8 +903,12 @@ namespace Tethys.Win32
 
     #region ToolTip Flags
     /// <summary>
-    /// ToolTip Flags
+    /// ToolTip Flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum ToolTipFlags
     {
@@ -850,8 +926,12 @@ namespace Tethys.Win32
 
     #region
     /// <summary>
-    /// Custom Draw Return Flags
+    /// Custom Draw Return Flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum CustomDrawReturnFlags
     {
@@ -871,6 +951,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Custom Draw Item State Flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum CustomDrawItemStateFlags
     {
@@ -890,8 +974,12 @@ namespace Tethys.Win32
 
     #region
     /// <summary>
-    /// Custom Draw Draw State Flags
+    /// Custom Draw Draw State Flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum CustomDrawDrawStateFlags
     {
@@ -912,8 +1000,12 @@ namespace Tethys.Win32
 
     #region
     /// <summary>
-    /// Toolbar button info flags
+    /// Toolbar button info flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum ToolBarButtonInfoFlags
     {
 #pragma warning disable 1591
@@ -934,6 +1026,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Toolbar button styles.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum ToolBarButtonStyles
     {
@@ -963,6 +1059,10 @@ namespace Tethys.Win32
     /// Toolbar button state.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum ToolBarButtonStates
     {
@@ -983,6 +1083,10 @@ namespace Tethys.Win32
     /// Windows Hook Codes.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum WindowsHookCodes
     {
 #pragma warning disable 1591
@@ -1011,6 +1115,10 @@ namespace Tethys.Win32
     /// Mouse Hook Filters.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum MouseHookFilters
     {
 #pragma warning disable 1591
@@ -1028,6 +1136,10 @@ namespace Tethys.Win32
     /// Draw Text format flags.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum DrawTextFormatFlags
     {
@@ -1062,6 +1174,10 @@ namespace Tethys.Win32
     /// Rebar Styles.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum RebarStyles
     {
@@ -1082,6 +1198,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Rebar Notifications.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum RebarNotifications
     {
 #pragma warning disable 1591
@@ -1104,6 +1224,10 @@ namespace Tethys.Win32
     /// Rebar Messages.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum RebarMessages
     {
 #pragma warning disable 1591
@@ -1157,6 +1281,10 @@ namespace Tethys.Win32
     /// Rebar Info Mask.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum RebarInfoMask
     {
@@ -1181,6 +1309,10 @@ namespace Tethys.Win32
     /// Rebar Styles.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum RebarStylesEx
     {
@@ -1198,6 +1330,10 @@ namespace Tethys.Win32
     /// Object types.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum ObjectTypes
     {
 #pragma warning disable 1591
@@ -1222,6 +1358,10 @@ namespace Tethys.Win32
     /// WM_MENUCHAR return values.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum MenuCharReturnValues
     {
 #pragma warning disable 1591
@@ -1237,6 +1377,10 @@ namespace Tethys.Win32
     /// <summary>
     /// Background Mode.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum BackgroundMode
     {
         /// <summary>
@@ -1252,9 +1396,13 @@ namespace Tethys.Win32
     #endregion
 
     /// <summary>
-    /// ListView Messages
+    /// ListView Messages.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum ListViewMessages
     {
 #pragma warning disable 1591
@@ -1270,6 +1418,10 @@ namespace Tethys.Win32
     /// Header Control Messages.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum HeaderControlMessages
     {
 #pragma warning disable 1591
@@ -1286,6 +1438,10 @@ namespace Tethys.Win32
     /// Header Control Notifications.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum HeaderControlNotifications
     {
 #pragma warning disable 1591
@@ -1301,6 +1457,10 @@ namespace Tethys.Win32
     /// Header Control HitTest Flags.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum HeaderControlHitTestFlags : uint
     {
@@ -1321,6 +1481,10 @@ namespace Tethys.Win32
     /// List View sub item portion.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum SubItemPortion
     {
 #pragma warning disable 1591
@@ -1335,6 +1499,10 @@ namespace Tethys.Win32
     /// Cursor Type.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum CursorType : uint
     {
 #pragma warning disable 1591
@@ -1362,6 +1530,10 @@ namespace Tethys.Win32
     /// Tracker Event Flags.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum TrackerEventFlags : uint
     {
@@ -1378,6 +1550,10 @@ namespace Tethys.Win32
     /// Mouse Activate Flags.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum MouseActivateFlags
     {
 #pragma warning disable 1591
@@ -1393,6 +1569,10 @@ namespace Tethys.Win32
     /// Dialog Codes.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum DialogCodes
     {
 #pragma warning disable 1591
@@ -1415,6 +1595,10 @@ namespace Tethys.Win32
     /// Update Layered Windows Flags.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum UpdateLayeredWindowsFlags
     {
 #pragma warning disable 1591
@@ -1429,6 +1613,10 @@ namespace Tethys.Win32
     /// <summary>
     /// The Alpha Flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum AlphaFlags : byte
     {
         /// <summary>
@@ -1447,6 +1635,10 @@ namespace Tethys.Win32
     /// ComboBox messages.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum ComboBoxMessages
     {
 #pragma warning disable 1591
@@ -1459,6 +1651,10 @@ namespace Tethys.Win32
     /// SetWindowLong indexes.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum SetWindowLongOffsets
     {
 #pragma warning disable 1591
@@ -1477,6 +1673,10 @@ namespace Tethys.Win32
     /// TreeView Messages.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     public enum TreeViewMessages
     {
 #pragma warning disable 1591
@@ -1491,6 +1691,10 @@ namespace Tethys.Win32
     /// TreeViewItem Flags.
     /// </summary>
     #region
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum TreeViewItemFlags
     {
@@ -1511,6 +1715,10 @@ namespace Tethys.Win32
     /// <summary>
     /// ListViewItem flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum ListViewItemFlags
     {
@@ -1527,8 +1735,12 @@ namespace Tethys.Win32
 
     #region HeaderItemFlags
     /// <summary>
-    /// Ther HeaderItemFlags flags.
+    /// The HeaderItemFlags flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum HeaderItemFlags
     {
@@ -1550,6 +1762,10 @@ namespace Tethys.Win32
     /// <summary>
     /// The GetDCExFlags flags.
     /// </summary>
+    [SuppressMessage(
+        "StyleCop.CSharp.DocumentationRules",
+        "SA1602:Enumeration items should be documented",
+        Justification = "Not here!")]
     [Flags]
     public enum GetDCExFlags
     {

@@ -67,8 +67,8 @@ namespace Tethys.Forms
         /// <summary>
         /// Initializes a new instance of the <see cref="ComboBoxItem"/> class.
         /// </summary>
-        /// <param name="itemText">item test</param>
-        /// <param name="tag">object tag to add</param>
+        /// <param name="itemText">item test.</param>
+        /// <param name="tag">object tag to add.</param>
         public ComboBoxItem(string itemText, object tag)
         {
             this.ItemText = itemText;

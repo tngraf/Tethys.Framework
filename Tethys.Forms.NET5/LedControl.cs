@@ -70,7 +70,6 @@ namespace Tethys.Forms
     /// The class LedControl implements a simple LED like control.
     /// </summary>
     [Description("LED control")]
-    [ToolboxBitmap(typeof(LedControl), "LedControlToolboxBitmap")]
     public partial class LedControl : UserControl
     {
         #region PRIVATE PROPERTIES
@@ -219,9 +218,9 @@ namespace Tethys.Forms
         #region PUBLIC METHODS
         /// <summary>
         /// Enables the ping mode, i.e. the LED will turn on and off
-        /// in the given interval values
+        /// in the given interval values.
         /// </summary>
-        /// <param name="pingInterval">ping interval</param>
+        /// <param name="pingInterval">ping interval.</param>
         public void Ping(int pingInterval)
         {
             this.timer.Enabled = true;
@@ -293,8 +292,8 @@ namespace Tethys.Forms
         /// <summary>
         /// Changes the current LED state to the specified LED state.
         /// </summary>
-        /// <param name="newState">new LED state</param>
-        /// <returns>returns the bitmap for the new LED state</returns>
+        /// <param name="newState">new LED state.</param>
+        /// <returns>returns the bitmap for the new LED state.</returns>
         private LedBitmap ChangeState(LedState newState)
         {
             if (newState == LedState.Disabled)
@@ -343,7 +342,7 @@ namespace Tethys.Forms
         /// <summary>
         /// The function is the paint handler.
         /// </summary>
-        /// <param name="e">Paint event arguments</param>
+        /// <param name="e">Paint event arguments.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
             // call base class paint handler.

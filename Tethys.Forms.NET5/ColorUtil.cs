@@ -180,7 +180,7 @@ namespace Tethys.Forms
         } // HslToRgb()
 
         /// <summary>
-        /// Helper function for the HSLToRGB function above
+        /// Helper function for the HSLToRGB function above.
         /// </summary>
         /// <param name="n1">The n1.</param>
         /// <param name="n2">The n2.</param>

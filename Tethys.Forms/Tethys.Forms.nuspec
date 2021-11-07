@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<package >
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Tethys.Forms</id>
-    <version>4.5.0</version>
+    <version>4.6.0</version>
     <title>The Tethys Framework for Windows Forms</title>
     <authors>Thomas Graf</authors>
-    <owners>Thomas Graf</owners>
-    <copyright>Copyright (C) 2009-2020 T. Graf</copyright>
+    <copyright>Copyright (C) 2009-2021 T. Graf</copyright>
     <license type="expression">Apache-2.0</license>
     <projectUrl>https://github.com/tngraf/Tethys.Framework/</projectUrl>
+    <repository type="git" url="https://github.com/tngraf/Tethys.Framework/" />
     <icon>tethys_icon.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Basic Services and Resources Development Library for .Net.</description>
@@ -17,8 +17,8 @@
     <tags>Tethys Framework WinForms</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.7.2">
-        <dependency id="Tethys.Framework" version="4.5.0" />
-        <dependency id="Tethys.Win" version="4.5.0" />
+        <dependency id="Tethys.Framework" version="4.6.0" />
+        <dependency id="Tethys.Win" version="4.6.0" />
       </group>
     </dependencies>
   </metadata>

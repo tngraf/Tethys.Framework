@@ -616,8 +616,8 @@ namespace Tethys.Forms
         /// Diese Funktionalität steht noch nicht im Konstruktor zur verfügung,
         /// Diese Eigenschaft kann im Load Event eines Controls abgefragt werden.
         /// </summary>
-        /// <param name="control">Control, welches auf den DesignMode überprüft werden soll</param>
-        /// <returns>True Wenn sich das Control im DesignMode befindet</returns>
+        /// <param name="control">Control, welches auf den DesignMode überprüft werden soll.</param>
+        /// <returns>True Wenn sich das Control im DesignMode befindet.</returns>
         public static bool IsDesignMode(Control control)
         {
             // Solange noch ein Control zum prüfen vorhanden ist
