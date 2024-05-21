@@ -344,7 +344,7 @@ namespace Tethys.Forms
             s *= 240;
             h = (h / 360) * 240;
         } // RgbToHsl()
-        #endregion // COMVERSION FUNCTIONS
+        #endregion // CONVERSION FUNCTIONS
 
         //// ---------------------------------------------------------------------
 
@@ -454,7 +454,7 @@ namespace Tethys.Forms
                   "range for alpha: 0 <= alpha <= 255");
             } // if
 
-            // Use alpha blending to brigthen the colors but don't use it
+            // Use alpha blending to brighten the colors but don't use it
             // directly. Instead derive an opaque color that we can use.
             // -- if we use a color with alpha blending directly we won't be 
             // able to paint over whatever color was in the background and there

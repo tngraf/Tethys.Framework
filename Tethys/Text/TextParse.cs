@@ -205,7 +205,7 @@ namespace Tethys.Text
             if ((help < 0) || (help > this.text.Length))
             {
                 throw new ArgumentOutOfRangeException(
-                    nameof(delta), "new location is outside of string boudaries");
+                    nameof(delta), "new location is outside of string boundaries");
             } // if
 
             this.location = help;
@@ -825,7 +825,7 @@ namespace Tethys.Text
         } // CheckFixChar()
 
         /// <summary>
-        /// Checks if at the current parsing location one ore more space
+        /// Checks if at the current parsing location one or more space
         /// characters follows and skips it. The end of the parsing line is
         /// also accepted. If no space follows, an exception is thrown and
         /// the next token is printed.
@@ -1592,7 +1592,7 @@ namespace Tethys.Text
         /// Parses a string at the current parsing location and stores it into the
         /// specified CTgString parameter. In dependence of the specified options,
         /// the string may be quoted or unquoted. In the first case, it is
-        /// encapsulated with "...". Spaces before the first between <c>successing</c>
+        /// encapsulated with "...". Spaces before the first between
         /// and after the final double quote are ignored if the SkipSpace flag
         /// is specified. Unquoted strings are terminated by a space or tabulate
         /// character or the end of the parsing string or any other separator

@@ -1,4 +1,3 @@
-#region Header
 // --------------------------------------------------------------------------
 // Tethys.Silverlight
 // ==========================================================================
@@ -8,7 +7,7 @@
 // ===========================================================================
 //
 // <copyright file="Win32Api.cs" company="Tethys">
-// Copyright  1998-2015 by Thomas Graf
+// Copyright  1998-2024 by Thomas Graf
 //            All rights reserved.
 //            Licensed under the Apache License, Version 2.0.
 //            Unless required by applicable law or agreed to in writing, 
@@ -17,11 +16,10 @@
 //            either express or implied. 
 // </copyright>
 //
-// System ... Microsoft .Net Framework 4
-// Tools .... Microsoft Visual Studio 2013
+// System ... Microsoft .Net Framework 4.8
+// Tools .... Microsoft Visual Studio 2022
 //
 // ---------------------------------------------------------------------------
-#endregion
 
 namespace Tethys.Win32
 {
@@ -238,7 +236,7 @@ namespace Tethys.Win32
         [DllImport("gdi32.dll")]
         static public extern IntPtr CreateCompatibleDC(IntPtr hDC);
         [DllImport("gdi32.dll")]
-        static public extern IntPtr CreateCompatibleBitmap(IntPtr hDC, int Width, int Heigth);
+        static public extern IntPtr CreateCompatibleBitmap(IntPtr hDC, int Width, int Height);
         [DllImport("gdi32.dll")]
         static public extern IntPtr SelectObject(IntPtr hDC, IntPtr hObject);
         [DllImport("gdi32.dll")]
@@ -481,7 +479,7 @@ namespace Tethys.Win32
           int x, int y, int nWidth, int nHeight, IntPtr hWndParent,
           IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
         /// <summary>
-        /// Gets the sroll range of the given window.
+        /// Gets the scroll range of the given window.
         /// </summary>
         /// <param name="hWnd"></param>
         /// <param name="nBar"></param>
@@ -543,7 +541,7 @@ namespace Tethys.Win32
         /// [in] Pointer to an SHFILEOPSTRUCT structure that contains information
         /// this function needs to carry out the specified operation. This
         /// parameter must contain a valid value that is not NULL. You are
-        /// responsibile for validating the value. If you do not validate it,
+        /// responsible for validating the value. If you do not validate it,
         /// you will experience unexpected results.
         /// </param>
         /// <returns>

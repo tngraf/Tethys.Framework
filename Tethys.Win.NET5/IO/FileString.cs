@@ -256,7 +256,7 @@ namespace Tethys.IO
                         return strHelp;
                     } // if
 
-                    // check preceeding character
+                    // check preceding character
                     pos--;
                 } // while
 

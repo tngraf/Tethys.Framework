@@ -182,7 +182,7 @@ namespace Tethys.Forms
 
         //// --------------------------------------------------------------------
 
-        #region CONTRUCTION
+        #region CONSTRUCTION
         /// <summary>
         /// Initialize hook management.
         /// </summary>
@@ -210,7 +210,7 @@ namespace Tethys.Forms
                 IntPtr.Zero,
                 Thread.CurrentThread.ManagedThreadId);
         } // Init()
-        #endregion // CONTRUCTION
+        #endregion // CONSTRUCTION
 
         //// --------------------------------------------------------------------
 

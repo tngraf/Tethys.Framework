@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
 // <copyright file="Win32Api.cs" company="Tethys">
-//   Copyright (C) 1998-2021 T. Graf
+//   Copyright (C) 1998-2024 T. Graf
 // </copyright>
 //
 // SPDX-License-Identifier: Apache-2.0
@@ -227,7 +227,7 @@ namespace Tethys.Win32
         [DllImport("gdi32.dll")]
         static public extern IntPtr CreateCompatibleDC(IntPtr hDC);
         [DllImport("gdi32.dll")]
-        static public extern IntPtr CreateCompatibleBitmap(IntPtr hDC, int Width, int Heigth);
+        static public extern IntPtr CreateCompatibleBitmap(IntPtr hDC, int Width, int Height);
         [DllImport("gdi32.dll")]
         static public extern IntPtr SelectObject(IntPtr hDC, IntPtr hObject);
         [DllImport("gdi32.dll")]
@@ -470,7 +470,7 @@ namespace Tethys.Win32
           int x, int y, int nWidth, int nHeight, IntPtr hWndParent,
           IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
         /// <summary>
-        /// Gets the sroll range of the given window.
+        /// Gets the scroll range of the given window.
         /// </summary>
         /// <param name="hWnd"></param>
         /// <param name="nBar"></param>
@@ -532,7 +532,7 @@ namespace Tethys.Win32
         /// [in] Pointer to an SHFILEOPSTRUCT structure that contains information
         /// this function needs to carry out the specified operation. This
         /// parameter must contain a valid value that is not NULL. You are
-        /// responsibile for validating the value. If you do not validate it,
+        /// responsible for validating the value. If you do not validate it,
         /// you will experience unexpected results.
         /// </param>
         /// <returns>

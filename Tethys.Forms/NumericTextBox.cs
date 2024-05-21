@@ -759,7 +759,7 @@ namespace Tethys.Forms
                 return;
             } // if
 
-            // Prevent more than the precission numbers entered
+            // Prevent more than the precision numbers entered
             if (this.scaleOnFocus != 0)
             {
                 if (this.SelectionStart == this.Text.Length)

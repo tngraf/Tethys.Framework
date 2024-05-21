@@ -202,7 +202,7 @@ namespace Tethys.Forms
 
         //// --------------------------------------------------------------------
 
-        #region CONTRUCTION
+        #region CONSTRUCTION
         /// <summary>
         /// Initialize hook management.
         /// </summary>
@@ -228,7 +228,7 @@ namespace Tethys.Forms
                 (int)WindowsHookCodes.WH_CALLWNDPROCRET, HookProc, IntPtr.Zero, 
                 Thread.CurrentThread.ManagedThreadId);
         } // Init()
-        #endregion // CONTRUCTION
+        #endregion // CONSTRUCTION
 
         //// --------------------------------------------------------------------
 

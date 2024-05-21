@@ -1565,7 +1565,7 @@ namespace Tethys.Win32
 
     #region HeaderItemFlags
     /// <summary>
-    /// Ther HeaderItemFlags flags.
+    /// The HeaderItemFlags flags.
     /// </summary>
     [Flags]
     public enum HeaderItemFlags

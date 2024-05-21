@@ -66,7 +66,7 @@ namespace Tethys.Win32
         /// Retrieves the description string for a Shell link object.
         /// </summary>
         /// <param name="pszName">The name.</param>
-        /// <param name="cchMaxName">Maximum characters of teh name.</param>
+        /// <param name="cchMaxName">Maximum characters of the name.</param>
         void GetDescription(
             [Out, MarshalAs(UnmanagedType.LPWStr)] StringBuilder pszName, int cchMaxName);
 

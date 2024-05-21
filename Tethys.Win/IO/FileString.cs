@@ -108,7 +108,7 @@ namespace Tethys.IO
     /// The class FileString contains functions to manipulate filename
     /// strings.
     /// </summary>
-    [Obsolete("FileString is obsolte, use .Net Framework 2.0 File.IO classes!")]
+    [Obsolete("FileString is obsolete, use .Net Framework 2.0 File.IO classes!")]
     public class FileString
     {
         /// <summary>
@@ -261,7 +261,7 @@ namespace Tethys.IO
                         strHelp = strStart.Substring(pos + 1);
                         return strHelp;
                     } // if
-                    // check preceeding character
+                    // check preceding character
                     pos--;
                 } // while
                 if (extend)
@@ -360,7 +360,7 @@ namespace Tethys.IO
                     return strFileName;
                 }
 
-                // absolutely insufficent space
+                // absolutely insufficient space
                 return string.Empty;
             } // if
 

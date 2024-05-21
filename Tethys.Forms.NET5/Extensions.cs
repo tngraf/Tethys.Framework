@@ -80,7 +80,7 @@ namespace Tethys.Forms
                     return fileName;
                 } // if
 
-                // absolutely insufficent space
+                // absolutely insufficient space
                 return string.Empty;
             } // if
 

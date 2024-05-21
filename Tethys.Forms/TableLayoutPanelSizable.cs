@@ -1,5 +1,4 @@
-﻿#region Header
-// --------------------------------------------------------------------------
+﻿// --------------------------------------------------------------------------
 // Tethys.Silverlight
 // ==========================================================================
 //
@@ -8,7 +7,7 @@
 // ===========================================================================
 //
 // <copyright file="TableLayoutPanelSizable.cs" company="Tethys">
-// Copyright  1998-2015 by Thomas Graf
+// Copyright  1998-2024 by Thomas Graf
 //            All rights reserved.
 //            Licensed under the Apache License, Version 2.0.
 //            Unless required by applicable law or agreed to in writing, 
@@ -17,11 +16,10 @@
 //            either express or implied. 
 // </copyright>
 //
-// System ... Microsoft .Net Framework 4
-// Tools .... Microsoft Visual Studio 2013
+// System ... Microsoft .Net Framework 4.8
+// Tools .... Microsoft Visual Studio 2022
 //
 // ---------------------------------------------------------------------------
-#endregion
 
 ////#define DEBUG_OUTPUT
 
@@ -618,52 +616,41 @@ namespace Tethys.Forms
         } // CheckForResizePosition()
 
         /// <summary>
-        /// Diese Funktion dient der umgehung des .DesignMode Problems in .Net
-        /// Die Eigenschaft .DesignMode eines Controls,
-        /// welches die ISite Schnittstelle implementiert gibt zurück, ob sich das 
-        /// Control im DesignMode befindet.
-        /// Sobald das Control in ein anderes Control im Designer eingebettet wird 
-        /// gibt die Eigenschaft immer false zurück, obwohl noch im Designer gearbeitet
-        /// wird.
-        /// Diese Funktionalität steht noch nicht im Konstruktor zur verfügung,
-        /// Diese Eigenschaft kann im Load Event eines Controls abgefragt werden.
+        /// This function helps to circumvent some .DesignMode problems in .Net.
+        /// The property .DesignMode of a control that implements the ISite
+        /// interface returns a value to indicated whether the control in in
+        /// design mode.
+        /// As soon as the control is embedded into another control in the designer,
+        /// it always return false - even though we are still working in the designer.
         /// </summary>
-        /// <param name="control">Control, welches auf den DesignMode überprüft werden soll</param>
-        /// <returns>True Wenn sich das Control im DesignMode befindet</returns>
+        /// <param name="control">Control, which shall be check for design mode.</param>
+        /// <returns>True if the control is in design mode.</returns>
         [SuppressMessage("StyleCop.CSharp.DocumentationRules",
           "SA1650:ElementDocumentationMustBeSpelledCorrectly",
           Justification = "Reviewed. Suppression is OK here.")]
         public static bool IsDesignMode(Control control)
         {
-            // Solange noch ein Control zum prüfen vorhanden ist
+            // while there is still a control
             while (control != null)
             {
-                // Die Site Eigenschaft des Controls auslesen
+                // read site property
                 var siteProperty = control.GetType().GetProperty("Site");
-
-                // Falls die .Site Eigenschaft gefunden wurde
                 if (siteProperty != null)
                 {
-                    // Eigenschaftswert auslesen
                     var site = siteProperty.GetGetMethod().Invoke(control, new object[0]) as ISite;
-
-                    // Falls eine Site Eigenschaft vorhanden ist
                     if (site != null)
                     {
-                        // Wenn sich das Control im DesignMode befindet
                         if (site.DesignMode)
                         {
-                            // Eins der Controls befindet sich noch im Design Mode
                             return true;
                         } // if
                     } // if
                 } // if
 
-                // Parent auslesen, und auch hier die .DesignMode überprüfen
+                // check parent
                 control = control.Parent;
             } // while
 
-            // Kein Control befand sich im Designmode
             return false;
         } // IsDesignMode()
         #endregion // CORE METHODS
