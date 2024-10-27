@@ -56,7 +56,7 @@ Tethys.Forms contains a lot of WinForms custom controls:
 
 * `TethysAppConfig` - a helper class to read/write application configuration in an XML file.
 * Checksum implementations: `CRC16`, `CRC32`, `XCRC`.
-* Encoding helper classes: `CodePageEncoding`, `GermanEnconding`, `SerialPortEncoding`.
+* Encoding helper classes: `CodePageEncoding`, `GermanEncoding`, `SerialPortEncoding`.
 * `Win32Api` - support for many many Win32 methods.
 
 ## Build
@@ -92,3 +92,7 @@ You may obtain a copy of the License at
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
+
+## SBOM
+
+For an up-to-date CycloneDX SBOM, please have a look at the [SBOM](https://github.com/tngraf/Tethys.Framework/tree/master/SBOM) folder.
